@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:session][:password])
 
     else
-      flash[:danger] = 'メールアドレスとパスワードが無効です'
+      flash.now[:danger] = 'メールアドレスとパスワードが無効です'
       render 'new'
     end
   end

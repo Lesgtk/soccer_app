@@ -19,6 +19,10 @@ class UsersController < ApplicationController
     end
   end
 
+  def edit
+    @user = User.find_by(params[:id])
+  end
+
 private
 
   # 下記以外を許可しない

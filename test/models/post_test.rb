@@ -4,8 +4,7 @@ class PostTest < ActiveSupport::TestCase
 
   def setup
      @user = users(:michael)
-     # このコードは慣習的に正しくない
-     @post = Post.new(content: "テスト", user_id: @user.id)
+     @post = @user.posts.build(content: "テスト")
    end
 
    # ポストの確認
@@ -18,4 +17,17 @@ class PostTest < ActiveSupport::TestCase
      @post.user_id = nil
      assert_not @post.valid?
    end
+
+   # contentが存在するかどうか
+   test "content should be present" do
+     @post.content = nil
+     assert_not @post.valid?
+   end
+
+   # contentの長さのテスト
+   test "content should be at most 255 characters" do
+     @post.content = "a" * 256
+     assert_not @post.valid?
+   end
+
  end

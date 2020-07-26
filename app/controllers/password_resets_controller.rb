@@ -1,6 +1,6 @@
 class PasswordResetsController < ApplicationController
-  before_action :get_user, only: [:edit, update]
-  before_action :valid_user, only: [:edit, update]
+  before_action :get_user, only: [:edit, :update]
+  before_action :valid_user, only: [:edit, :update]
   before_action :check_expiration, only: [:ediit, :update]
 
   def new
@@ -26,7 +26,7 @@ class PasswordResetsController < ApplicationController
     if params[:user][:password].empty?
       @user.errors.add(:password, :blank)
       render 'edit'
-    elsif @user.update_attribute(user_params)
+    elsif @user.update_attributes(user_params)
       log_in @user
       @user.update_attribute(:reset_digest, nil)
       flash[:success] = "パスワードをリセットしました"

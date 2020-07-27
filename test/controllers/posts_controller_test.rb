@@ -19,4 +19,15 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
     end
     assert_redirected_to login_url
   end
+
+  # 他ユーザーによる投稿削除のテスト
+  test "should redirect destroy for wrong posts" do
+    log_in_as(users(:michael))
+    post = posts(:ants)
+    assert_no_difference 'Post.count' do
+      delete post_path(post)
+    end
+    assert_redirected_to root_url
+  end
+
 end

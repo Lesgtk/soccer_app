@@ -68,6 +68,11 @@ class User < ApplicationRecord
     reset_sent_at < 2.hours.ago
   end
 
+  # 試作feedの定義
+  def feed
+    Post.where("user_id = ?", id)
+  end
+
   private
 
   # メールアドレスを全て小文字にする

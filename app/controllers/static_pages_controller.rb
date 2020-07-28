@@ -8,4 +8,9 @@ class StaticPagesController < ApplicationController
 
   def about
   end
+
+  def create
+    @post  = current_user.posts.build
+  end
+
 end

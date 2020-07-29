@@ -1,6 +1,13 @@
 class ApplicationController < ActionController::Base
+  before_action :set_search
   protect_from_forgery with: :exception
   include SessionsHelper
+
+  # 検索機能
+  def set_search
+    @search = Post.ransack(params[:q])
+    @search_posts = @search.result
+  end
 
   private
 

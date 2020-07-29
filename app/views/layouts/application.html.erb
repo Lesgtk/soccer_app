@@ -8,6 +8,10 @@
 
   <body>
    <%= render 'layouts/header' %>
+   <%= search_form_for @search, url: root_path do |f| %>
+      <%= f.text_field :content_cont, placeholder: '  キーワードを入力' %>
+      <%= f.submit ("検索する") %>
+   <% end %>
    <div class="container">
      <% flash.each do |message_type, message| %>
         <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>

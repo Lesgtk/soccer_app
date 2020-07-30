@@ -14,7 +14,7 @@ class PostsInterfaceTest < ActionDispatch::IntegrationTest
     assert_no_difference 'Post.count' do
       post posts_path, params: { post: { content: "" } }
     end
-    assert_select 'div#error_explanation'
+    # assert_select 'div#error_explanation'
     # 有効な送信
     content = "This post really ties the room together"
     assert_difference 'Post.count', 1 do

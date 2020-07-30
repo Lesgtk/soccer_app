@@ -1,0 +1,5 @@
+<% if @search_products %>
+  <% render partial: 'products/product', collection: @search_products %>
+<% else %>
+  <% render partial: 'products/product', collection: @products %>
+<% end %>

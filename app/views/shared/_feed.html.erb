@@ -1,0 +1,9 @@
+<% if @feed_items.any? %>
+  <ol class="posts">
+    <% if @search_posts %>
+      <%= render @search_posts %>
+    <% else %>
+      <%= render @feed_items %>
+    <% end %>
+  </ol>
+<% end %>

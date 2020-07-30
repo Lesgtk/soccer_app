@@ -5,11 +5,20 @@
       <h1>
         <%= gravatar_for @user %>
         <%= @user.name %>
-        <% if current_user.admin? && !current_user?(@user) %>
-        <%= link_to "delete", @user, method: :delete,
-                                data: { confirm: "You sure?" } %>
-        <% end %>
       </h1>
     </section>
+    <!-- 統計情報を追加 -->
+    <section class="stats">
+      <%= render 'shared/stats' %>
+    </section>
   </aside>
+  <div class="col-md-8">
+  <%= render 'follow_form' if logged_in? %>
+  <% if @user.posts.any? %>
+    <h3>投稿数 (<%= @user.posts.count %>)</h3>
+    <ol class="posts">
+      <%= render @posts %>
+    </ol>
+  <% end %>
+</div>
 </div>

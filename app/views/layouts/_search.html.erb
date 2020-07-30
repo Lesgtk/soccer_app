@@ -1,0 +1,4 @@
+<%= search_form_for @search, url: root_path do |f| %>
+   <%= f.text_field :content_cont, placeholder: '  キーワードを入力' %>
+   <%= f.submit ("検索する") %>
+<% end %>

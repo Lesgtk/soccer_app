@@ -1,7 +1,26 @@
 <%= form_for(@post) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
   <div class="field">
-    <%= f.text_area :content, placeholder: "サッカーの技術、戦術、知識について投稿しよう" %>
+    <%= f.text_area :content, placeholder: "タイトル" %>
+  </div>
+  <div class="field">
+    <%= f.text_area :content, placeholder: "本文：サッカーの技術、戦術、知識について投稿しよう" %>
+  </div>
+  <div class="field">
+    <%= f.text_area :content, placeholder: "参考YouTube動画：URLを記載してください" %>
+  </div>
+  <div class="row radio">
+    <div class="col s12 radio_col">
+      <label>
+        <span class="list">対象年齢</span>
+        <%= f.radio_button :age_type, :yes, class: "age_type_label"%>
+        <span>有</span>
+      </label>
+      <label>
+        <%= f.radio_button :age_type, :no, class: "age_type_label"%>
+        <span>無</span>
+      </label>
+    </div>
   </div>
   <%= f.submit "投稿する", class: "btn btn-primary" %>
 <% end %>

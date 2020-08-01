@@ -51,13 +51,15 @@ class UsersController < ApplicationController
   def following
     @title = "Following"
     @user = User.find(params[:id])
-    @users = @user.following.all
+# 修正が必要
+    @users = @user.following.all　
     render 'show_follow'
   end
 
   def followers
     @title = "Followers"
     @user = User.find(params[:id])
+    # 修正が必要
     @users = @user.followers.all
     render 'show_follow'
   end

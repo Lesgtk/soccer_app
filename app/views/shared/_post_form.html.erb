@@ -4,55 +4,56 @@
     <%= f.text_area :title, placeholder: "タイトル" %>
     <%= f.text_area :content, placeholder: "本文：サッカーの技術、戦術、知識について投稿しよう" %>
     <%= f.text_area :content, placeholder: "参考YouTube動画：URLを記載してください" %>
-    <div class="radio">
-      <div class="radio_col">
-        <label>
-          <span class="list">対象年齢</span>
-          <%= f.radio_button :age_type, :小学生以下, class: "age_type_label"%>
-          <%= f.label :小学生以下, class: "age_type_label" %>
-        </label>
-        <label>
-          <%= f.radio_button :age_type, :中学生, class: "age_type_label"%>
-          <%= f.label :中学生, class: "age_type_label" %>
-        </label>
-        <label>
-          <%= f.radio_button :age_type, :高校生, class: "age_type_label"%>
-          <%= f.label :高校生, class: "age_type_label" %>
-        </label>
-        <label>
-          <%= f.radio_button :age_type, :社会人, class: "age_type_label"%>
-          <%= f.label :社会人, class: "age_type_label" %>
-        </label>
-        <label>
-          <%= f.radio_button :age_type, :全対象, class: "age_type_label"%>
-          <%= f.label :全対象, class: "age_type_label" %>
-        </label>
-      </div>
+  </div>
+  <div class="radio">
+    <div class="radio_col">
+      <label>
+        <span class="list">対象年齢</span>
+        <%= f.radio_button :age_type, :小学生以下, class: "age_type_label"%>
+        <%= f.label :小学生以下, class: "age_type_label" %>
+      </label>
+      <label>
+        <%= f.radio_button :age_type, :中学生, class: "age_type_label"%>
+        <%= f.label :中学生, class: "age_type_label" %>
+      </label>
+      <label>
+        <%= f.radio_button :age_type, :高校生, class: "age_type_label"%>
+        <%= f.label :高校生, class: "age_type_label" %>
+      </label>
+      <label>
+        <%= f.radio_button :age_type, :社会人, class: "age_type_label"%>
+        <%= f.label :社会人, class: "age_type_label" %>
+      </label>
+      <label>
+        <%= f.radio_button :age_type, :全対象, class: "age_type_label"%>
+        <%= f.label :全対象, class: "age_type_label" %>
+      </label>
     </div>
-    <div class="radio">
-      <div class="radio_col">
-        <label>
-          <span class="list">カテゴリー</span>
-          <%= f.radio_button :age_type, :技術, class: "age_type_label"%>
-          <%= f.label :技術, class: "age_type_label" %>
-        </label>
-        <label>
-          <%= f.radio_button :age_type, :戦術, class: "age_type_label"%>
-          <%= f.label :戦術, class: "age_type_label" %>
-        </label>
-        <label>
-          <%= f.radio_button :age_type, :知識, class: "age_type_label"%>
-          <%= f.label :知識, class: "age_type_label" %>
-        </label>
-        <label>
-          <%= f.radio_button :age_type, :メンタル, class: "age_type_label"%>
-          <%= f.label :メンタル, class: "age_type_label" %>
-        </label>
-        <label>
-          <%= f.radio_button :age_type, :練習メニュー, class: "age_type_label"%>
-          <%= f.label :練習メニュー, class: "age_type_label" %>
-        </label>
-      </div>
+  </div>
+  <div class="radio">
+    <div class="radio_col">
+      <label>
+        <span class="list">カテゴリー</span>
+        <%= f.radio_button :age_type, :技術, class: "age_type_label"%>
+        <%= f.label :技術, class: "age_type_label" %>
+      </label>
+      <label>
+        <%= f.radio_button :age_type, :戦術, class: "age_type_label"%>
+        <%= f.label :戦術, class: "age_type_label" %>
+      </label>
+      <label>
+        <%= f.radio_button :age_type, :知識, class: "age_type_label"%>
+        <%= f.label :知識, class: "age_type_label" %>
+      </label>
+      <label>
+        <%= f.radio_button :age_type, :メンタル, class: "age_type_label"%>
+        <%= f.label :メンタル, class: "age_type_label" %>
+      </label>
+      <label>
+        <%= f.radio_button :age_type, :練習メニュー, class: "age_type_label"%>
+        <%= f.label :練習メニュー, class: "age_type_label" %>
+      </label>
     </div>
+  </div>
   <%= f.submit "投稿する", class: "btn btn-primary" %>
 <% end %>

@@ -4,6 +4,7 @@
    <nav>
      <ul class="nav navbar-nav navbar-right">
        <% if logged_in? %>
+        <li><%= link_to "投稿一覧",   root_path %></li>
         <li><%= link_to "ユーザー一覧", users_path %></li>
         <li><%= link_to "いいね一覧",  "#" %></li>
         <li><%= link_to "投稿する",  "/create" %></li>

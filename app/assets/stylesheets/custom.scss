@@ -303,3 +303,11 @@ span.picture {
     }
   }
 }
+
+
+[type="radio"]:checked+span:after, [type="radio"].with-gap:checked+span:after {
+  background-color: #ffdc00!important;
+}
+[type="radio"]:checked+span:after, [type="radio"].with-gap:checked+span:before, [type="radio"].with-gap:checked+span:after {
+  border: 2px solid #ffdc00!important;
+}

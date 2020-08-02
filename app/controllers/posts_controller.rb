@@ -2,6 +2,11 @@ class PostsController < ApplicationController
   before_action :logged_in_user, only: [:create, :destroy]
   before_action :correct_user, only: :destroy
 
+  def show
+    @post = Post.find_by(id: params[:id])
+    @user = @post.user
+  end
+
   def new
     @post = current_user.posts.build
   end
@@ -27,8 +32,9 @@ class PostsController < ApplicationController
 
     # .permitメソッドで許可していない項目は変更しない
     def post_params
-      params.require(:post).permit(:title, :content, :age_type, :category)
+      params.require(:post).permit(:title, :content, :age_type, category: [])
     end
+
 
     def correct_user
       @post = current_user.posts.find_by(id: params[:id])

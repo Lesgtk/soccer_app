@@ -27,7 +27,7 @@ class PostsController < ApplicationController
 
     # .permitメソッドで許可していない項目は変更しない
     def post_params
-      params.require(:post).permit(:content)
+      params.require(:post).permit(:title, :content, :age_type, :category)
     end
 
     def correct_user

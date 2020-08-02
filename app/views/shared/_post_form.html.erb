@@ -34,26 +34,26 @@
     <div class="radio_col">
       <label>
         <span class="list">カテゴリー</span>
-        <%= f.radio_button :age_type, :技術, class: "age_type_label"%>
+        <%= f.radio_button :category, :技術, class: "age_type_label"%>
         <%= f.label :技術, class: "age_type_label" %>
       </label>
       <label>
-        <%= f.radio_button :age_type, :戦術, class: "age_type_label"%>
+        <%= f.radio_button :category, :戦術, class: "age_type_label"%>
         <%= f.label :戦術, class: "age_type_label" %>
       </label>
       <label>
-        <%= f.radio_button :age_type, :知識, class: "age_type_label"%>
+        <%= f.radio_button :category, :知識, class: "age_type_label"%>
         <%= f.label :知識, class: "age_type_label" %>
       </label>
       <label>
-        <%= f.radio_button :age_type, :メンタル, class: "age_type_label"%>
+        <%= f.radio_button :category, :メンタル, class: "age_type_label"%>
         <%= f.label :メンタル, class: "age_type_label" %>
       </label>
       <label>
-        <%= f.radio_button :age_type, :練習メニュー, class: "age_type_label"%>
+        <%= f.radio_button :category, :練習メニュー, class: "age_type_label"%>
         <%= f.label :練習メニュー, class: "age_type_label" %>
       </label>
     </div>
-  </div>
+  </div> --> %>
   <%= f.submit "投稿する", class: "btn btn-primary" %>
 <% end %>

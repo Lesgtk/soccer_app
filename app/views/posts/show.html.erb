@@ -15,7 +15,23 @@
     <span>
       <%= @post.content %>
     </span>
+    <span>
     <%= @post.age_type %>
     <%= @post.category %>
-</div>
+    </span>
+    <div>
+    <% if Like.find_by(user_id: current_user.id, post_id: @post.id) %>
+      <%= link_to("/likes/#{@post.id}/destroy", {method: "post"}) do %>
+        <span class="fa fa-heart like-btn-unlike"></span>
+      <% end %>
+      <% else %>
+      <%= link_to("/likes/#{@post.id}/create", {method: "post"}) do %>
+          <span class="fa fa-heart like-btn"></span>
+      <% end %>
+    <% end %>
+    <span>
+    <%= @likes_count %>
+    </span>
+   </div>
+  </div>
 </div>

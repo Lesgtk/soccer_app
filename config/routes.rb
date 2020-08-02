@@ -8,7 +8,8 @@ Rails.application.routes.draw do
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
-  get '/create', to: 'static_pages#create'
+  get '/posts', to: 'posts#new'
+  get '/posts/:id', to: 'posts#show'
 
   resources :users do
     member do

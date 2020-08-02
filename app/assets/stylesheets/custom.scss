@@ -258,6 +258,14 @@ input {
     margin-top: 5em;
     padding-top: 0;
   }
+  .title {
+    display: block;
+    margin-left: 60px;
+    img {
+      display: block;
+      padding: 5px 0;
+    }
+  }
   .content {
     display: block;
     margin-left: 60px;
@@ -290,4 +298,24 @@ span.picture {
   input {
     border: 0;
   }
+}
+
+// ラジオボタン
+.radio{
+  margin-top: 30px;
+  .radio_col{
+    border-bottom: 1px solid #9e9e9e;
+    padding-bottom: 10px;
+    .list{
+      font-size: 20px;
+    }
+  }
+}
+
+
+[type="radio"]:checked+span:after, [type="radio"].with-gap:checked+span:after {
+  background-color: #ffdc00!important;
+}
+[type="radio"]:checked+span:after, [type="radio"].with-gap:checked+span:before, [type="radio"].with-gap:checked+span:after {
+  border: 2px solid #ffdc00!important;
 }

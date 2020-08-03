@@ -2,7 +2,8 @@ class StaticPagesController < ApplicationController
   def home
     if logged_in?
        @post  = current_user.posts.build
-       @feed_items = Post.all
+       @search_posts = Post.page(params[:page]).per(3)
+       @feed_items = Post.page(params[:page]).per(3)
      end
   end
 

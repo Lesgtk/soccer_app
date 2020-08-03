@@ -22,5 +22,8 @@ module SoccerApp
     # タイムゾーンを日本時間に設定
     config.time_zone = 'Asia/Tokyo'
 
+    # kaminari
+    config.i18n.default_locale = :ja
+
   end
 end

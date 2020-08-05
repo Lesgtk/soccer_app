@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   before_action :correct_user, only: :destroy
 
   def show
-    @post = Post.find_by(id: params[:id])
+    @post = Post.find(params[:id])
     @user = @post.user
     @likes_count = Like.where(post_id: @post.id).count
     @comments = @post.comments

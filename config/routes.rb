@@ -11,6 +11,10 @@ Rails.application.routes.draw do
   get '/posts', to: 'posts#new'
   get '/posts/:id', to: 'posts#show'
 
+  post 'likes/:post_id/create', to: 'likes#create'
+  post 'likes/:post_id/destroy', to: 'likes#destroy'
+  get 'users/:id/likes', to: 'users#likes'
+
   resources :users do
     member do
       get :following, :followers

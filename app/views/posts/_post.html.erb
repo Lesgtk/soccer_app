@@ -6,7 +6,8 @@
   <span class="timestamp">
     投稿者 <%= link_to post.user.name, post.user %>
     投稿日 <%= post.created_at.strftime('%Y/%m/%d %H:%M') %>
-    <%= link_to "いいね数", "#" %>
+    <% like = Like.where(post_id: post.id).count %>
+    いいね<%= like %>個
     <% if current_user?(post.user) %>
       <%= link_to "削除", post, method: :delete,
                                    data: { confirm: "You sure?" } %>

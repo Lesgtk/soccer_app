@@ -2,8 +2,10 @@
   <ol class="posts">
     <% if @search_posts %>
       <%= render @search_posts %>
+      <%= paginate @search_posts %>
     <% else %>
       <%= render @feed_items %>
+      <%= paginate @feed_items %>
     <% end %>
   </ol>
 <% end %>

@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   get 'password_resets/new'
-  get 'password_resets/eedit'
+  get 'password_resets/edit'
   get 'sessions/new'
   root 'static_pages#home'
   get '/about', to: 'static_pages#about'
@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   post 'likes/:post_id/create', to: 'likes#create'
   post 'likes/:post_id/destroy', to: 'likes#destroy'
   get 'users/:id/likes', to: 'users#likes'
+  post '/guest_sign_in', to: 'sessions#new_guest'
 
   resources :users do
     member do

@@ -3,6 +3,12 @@ class SessionsController < ApplicationController
   def new
   end
 
+  def new_guest
+    user = User.find(1)
+    log_in user
+    redirect_to root_path, notice: 'ゲストユーザーとしてログインしました'
+  end
+
   def create
     user = User.find_by(email: params[:session][:email].downcase)
     if user && user.authenticate(params[:session][:password])
@@ -26,5 +32,13 @@ class SessionsController < ApplicationController
     log_out if logged_in?
     redirect_to root_url
   end
+
+private
+
+def self.guest
+  find_or_create_by!(name: 'ゲスト', email: 'guest@example.com') do |user|
+    user.password = SecureRandom.urlsafe_base64
+  end
+end
 
 end

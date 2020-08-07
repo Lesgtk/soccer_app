@@ -23,7 +23,7 @@
   </h2>
 
   <%= link_to "新規登録する", signup_path, class: "btn btn-lg btn-primary" %>
-  <%= link_to "ゲストログイン", signup_path, class: "btn btn-lg btn-primary" %>
+  <%= link_to "ゲストログイン(閲覧用)", guest_sign_in_path ,class: "btn btn-lg btn-primary", method: :post  %>
 </div>
 
 <% end %>

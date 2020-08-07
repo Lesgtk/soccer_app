@@ -9,10 +9,10 @@
     </section>
   </aside>
   <div class="col-md-8">
-    <span><%= @post.title %></span>
-    <span><%= @post.content %></span>
-    <span><%= @post.age_type %></span>
-    <span><%= @post.category %></span>
+    <span>タイトル：<%= @post.title %><br></span>
+    <span>本文：<%= @post.content %><br></span>
+    <span>対象：<%= @post.age_type %><br></span>
+    <span>カテゴリー：<%= @post.category %><br></span>
     <div>
       <%= render 'like' %>
     </div>

@@ -3,6 +3,7 @@ class UsersController < ApplicationController
                         :following, :followers]
   before_action :correct_user, only: [:edit, :update]
   before_action :admin_user, only: :destroy
+  before_action :check_guest, only: [:update, :destroy]
 
   def index
     @users = User.all
@@ -77,6 +78,13 @@ private
   end
 
   # beforeアクション
+
+  # ゲストログインの制限
+  def check_guest
+    if correct_user == 'example@railstutorial.org'
+      redirect_to root_path, alert: 'ゲストユーザー編集、削除できません。'
+    end
+  end
 
   # 正しいユーザーかどうか確認
   def correct_user

@@ -7,6 +7,23 @@
       <section class="stats">
         <%= render 'shared/stats' %>
       </section>
+      <section class="age_type">
+        <h1>対象別</h1>
+        <span><%= link_to "小学生以下", current_user %></span>
+        <span><%= link_to "中学生", current_user %></span>
+        <span><%= link_to "高校生", current_user %></span>
+        <span><%= link_to "社会人", current_user %></span>
+        <span><%= link_to "全対象", current_user %></span>
+      </section>
+      <section class="category">
+        <h1>カテゴリー別</h1>
+        <span><%= link_to "戦術", current_user %></span>
+        <span><%= link_to "技術", current_user %></span>
+        <span><%= link_to "知識", current_user %></span>
+        <span><%= link_to "メンタル", current_user %></span>
+        <span><%= link_to "練習メニュー", current_user %></span>
+        <span><%= link_to "その他", current_user %></span>
+      </section>
     </aside>
     <div class="col-md-8">
       <h3>最新投稿一覧</h3>

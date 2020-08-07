@@ -16,6 +16,9 @@ class PostsController < ApplicationController
 
   def create
     @post = current_user.posts.build(post_params)
+    url = params[:post][:youtube_url]
+    url = url.last(11)
+    @post.youtube_url = url
     if @post.save
       flash[:success] = "投稿しました"
       redirect_to root_url
@@ -35,7 +38,7 @@ class PostsController < ApplicationController
 
     # .permitメソッドで許可していない項目は変更しない
     def post_params
-      params.require(:post).permit(:title, :content, :age_type, :category)
+      params.require(:post).permit(:title, :content, :age_type, :category, :youtube_url)
     end
 
 

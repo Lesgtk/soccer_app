@@ -319,3 +319,20 @@ span.picture {
 [type="radio"]:checked+span:after, [type="radio"].with-gap:checked+span:before, [type="radio"].with-gap:checked+span:after {
   border: 2px solid #ffdc00!important;
 }
+
+/* 投稿、いいね順デザイン */
+
+.user-tabs {
+  margin-top: 40px;
+  background-color: white;
+  overflow: hidden;
+  box-shadow: 0 2px 6px #c1ced7;
+}
+
+.user-tabs li {
+  float: left;
+}
+
+.user-tabs li.active {
+  border-bottom: 2px solid #3ecdc6;
+}

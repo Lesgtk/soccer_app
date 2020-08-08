@@ -26,7 +26,10 @@
       </section>
     </aside>
     <div class="col-md-8">
-      <h3>最新投稿一覧</h3>
+      <ul class="user-tabs">
+        <li class="active"><%= link_to("最新投稿", root_path) %></li>
+        <li><%= link_to("いいね数順", "/static_pages/likes") %></li>
+      </ul>
       <%= render 'shared/feed' %>
     </div>
   </div>

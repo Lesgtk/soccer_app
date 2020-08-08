@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
   get '/posts', to: 'posts#new'
   get '/posts/:id', to: 'posts#show'
+  get '/static_pages/likes', to: 'static_pages#likes'
 
   post 'likes/:post_id/create', to: 'likes#create'
   post 'likes/:post_id/destroy', to: 'likes#destroy'

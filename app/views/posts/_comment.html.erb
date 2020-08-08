@@ -1,0 +1,16 @@
+<h2>コメント一覧</h2>
+<% @comments.each do |c| %>
+  <div>
+    <a href="/users/<%= @post.user.id %>"><%= @user.name %></a>
+    <%= c.comment_content %>
+    <hr>
+  </div>
+<% end %>
+
+<%# コメントフォーム %>
+<%= form_with(model:[@post, @comment], method: :post) do |f| %>
+  <%= f.text_area :comment_content %>
+  <%= f.hidden_field :post_id, value: @post.id %>
+  <br>
+  <%= f.submit 'コメントする' %>
+  <% end %>

@@ -3,9 +3,11 @@ class PostsController < ApplicationController
   before_action :correct_user, only: :destroy
 
   def show
-    @post = Post.find_by(id: params[:id])
+    @post = Post.find(params[:id])
     @user = @post.user
     @likes_count = Like.where(post_id: @post.id).count
+    @comments = @post.comments
+    @comment = Comment.new
   end
 
   def new
@@ -14,6 +16,9 @@ class PostsController < ApplicationController
 
   def create
     @post = current_user.posts.build(post_params)
+    url = params[:post][:youtube_url]
+    url = url.last(11)
+    @post.youtube_url = url
     if @post.save
       flash[:success] = "投稿しました"
       redirect_to root_url
@@ -33,7 +38,7 @@ class PostsController < ApplicationController
 
     # .permitメソッドで許可していない項目は変更しない
     def post_params
-      params.require(:post).permit(:title, :content, :age_type, category: [])
+      params.require(:post).permit(:title, :content, :age_type, :category, :youtube_url)
     end
 
 

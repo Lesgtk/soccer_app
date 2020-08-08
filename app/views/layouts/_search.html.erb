@@ -1,4 +1,5 @@
 <%= search_form_for @search, url: root_path do |f| %>
    <%= f.text_field :content_cont, placeholder: '  キーワードを入力' %>
+   <%# <%= f.select( :age_type, { include_blank: '対象', '小学生以下': 1, '中学生': 2, '高校生': 3, '社会人': 4, '全対象': 5 }, {}, )%> %>
    <%= f.submit ("検索する") %>
 <% end %>

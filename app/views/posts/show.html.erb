@@ -9,29 +9,17 @@
     </section>
   </aside>
   <div class="col-md-8">
+    <span>タイトル：<%= @post.title %><br></span>
+    <span>本文：<%= @post.content %><br></span>
+    <span>対象：<%= @post.age_type %><br></span>
+    <span>カテゴリー：<%= @post.category %><br></span>
     <span>
-      <%= @post.title %>
-    </span>
-    <span>
-      <%= @post.content %>
-    </span>
-    <span>
-    <%= @post.age_type %>
-    <%= @post.category %>
+    <strong>Youtube url:</strong>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/<%= @post.youtube_url%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </span>
     <div>
-    <% if Like.find_by(user_id: current_user.id, post_id: @post.id) %>
-      <%= link_to("/likes/#{@post.id}/destroy", {method: "post"}) do %>
-          <span class="fa fa-heart like-btn-unlike"></span>
-      <% end %>
-    <% else %>
-      <%= link_to("/likes/#{@post.id}/create", {method: "post"}) do %>
-          <span class="fa fa-heart like-btn"></span>
-      <% end %>
-    <% end %>
-    <span>
-    <%= @likes_count %>
-    </span>
-   </div>
+      <%= render 'like' %>
+    </div>
   </div>
+  <%= render 'comment' %>
 </div>

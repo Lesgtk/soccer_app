@@ -7,26 +7,39 @@
       <section class="stats">
         <%= render 'shared/stats' %>
       </section>
-      <section class="age_type">
-        <h1>対象別</h1>
-        <span><%= link_to "小学生以下", current_user %></span>
-        <span><%= link_to "中学生", current_user %></span>
-        <span><%= link_to "高校生", current_user %></span>
-        <span><%= link_to "社会人", current_user %></span>
-        <span><%= link_to "全対象", current_user %></span>
+      <section>
+      <%= search_form_for @q, url:search_path do |f| %>
+         <label>
+           <%= f.label :対象年齢別 %>
+           <%= f.radio_button :age_type_eq, 1 %>小学生
+           <%= f.radio_button :age_type_eq, 2 %>中学生
+           <%= f.radio_button :age_type_eq, 3 %>高校生
+           <%= f.radio_button :age_type_eq, 4 %>社会人
+           <%= f.radio_button :age_type_eq, 5 %>全対象
+         </label>
+         <%= f.submit ("対象別") %>
+      <% end %>
       </section>
-      <section class="category">
-        <h1>カテゴリー別</h1>
-        <span><%= link_to "戦術", current_user %></span>
-        <span><%= link_to "技術", current_user %></span>
-        <span><%= link_to "知識", current_user %></span>
-        <span><%= link_to "メンタル", current_user %></span>
-        <span><%= link_to "練習メニュー", current_user %></span>
-        <span><%= link_to "その他", current_user %></span>
+      <section>
+      <%= search_form_for @q, url:search_path do |f| %>
+         <label>
+           <%= f.label :カテゴリー別 %>
+           <%= f.radio_button :category_eq, 1 %>戦術
+           <%= f.radio_button :category_eq, 2 %>技術
+           <%= f.radio_button :category_eq, 3 %>知識
+           <%= f.radio_button :category_eq, 4 %>メンタル
+           <%= f.radio_button :category_eq, 5 %>練習メニュー
+           <%= f.radio_button :category_eq, 6 %>その他
+         </label>
+         <%= f.submit ("カテゴリー別") %>
+      <% end %>
       </section>
     </aside>
     <div class="col-md-8">
-      <h3>最新投稿一覧</h3>
+      <ul class="user-tabs">
+        <li class="active"><%= link_to("最新投稿", root_path) %></li>
+        <li><%= link_to("いいね数順", "/static_pages/likes") %></li>
+      </ul>
       <%= render 'shared/feed' %>
     </div>
   </div>

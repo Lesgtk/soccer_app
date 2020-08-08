@@ -4,15 +4,11 @@
 
     </aside>
     <div class="col-md-8">
-      <ul class="user-tabs">
-        <li class="active"><%= link_to("検索結果", root_path) %></li>
-        <li><%= link_to("いいね数順", "/static_pages/likes") %></li>
-      </ul>
+      <h3>検索結果</h3>
       <%= render @feed_items %>
+      <%= link_to "戻る",   root_path %>
     </div>
   </div>
-
-  <li><%= link_to "戻る",   root_path %></li>
 <% else %>
 
 <div class="center jumbotron">

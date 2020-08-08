@@ -1,0 +1,29 @@
+<% if logged_in? %>
+  <div class="row">
+    <aside class="col-md-4">
+
+    </aside>
+    <div class="col-md-8">
+      <ul class="user-tabs">
+        <li class="active"><%= link_to("検索結果", root_path) %></li>
+        <li><%= link_to("いいね数順", "/static_pages/likes") %></li>
+      </ul>
+      <%= render @feed_items %>
+    </div>
+  </div>
+
+  <li><%= link_to "戻る",   root_path %></li>
+<% else %>
+
+<div class="center jumbotron">
+  <h1> Soccer App へようこそ！！</h1>
+
+  <h2>
+     SOCCER APPはサッカーが上手くなりたい人の為のコミュニティサイトです。
+  </h2>
+
+  <%= link_to "新規登録する", signup_path, class: "btn btn-lg btn-primary" %>
+  <%= link_to "ゲストログイン(閲覧用)", guest_sign_in_path ,class: "btn btn-lg btn-primary", method: :post  %>
+</div>
+
+<% end %>

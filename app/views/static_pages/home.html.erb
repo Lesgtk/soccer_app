@@ -45,16 +45,16 @@
     </div>
   </div>
 <% else %>
-
-<div class="center jumbotron">
-  <h1> Soccer App へようこそ！！</h1>
-
-  <h2>
-     SOCCER APPはサッカーが上手くなりたい人の為のコミュニティサイトです。
+<div class="center">
+  <h1 class="app-title">SOCEER APP </h1>
+  <h2 class="copy">
+     SOCCER APPはサッカーが上手くなりたい人の為の<br>
+     コミュニティサイトです。
   </h2>
-
-  <%= link_to "新規登録する", signup_path, class: "btn btn-lg btn-primary" %>
-  <%= link_to "ゲストログイン(閲覧用)", guest_sign_in_path ,class: "btn btn-lg btn-primary", method: :post  %>
+  <div class="topbtn">
+  <%= link_to "新規登録", signup_path, class: "topbtn__item" %>
+  <%= link_to "ログイン", login_path, class: "topbtn__item" %>
+  <%= link_to "ゲストログイン(閲覧用)", guest_sign_in_path ,class: "topbtn__item", method: :post  %>
+  </div>
 </div>
-
 <% end %>

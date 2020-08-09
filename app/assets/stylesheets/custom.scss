@@ -4,12 +4,12 @@
 /* ホーム画面(未登録) */
 
 .center {
-  background-image:url(image-path('top3.png'));
+  background-image:url(image-path('about.png'));
   background-size: cover;
   background-position: center;
   min-height: calc(100vh - 100px);
   width: 100%;
-  padding-top: 4rem;
+  padding-top: 0.5rem;
   position: relative;
 }
 
@@ -17,17 +17,18 @@
   color: #fff;
   text-align: center;
   position: relative;
-  font-size: 4rem;
+  font-size: 5rem;
+  background: rgba(0, 0, 0, .4);
   padding: 2rem;
 }
 
 .copy {
   color: #fff;
   text-align: center;
-  background: rgba(0, 0, 0, .3);
-  padding: 2rem 0;
-  font-size: 1.5rem;
-  margin-top: 4rem;
+  background: rgba(0, 0, 0, .4);
+  padding: 3rem 0;
+  font-size: 2rem;
+  margin-top: 22rem;
 }
 
 .topbtn {
@@ -39,20 +40,20 @@
   text-align: center;
   .topbtn__item {
     color: #fff;
-    background: rgba(0, 0, 0, .8);
+    background: rgba(0, 0, 0, .3);
     border: 1px solid #fff;
-    padding: 0.5rem 2rem;
+    padding: 1.5rem 2rem;
     font-size: 1.5rem;
   }
   .topbtn__item + .topbtn__item {
-    margin-left: 1rem;
+    margin-left: 1.5rem;
   }
 }
 
 /* about画面 */
 
 .about {
-  background-image:url(image-path('about.png'));
+  background-image:url(image-path('top2.png'));
   background-size: cover;
   background-position: center;
   min-height: calc(100vh - 100px);
@@ -65,17 +66,17 @@
   color: #fff;
   text-align: center;
   position: relative;
-  font-size: 4rem;
+  font-size: 5rem;
   padding: 2rem;
 }
 
 .about-copy {
   color: #fff;
   text-align: center;
-  background: rgba(0, 0, 0, .8);
+  background: rgba(0, 0, 0, .5);
   padding: 2rem 0;
-  font-size: 1.5rem;
-  margin-top: 4rem;
+  font-size: 2rem;
+  margin-top: 10rem;
 }
 
 /* mixins, variables, etc. */
@@ -153,8 +154,25 @@ p {
 footer {
   padding-top: 10px;
   padding-bottom: 10px;
-  color: $gray-light;
+  color: white;
   text-align: center;
+  background-color: #000;
+}
+
+/* ログイン画面 */
+.box-form {
+  max-width: 440px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.form-title {
+  margin-bottom: 15px;
+}
+
+.mb-3 {
+  margin-top: 30px;
+  margin-bottom: 15px;
 }
 
 /* user show sidebar */
@@ -287,16 +305,6 @@ input {
 #session_remember_me {
   width: auto;
   margin-left: 0;
-}
-
-/* デバックデザイン */
-
-.debug_dump {
-  clear: both;
-  float: left;
-  width: 100%;
-  margin-top: 45px;
-  @include box_sizing;
 }
 
 /* ポスト */

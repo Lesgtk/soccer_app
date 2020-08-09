@@ -1,6 +1,6 @@
 <% provide(:title, "Forgot password") %>
 <div class="container box-form">
-  <h2 class="form-title">パスワード再設定</h2>
+  <h2 class="form-title">パスワード再設定<br>メール送信用</h2>
   <p>記載したメールアドレスにパスワード再設定画面のリンクを送信します</p>
   <%= form_for(:password_reset, url: password_resets_path) do |f| %>
     <div class="form-group">
@@ -10,6 +10,6 @@
       <div class="mb-3">
       <%= f.submit "送信する", class: "btn btn-primary" %>
       </div>
-    <% end %>
-  </div>
+    </div>
+  <% end %>
 </div>

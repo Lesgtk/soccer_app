@@ -1,15 +1,18 @@
 <!-- 投稿一覧のフォーム -->
 <li id="post-<%= post.id %>">
   <%= link_to gravatar_for(post.user, size: 50), post.user %>
-  <span class="title">タイトル：<%= link_to(post.title, "/posts/#{post.id}") %></span>
-  <span>対象：<%= post.age_type %><br></span>
-  <span>カテゴリー：<%= post.category %><br></span>
-    投稿者 <%= link_to post.user.name, post.user %>
-    投稿日 <%= post.created_at.strftime('%Y/%m/%d %H:%M') %>
-    <% like = Like.where(post_id: post.id).count %>
-    いいね<%= like %>個
-    <% if current_user?(post.user) %>
-      <%= link_to "削除", post, method: :delete,
-                                   data: { confirm: "You sure?" } %>
-    <% end %>
+  <span class="title"><%= link_to(post.title, "/posts/#{post.id}") %></span>
+  <div class="sidebar">
+    <span>対象：<%= post.age_type %></span>
+    <span>&nbsp;&nbsp;&nbsp;&nbsp;カテゴリー：<%= post.category %><br></span>
+      投稿者 <%= link_to post.user.name, post.user %>
+      投稿日 <%= post.created_at.strftime('%Y/%m/%d %H:%M') %>
+      <% like = Like.where(post_id: post.id).count %>
+      いいね！
+      <%= like %>個
+      <% if current_user?(post.user) %>
+        <%= link_to "削除", post, method: :delete,
+                                    data: { confirm: "You sure?" } %>
+      <% end %>
+  </div>
 </li>

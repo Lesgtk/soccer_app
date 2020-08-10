@@ -309,10 +309,14 @@ aside {
   padding: 0;
 }
 
-/* 対象年齢別検索 */
+/* 対象年齢別検索、カテゴリー別検索 */
 .search-age-type {
   background-color: white;
 }
+.search-category {
+  background-color: white;
+}
+
 .radio-btn {
 }
 
@@ -326,7 +330,7 @@ aside {
   border: none;
   background: #3879D9;
   color: #fff;
-  width: 7em;
+  width: 10em;
 }
 
 /* ユーザーindex */

@@ -2,6 +2,11 @@
 @import "bootstrap";
 @import "font-awesome";
 
+/* 本文画面設定 */
+.main-content {
+  background-color: #F5F5F5;
+}
+
 /* ホーム画面(未登録) */
 
 .center {
@@ -93,7 +98,7 @@ $gray-medium-light: #eaeaea;
 /* universal */
 
 body {
-  padding-top: 60px;
+  padding-top: 50px;
 }
 
 section {
@@ -185,12 +190,11 @@ footer {
   padding: 3px 10px;
   border-radius: 3px;
   height: 2.3em;
-  width: 40rem;
+  width: 265px;
   overflow: hidden;
   &__input {
   border: none;
-  height: 2.
-  0em;
+  height: 2.0em;
   }
 
   &__btn{
@@ -209,33 +213,47 @@ footer {
   }
 }
 
-// .search {
-//
-//   &__input {
-//     margin-left: 5rem;
-//     width: 60%;
-//   }
-//   &__btn {
-//     width: 10%
-//   }
-//   &__input + &__btn {
-//     margin-left: 1.5rem;
-//   }
-// }
+/* ユーザーエリア */
+.user-area {
+  width: 80%;
+  background-color: white;
+  padding: 10px 10px;
+  margin-top: 20px;
+  margin-bottom: 0px;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.stats {
+  width: 80%;
+  background-color: white;
+  overflow: auto;
+  margin-top: 0;
+  padding: 0 10px;
+  a {
+    float: left;
+    padding: 5px 15px;
+    border-left: 1px solid $gray-lighter;
+    color: gray;
+    &:first-child {
+      padding-left: 0;
+      border: 0;
+    }
+    &:hover {
+      text-decoration: none;
+      color: blue;
+    }
+  }
+  strong {
+    display: block;
+  }
+}
 
 /* user show sidebar */
 
 aside {
-  section.user_info {
-    margin-top: 20px;
-  }
   section {
     padding: 10px 0;
     margin-top: 20px;
-    &:first-child {
-      border: 0;
-      padding-top: 0;
-    }
     span {
       display: block;
       margin-bottom: 3px;
@@ -258,29 +276,6 @@ aside {
 
 .gravatar_edit {
   margin-top: 15px;
-}
-
-.stats {
-  overflow: auto;
-  margin-top: 0;
-  padding: 0;
-  a {
-    float: left;
-    padding: 0 10px;
-    border-left: 1px solid $gray-lighter;
-    color: gray;
-    &:first-child {
-      padding-left: 0;
-      border: 0;
-    }
-    &:hover {
-      text-decoration: none;
-      color: blue;
-    }
-  }
-  strong {
-    display: block;
-  }
 }
 
 .user_avatars {

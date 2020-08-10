@@ -37,9 +37,9 @@
       </section>
     </aside>
     <div class="col-md-8">
-      <ul class="user-tabs">
-        <li class="active"><%= link_to("最新投稿", root_path) %></li>
-        <li><%= link_to("いいね数順", "/static_pages/likes") %></li>
+      <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active"><%= link_to("最新投稿", root_path) %></li>
+        <li role="presentation"><%= link_to("いいね数順", "/static_pages/likes") %></li>
       </ul>
       <%= render 'shared/feed' %>
     </div>

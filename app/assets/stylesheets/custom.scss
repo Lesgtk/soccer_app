@@ -206,7 +206,7 @@ footer {
   padding: 3px 10px;
   border-radius: 3px;
   height: 2.3em;
-  width: 265px;
+  width: 25em;
   overflow: hidden;
   &__input {
   border: none;
@@ -221,7 +221,7 @@ footer {
   background: #3879D9;
   color: #fff;
   position: absolute;
-  width: 3.5em;
+  width: 5em;
   height: 3.0em;
   right:0px;
   top: -5px;
@@ -330,7 +330,11 @@ aside {
   border: none;
   background: #3879D9;
   color: #fff;
-  width: 10em;
+  width: 13em;
+}
+
+/* 検索結果画面 */
+.search-result {
 }
 
 /* ユーザーindex */

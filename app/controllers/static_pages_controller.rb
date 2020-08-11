@@ -26,7 +26,7 @@ class StaticPagesController < ApplicationController
   end
 
   def search
-    @q = Post.ransack(search_params)
+    @q = Post.ransack(params[:search])
     @feed_items = @q.result.page(params[:page]).per(10)
   end
 

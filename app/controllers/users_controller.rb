@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   before_action :check_guest, only: [:update, :destroy]
 
   def index
-    @users = User.all
+    @users = User.page(params[:page]).per(3)
   end
 
   def show
@@ -52,16 +52,14 @@ class UsersController < ApplicationController
   def following
     @title = "Following"
     @user = User.find(params[:id])
-# 修正が必要
-    @users = @user.following.all　
+    @users = @user.following.page(params[:page]).per(3)
     render 'show_follow'
   end
 
   def followers
     @title = "Followers"
     @user = User.find(params[:id])
-    # 修正が必要
-    @users = @user.followers.all
+    @users = @user.followers.page(params[:page]).per(3)
     render 'show_follow'
   end
 

@@ -184,6 +184,7 @@ footer {
 
 /* 投稿一覧の表示*/
 .main-feed {
+  padding-top: 10px;
   background-color: white;
   width: 60%;
 }
@@ -306,7 +307,7 @@ aside {
 }
 
 .users.follow {
-  padding: 0;
+  padding: 10px;
 }
 
 /* 対象年齢別検索、カテゴリー別検索 */

@@ -15,7 +15,7 @@
           <%= link_to "いいね数", "#" %>
           <% if current_user?(post.user) %>
             <%= link_to "削除", post, method: :delete,
-                                         data: { confirm: "You sure?" } %>
+                                         data: { confirm: "本当ですか?" } %>
           <% end %>
       <% end %>
       </ol>

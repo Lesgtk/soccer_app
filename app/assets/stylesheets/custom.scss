@@ -101,6 +101,21 @@
   margin-bottom: 30px;
 }
 
+/* ログイン画面 */
+.form-title {
+  text-align: center;
+}
+
+.form-content {
+  background-color: white;
+  padding: 30px 20px;
+  margin-bottom: 150px;
+}
+
+.form-control {
+  margin-bottom: 30px;
+}
+
 /* mixins, variables, etc. */
 
 $gray-medium-light: #eaeaea;
@@ -182,16 +197,6 @@ footer {
 }
 
 /* ログイン画面、パスワード再設定メール送信画面、パスワード再設定画面 */
-.box-form {
-  max-width: 440px;
-  margin-top: 30px;
-  margin-bottom: 30px;
-}
-
-.form-title {
-  margin-bottom: 15px;
-}
-
 .mb-3 {
   width: 170px;
   margin-top: 30px;

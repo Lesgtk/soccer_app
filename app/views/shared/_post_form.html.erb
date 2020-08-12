@@ -1,58 +1,36 @@
 <%= form_for(@post) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
-  <div class="field">
+  <div class="field row post-title">
     <%= f.text_area :title, placeholder: "タイトル" %>
-    <%= f.text_area :content, placeholder: "本文：サッカーの技術、戦術、知識について投稿しよう" %>
+  </div>
+  <div class="field row">
+    <%= f.text_area :content, class: "content-form", placeholder: "本文：サッカーの技術、戦術、知識について投稿しよう" %>
+  </div>
+  <div class="field row">
     <%= f.text_area :youtube_url, placeholder: "参考YouTube動画：URLを記載してください" %>
   </div>
-  <div class="radio">
-    <div class="radio_col">
-      <label>
-        <span class="list">対象年齢</span>
-        <%= f.radio_button :age_type, :小学生以下, class: "age_type_label"%>
-        <%= f.label :小学生以下, class: "age_type_label" %>
-      </label>
-      <label>
-        <%= f.radio_button :age_type, :中学生, class: "age_type_label"%>
-        <%= f.label :中学生, class: "age_type_label" %>
-      </label>
-      <label>
-        <%= f.radio_button :age_type, :高校生, class: "age_type_label"%>
-        <%= f.label :高校生, class: "age_type_label" %>
-      </label>
-      <label>
-        <%= f.radio_button :age_type, :社会人, class: "age_type_label"%>
-        <%= f.label :社会人, class: "age_type_label" %>
-      </label>
-      <label>
-        <%= f.radio_button :age_type, :全対象, class: "age_type_label"%>
-        <%= f.label :全対象, class: "age_type_label" %>
-      </label>
+  <div class="radio-vertical row">
+    <div class="col-md-6 age-type-title">対象年齢</div>
+    <div class="col-md-6 category-title">カテゴリー</div>
+  </div>
+  <div class="radio-vertical row">
+    <div class="col-md-6 age-type">
+      <label><%= f.radio_button :age_type, 1, class: "age_type_label"%>小学生以下</label>
+      <label><%= f.radio_button :age_type, 2, class: "age_type_label"%>中学生</label>
+      <label><%= f.radio_button :age_type, 3, class: "age_type_label"%>高校生</label>
+      <label><%= f.radio_button :age_type, 4, class: "age_type_label"%>社会人</label>
+      <label><%= f.radio_button :age_type, 5, class: "age_type_label"%>全対象</label>
+    </div>
+    <div class="col-md-6 category">
+      <label><%= f.radio_button :category, 1, class: "age_type_label"%>戦術</label>
+      <label><%= f.radio_button :category, 2, class: "age_type_label"%>技術</label>
+      <label><%= f.radio_button :category, 3, class: "age_type_label"%>知識</label>
+      <label><%= f.radio_button :category, 4, class: "age_type_label"%>メンタル</label>
+      <label><%= f.radio_button :category, 5, class: "age_type_label"%>練習メニュー</label>
+      <label><%= f.radio_button :category, 6, class: "age_type_label"%>その他</label>
     </div>
   </div>
-  <div class="radio">
-    <div class="radio_col">
-      <label>
-        <span class="list">カテゴリー</span>
-        <%= f.radio_button :category, :戦術, class: "category_label"%>
-        <%= f.label :戦術, class: "category_label" %>
-      </label>
-      <label>
-        <%= f.radio_button :category, :技術, class: "category_label"%>
-        <%= f.label :技術, class: "category_label" %>      </label>
-      <label>
-        <%= f.radio_button :category, :知識, class: "category_label"%>
-        <%= f.label :知識, class: "category_label" %>      </label>
-      <label>
-        <%= f.radio_button :category, :メンタル, class: "category_label"%>
-        <%= f.label :メンタル, class: "category_label" %>      </label>
-      <label>
-        <%= f.radio_button :category, :練習メニュー, class: "category_label"%>
-        <%= f.label :練習メニュー, class: "category_label" %>      </label>
-      <label>
-        <%= f.radio_button :category, :その他, class: "category_label"%>
-        <%= f.label :その他, class: "category_label" %>      </label>
-    </div>
-  </div>
+  <div class="col-md-2 post-btn">
   <%= f.submit "投稿する", class: "btn btn-primary" %>
+  </div>
 <% end %>

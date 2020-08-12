@@ -173,6 +173,7 @@ p {
 
 #logo {
   float: left;
+  margin-left: 15px;
   margin-right: 10px;
   font-size: 1.5em;
   color: white;
@@ -184,6 +185,10 @@ p {
     color: white;
     text-decoration: none;
   }
+}
+
+#navbar {
+  margin-right: 10px;
 }
 
 /* フッター */

@@ -1,8 +1,10 @@
-<div class="search_container">
-  <%= search_form_for @q, url:search_path, class: "search__item" do |f| %>
-    <%= f.search_field :content_cont, placeholder: 'キーワード検索', class: "search_container__input" %>
-    <%= button_tag :type => "submit", :class =>"search_container__btn " do %>
+<div class="row search-container">
+  <div class="search-row">
+  <%= search_form_for @q, url:search_path, class: "search-item" do |f| %>
+    <%= f.search_field :content_cont, placeholder: 'キーワード検索', class: "search-row-input" %>
+    <%= button_tag :type => "submit", :class =>"search-row-btn " do %>
       <i class="fa fa-search"></i>検索
     <% end %>
   <% end %>
+  </div>
 </div>

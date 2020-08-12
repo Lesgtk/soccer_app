@@ -1,8 +1,11 @@
 <!-- いいね一覧ページ -->
-<div class="row">
-    <div class="col-md-8">
+<div class="container">
+  <div class="row likes-post">
+      <h2>
+        <%= icon("far", "futbol", class: "soccer-icon") %>
+        チェック一覧
+      </h2>
       <ol class="posts">
-      <h3>いいね！一覧</h3>
       <% @likes.each do |like| %>
       <% post = Post.find_by(id: like.post_id) %>
       <li id="post-<%= post.id %>">
@@ -19,5 +22,5 @@
           <% end %>
       <% end %>
       </ol>
-    </div>
+  </div>
 </div>

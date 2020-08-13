@@ -1,9 +1,13 @@
 <% provide(:title, 'Sign up') %>
-<h1>SOCCER APPへようこそ！</h1>
-<p>新規登録して利用を開始しましょう！</p>
+<div class="container">
+  <div class="row sign-up-title">
+    <h1>SOCCER APPへようこそ！</h1>
+    <h2>新規ユーザー登録</h2>
+  </div>
 
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <%= render 'form' %>
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3 sign-up-content">
+      <%= render 'form' %>
+    </div>
   </div>
 </div>

@@ -1,23 +1,36 @@
 <% provide(:title, "Log in") %>
-<h1>SOCCER APPにログイン！</h1>
+<div class="container">
+  <div class="row form-title">
+    <h2>ログイン</h2>
+  </div>
 
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <%= form_for(:session, url: login_path) do |f| %>
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3 form-content">
+      <%= form_for(:session, url: login_path) do |f| %>
 
-      <%= f.label :email, "メールアドレス" %>
-      <%= f.email_field :email, class: 'form-control' %>
+      <div class="form-group">
+        <%= f.label :email, "メールアドレス" %>
+        <%= f.email_field :email, class: 'form-control' %>
+      </div>
 
-      <%= f.label :password, "パスワード" %>
-      <%= link_to "パスワードを忘れた方", new_password_reset_path %>
-      <%= f.password_field :password, class: 'form-control' %>
+      <div class="form-group">
+        <%= f.label :password, "パスワード" %>
+        <%= link_to "パスワードを忘れた方", new_password_reset_path %>
+        <%= f.password_field :password, class: 'form-control' %>
+      </div>
 
       <%= f.label :remember_me, class: "checkbox inline" do %>
       <%= f.check_box :remember_me %>
-      <span>このパソコンにユーザー情報を記憶させますか</span>
+      <span>次回から自動的にログイン</span>
       <% end %>
 
+      <div class="mb-3">
       <%= f.submit "ログインする", class: "btn btn-primary" %>
+      </div>
+      <div class="mb-3">
+      <%= link_to "ゲストログイン(閲覧用)", guest_sign_in_path ,class: "btn btn-warning", method: :post  %>
+      </div>
+    </div>
     <% end %>
   </div>
 </div>

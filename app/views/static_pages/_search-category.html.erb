@@ -1,0 +1,30 @@
+<div class="search-category">
+  <%= search_form_for @q, url:search_path do |f| %>
+    <label　class="radio">
+      <%= icon("far", "futbol", class: "soccer-icon") %>
+      <%= f.label :カテゴリー別 %>
+      <%= icon("far", "futbol", class: "soccer-icon") %><br>
+    </label>
+    <label>
+      <%= f.radio_button :category, 1, class: "radio-btn" %>戦術
+    </label>
+    <label>
+      <%= f.radio_button :category, 2, class: "radio-btn" %>技術
+    </label>
+    <label>
+      <%= f.radio_button :category, 3, class: "radio-btn" %>知識
+    </label>
+    <label>
+      <%= f.radio_button :category, 4, class: "radio-btn" %>メンタル
+    </label>
+    <label>
+      <%= f.radio_button :category, 5, class: "radio-btn" %>練習メニュー
+    </label>
+    <label>
+      <%= f.radio_button :category, 6, class: "radio-btn" %>その他
+    </label>
+    <%= button_tag :type => "submit", :class =>"search-radio-btn" do %>
+    カテゴリー別:検索<i class="fa fa-search"></i>
+    <% end %>
+  <% end %>
+</div>

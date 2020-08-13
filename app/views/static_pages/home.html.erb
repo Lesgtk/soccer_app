@@ -1,60 +1,41 @@
 <% if logged_in? %>
+<div class="container">
   <%= render 'layouts/search' %>
   <div class="row">
     <aside class="col-md-4">
-      <section class="user_info">
+      <section class="user-area">
         <%= render 'shared/user_info' %>
       </section>
       <section class="stats">
         <%= render 'shared/stats' %>
       </section>
       <section>
-      <%= search_form_for @q, url:search_path do |f| %>
-         <label>
-           <%= f.label :対象年齢別 %>
-           <%= f.radio_button :age_type_eq, 1 %>小学生
-           <%= f.radio_button :age_type_eq, 2 %>中学生
-           <%= f.radio_button :age_type_eq, 3 %>高校生
-           <%= f.radio_button :age_type_eq, 4 %>社会人
-           <%= f.radio_button :age_type_eq, 5 %>全対象
-         </label>
-         <%= f.submit ("対象別:検索") %>
-      <% end %>
+        <%= render 'search-age-type' %>
       </section>
       <section>
-      <%= search_form_for @q, url:search_path do |f| %>
-         <label>
-           <%= f.label :カテゴリー別 %>
-           <%= f.radio_button :category_eq, 1 %>戦術
-           <%= f.radio_button :category_eq, 2 %>技術
-           <%= f.radio_button :category_eq, 3 %>知識
-           <%= f.radio_button :category_eq, 4 %>メンタル
-           <%= f.radio_button :category_eq, 5 %>練習メニュー
-           <%= f.radio_button :category_eq, 6 %>その他
-         </label>
-         <%= f.submit ("カテゴリー別:検索") %>
-      <% end %>
+        <%= render 'search-category' %>
       </section>
     </aside>
-    <div class="col-md-8">
-      <ul class="user-tabs">
-        <li class="active"><%= link_to("最新投稿", root_path) %></li>
-        <li><%= link_to("いいね数順", "/static_pages/likes") %></li>
+    <div class="main-feed col-md-8">
+      <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active"><%= link_to("最新投稿", root_path) %></li>
+        <li role="presentation"><%= link_to("いいね数順", "/static_pages/likes") %></li>
       </ul>
       <%= render 'shared/feed' %>
     </div>
   </div>
 <% else %>
-
-<div class="center jumbotron">
-  <h1> Soccer App へようこそ！！</h1>
-
-  <h2>
-     SOCCER APPはサッカーが上手くなりたい人の為のコミュニティサイトです。
+<div class="center">
+  <h1 class="app-title">SOCEER APP </h1>
+  <h2 class="copy">
+     SOCCER APPはサッカーが上手くなりたい人の為の<br>
+     コミュニティサイトです。
   </h2>
-
-  <%= link_to "新規登録する", signup_path, class: "btn btn-lg btn-primary" %>
-  <%= link_to "ゲストログイン(閲覧用)", guest_sign_in_path ,class: "btn btn-lg btn-primary", method: :post  %>
+  <div class="topbtn">
+  <%= link_to "新規登録", signup_path, class: "topbtn__item" %>
+  <%= link_to "ログイン", login_path, class: "topbtn__item" %>
+  <%= link_to "ゲストログイン(閲覧用)", guest_sign_in_path ,class: "topbtn__item", method: :post  %>
+  </div>
 </div>
-
+</div>
 <% end %>

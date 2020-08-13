@@ -1,26 +1,35 @@
 <% provide(:title, @post.title) %>
-<div class="row">
-  <aside class="col-md-4">
-    <section class="user_info">
-      <h1>
-        <%= gravatar_for @user %>
-        <%= @user.name %>
-      </h1>
-    </section>
-  </aside>
-  <div class="col-md-8">
-    <span>タイトル：<%= @post.title %><br></span>
-    <span>本文：<%= @post.content %><br></span>
-    <span>対象：<%= @post.age_type %><br></span>
-    <span>カテゴリー：<%= @post.category %><br></span>
-    <span>
-    <strong>Youtube url:</strong>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/<%= @post.youtube_url%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    </span>
-    <div>
-      <%= render 'like' %>
+<div class="container">
+  <div class="row post-row">
+      <%= link_to gravatar_for(@user, size: 30), @user, class: 'post-img' %>
+      <%= @user.name %>
+      <%= @post.created_at.strftime('%Y/%m/%d %H:%M') %>に更新
+    <div class="col-md-12">
+      <h2 class="post-show-title">
+        <%= @post.title %>
+      </h2>
+      <div class="col-md-6 post-show-age-type">
+        対象年齢:
+        <%= @post.age_type %>
+      </div>
+      <div class="col-md-6 post-show-categorys">
+        カテゴリー:
+        <%= @post.category %>
+      </div>
     </div>
-    　<%= render 'sharering' %>
+    <div class="col-md-12 post-show-content">
+        <%= @post.content %>
+    </div>
+    <div class="col-md-12 post-show-youtube">
+      <span>
+        参考動画:
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/<%= @post.youtube_url%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </span>
+    </div>
+    <div class="class="col-md-12">
+      <%= render 'like' %>
+      <%= render 'sharering' %>
+    </div>
+      <%= render 'comment' %>
   </div>
-  <%= render 'comment' %>
 </div>

@@ -1,5 +1,120 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+/* 本文画面設定 */
+.main-content {
+  background-color: #F5F5F5;
+}
+
+/* ホーム画面(未登録) */
+
+.center {
+  background-image:url(image-path('about.png'));
+  background-size: cover;
+  background-position: center;
+  min-height: calc(100vh - 100px);
+  width: 100%;
+  padding-top: 0.5rem;
+  position: relative;
+}
+
+.app-title {
+  color: #fff;
+  text-align: center;
+  position: relative;
+  font-size: 5rem;
+  background: rgba(0, 0, 0, .4);
+  padding: 2rem;
+}
+
+.copy {
+  color: #fff;
+  text-align: center;
+  background: rgba(0, 0, 0, .4);
+  padding: 3rem 0;
+  font-size: 2rem;
+  margin-top: 22rem;
+}
+
+.topbtn {
+  position: absolute;
+  bottom: 6rem;
+  left: 50%;
+  width: 100%;
+  transform: translateX(-50%);
+  text-align: center;
+  .topbtn__item {
+    color: #fff;
+    background: rgba(0, 0, 0, .3);
+    border: 1px solid #fff;
+    padding: 1.5rem 2rem;
+    font-size: 1.5rem;
+  }
+  .topbtn__item + .topbtn__item {
+    margin-left: 1.5rem;
+  }
+}
+
+/* about画面 */
+
+.about {
+  background-image:url(image-path('top2.png'));
+  background-size: cover;
+  background-position: center;
+  min-height: calc(100vh - 100px);
+  width: 100%;
+  padding-top: 4rem;
+  position: relative;
+}
+
+.about-title {
+  color: #fff;
+  text-align: center;
+  position: relative;
+  font-size: 5rem;
+  padding: 2rem;
+}
+
+.about-copy {
+  color: #fff;
+  text-align: center;
+  background: rgba(0, 0, 0, .5);
+  padding: 2rem 0;
+  font-size: 2rem;
+  margin-top: 10rem;
+}
+
+/* 新規登録画面 */
+.sign-up-title {
+  text-align: center;
+}
+
+.sign-up-content {
+  background-color: white;
+  padding: 30px 20px;
+  margin-bottom: 40px;
+}
+
+.form-control {
+  margin-bottom: 30px;
+}
+
+/* ログイン画面 */
+.form-title {
+  text-align: center;
+}
+
+.form-content {
+  background-color: white;
+  padding: 30px 20px;
+  margin-bottom: 150px;
+}
+
+.form-control {
+  margin-bottom: 30px;
+}
 
 /* mixins, variables, etc. */
 
@@ -14,7 +129,7 @@ $gray-medium-light: #eaeaea;
 /* universal */
 
 body {
-  padding-top: 60px;
+  padding-top: 50px;
 }
 
 section {
@@ -25,34 +140,28 @@ textarea {
   resize: vertical;
 }
 
-.center {
-  text-align: center;
-  h1 {
-    margin-bottom: 10px;
-  }
-}
 
 /* typography */
 
-h1, h2, h3, h4, h5, h6 {
-  line-height: 1;
-}
+// h1, h2, h3, h4, h5, h6 {
+//   line-height: 1;
+// }
+//
+// h1 {
+//   font-size: 3em;
+//   letter-spacing: -2px;
+//   margin-bottom: 30px;
+//   text-align: center;
+// }
 
-h1 {
-  font-size: 3em;
-  letter-spacing: -2px;
-  margin-bottom: 30px;
-  text-align: center;
-}
-
-h2 {
-  font-size: 1.2em;
-  letter-spacing: -1px;
-  margin-bottom: 30px;
-  text-align: center;
-  font-weight: normal;
-  color: $gray-light;
-}
+// h2 {
+//   font-size: 1.2em;
+//   letter-spacing: -1px;
+//   margin-bottom: 30px;
+//   text-align: center;
+//   font-weight: normal;
+//   color: $gray-light;
+// }
 
 p {
   font-size: 1.1em;
@@ -60,12 +169,13 @@ p {
 }
 
 
-/* header */
+/* ヘッダー */
 
 #logo {
   float: left;
+  margin-left: 15px;
   margin-right: 10px;
-  font-size: 1.7em;
+  font-size: 1.5em;
   color: white;
   text-transform: uppercase;
   letter-spacing: -1px;
@@ -77,76 +187,97 @@ p {
   }
 }
 
-/* footer */
-
-footer {
-  margin-top: 45px;
-  padding-top: 5px;
-  border-top: 1px solid $gray-medium-light;
-  color: $gray-light;
-  a {
-    color: $gray;
-    &:hover {
-      color: $gray-darker;
-    }
-  }
-  small {
-    float: left;
-  }
-  ul {
-    float: right;
-    list-style: none;
-    li {
-      float: left;
-      margin-left: 15px;
-    }
-  }
-}
-
-/* user show sidebar */
-
-aside {
-  section.user_info {
-    margin-top: 20px;
-  }
-  section {
-    padding: 10px 0;
-    margin-top: 20px;
-    &:first-child {
-      border: 0;
-      padding-top: 0;
-    }
-    span {
-      display: block;
-      margin-bottom: 3px;
-      line-height: 1;
-    }
-    h1 {
-      font-size: 1.4em;
-      text-align: left;
-      letter-spacing: -1px;
-      margin-bottom: 3px;
-      margin-top: 0px;
-    }
-  }
-}
-
-.gravatar {
-  float: left;
+#navbar {
   margin-right: 10px;
 }
 
-.gravatar_edit {
-  margin-top: 15px;
+/* フッター */
+
+footer {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: white;
+  text-align: center;
+  background-color: #000;
+}
+
+/* ログイン画面、パスワード再設定メール送信画面、パスワード再設定画面 */
+.mb-3 {
+  width: 170px;
+  margin-top: 30px;
+  margin-bottom: 15px;
+}
+
+/* 投稿一覧の表示*/
+.main-feed {
+  padding-top: 10px;
+  background-color: white;
+  width: 60%;
+}
+.title {
+  font-size: 16px;
+  font-weight: bold;
+  padding-bottom: 5px;
+}
+.sidebar {
+  color: $gray-light;
+  font-size: 12px;
+}
+
+/* 検索画面 */
+.search-container {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.search-row{
+  position: relative;
+  box-sizing: border-box;
+  border: 2px solid #3879D9;
+  display: block;
+  padding: 3px 10px;
+  border-radius: 3px;
+  height: 2.3em;
+  width: 25em;
+  overflow: hidden;
+  &-input {
+  border: none;
+  height: 2.0em;
+  }
+
+  &-btn{
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  cursor: pointer;
+  border: none;
+  background: #3879D9;
+  color: #fff;
+  position: absolute;
+  width: 5em;
+  height: 3.0em;
+  right:0px;
+  top: -5px;
+  outline : none;
+  }
+}
+
+/* ユーザーエリア */
+.user-area {
+  background-color: white;
+  padding: 10px 10px;
+  margin-top: 20px;
+  margin-bottom: 0px;
+  border-bottom: 1px solid #e8e8e8;
 }
 
 .stats {
+  background-color: white;
   overflow: auto;
   margin-top: 0;
-  padding: 0;
+  padding: 0 10px;
   a {
     float: left;
-    padding: 0 10px;
+    padding: 5px 15px;
     border-left: 1px solid $gray-lighter;
     color: gray;
     &:first-child {
@@ -163,6 +294,41 @@ aside {
   }
 }
 
+/* user show sidebar */
+
+aside {
+  section {
+    padding: 10px 0;
+    margin-top: 20px;
+    span {
+      display: block;
+      margin-bottom: 3px;
+      line-height: 1;
+    }
+    label {
+      margin-bottom: 3px;
+      line-height: 1;
+    }
+    h1 {
+      font-size: 1.4em;
+      text-align: left;
+      letter-spacing: -1px;
+      margin-bottom: 3px;
+      margin-top: 0px;
+    }
+  }
+}
+
+
+.gravatar {
+  float: left;
+  margin-right: 10px;
+}
+
+.gravatar_edit {
+  margin-top: 15px;
+}
+
 .user_avatars {
   overflow: auto;
   margin-top: 10px;
@@ -175,12 +341,85 @@ aside {
 }
 
 .users.follow {
-  padding: 0;
+  padding: 10px;
 }
 
-/* ユーザーindex */
+/* 対象年齢別検索、カテゴリー別検索 */
+.search-age-type {
+  background-color: white;
+  padding-bottom: 10px;
+}
+.search-category {
+  background-color: white;
+  padding-bottom: 10px;
+}
+
+.search-radio-btn {
+  margin-top: 1rem;
+  margin-left: 1rem;
+  padding: 1rem 1rem;
+  border-radius: 3px;
+  cursor: pointer;
+  letter-spacing: 1px;
+  border: none;
+  background: #3879D9;
+  color: #fff;
+  width: 13em;
+}
+
+/* 検索結果画面 */
+.search-result {
+}
+.back-btn {
+
+}
+
+/* ポストフォーム */
+.header-title {
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
+.post-btn {
+  margin-top: 30px;
+  margin-bottom: 15px;
+}
+
+.content-form {
+  height: 200px;
+}
+
+.age-type-label {
+  padding-right: 25px;
+}
+
+.category-label {
+  padding-right: 25px;
+}
+
+.age-type {
+  padding-top: 10px;
+  padding-left: 30px;
+  background-color: white;
+  border: 1px solid #bbb;
+}
+
+.category {
+  padding-top: 10px;
+  padding-left: 30px;
+  background-color: white;
+  border: 1px solid #bbb;
+}
+
+
+/* ユーザー一覧ページ */
+
+.users-row {
+  margin-bottom: 30px;
+}
 
 .users {
+  background-color: white;
   list-style: none;
   margin: 0;
   li {
@@ -190,6 +429,117 @@ aside {
   }
 }
 
+/* チェック一覧ページ */
+.likes-post {
+  margin-bottom: 30px;
+}
+
+.posts {
+  background-color: white;
+}
+
+/* フォロー、フォロワー一覧画面 */
+.show-follow-title {
+  text-align: center;
+}
+
+.show-follow-container {
+  padding-top: 20px;
+  padding-bottom: 100px;
+}
+
+/* プロフィール画面 */
+.mypage-title {
+  text-align: center;;
+}
+
+/* 投稿詳細ページ */
+.post-show-container {
+  margin-bottom: 10px;
+}
+
+.post-row {
+  margin-top: 30px;
+  background-color: white;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.post-show-title {
+  padding: 20px 10px;
+}
+
+.post-show-content {
+  border-top: 1px solid #e8e8e8;
+  border-bottom: 1px solid #e8e8e8;
+  padding: 20px 10px;
+}
+
+.post-show-youtube {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.post-show-like {
+  background-color: white;
+  text-align: left;
+  margin: 20px 20px;
+}
+
+.post-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 40%;
+  box-shadow: 0 2px 6px #c1ced7;
+  margin: 20px 0 10px;
+  object-fit: cover;
+}
+
+.sharering {
+  border-bottom: 1px solid #bbb;
+}
+
+/* コメント作成、一覧表 */
+.comment-row {
+  text-align: left;
+}
+
+.comment-title {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.comment-show {
+  margin-top: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #bbb;
+}
+
+.comment-col {
+  margin-top: 20px;
+}
+
+.comment-content {
+  height: 100px;
+}
+
+.comment-btn {
+  width: 150px;
+}
+
+/* プロフィール設定変更 */
+.account-title {
+  text-align: center;
+}
+
+.account-content {
+  background-color: white;
+  margin-bottom: 10px;
+}
+
+.gravatar_edit {
+  margin-bottom: 100px;
+}
 
 /* フォーム */
 
@@ -222,6 +572,7 @@ input {
 
 /* フォーム チェックボックス*/
 .checkbox {
+  background-color: white;
   margin-top: -10px;
   margin-bottom: 10px;
   span {
@@ -233,16 +584,6 @@ input {
 #session_remember_me {
   width: auto;
   margin-left: 0;
-}
-
-/* デバックデザイン */
-
-.debug_dump {
-  clear: both;
-  float: left;
-  width: 100%;
-  margin-top: 45px;
-  @include box_sizing;
 }
 
 /* ポスト */
@@ -300,7 +641,7 @@ span.picture {
   }
 }
 
-// ラジオボタン
+/* ラジオボタン */
 .radio{
   margin-top: 30px;
   .radio_col{
@@ -335,6 +676,20 @@ span.picture {
 
 .user-tabs li.active {
   border-bottom: 2px solid #3ecdc6;
+}
+
+.like-btn {
+  font-size: 30px;
+  color: #8899a6;
+}
+
+.like-btn-unlike {
+  font-size: 30px;
+  color: #ff2581;
+}
+
+.like-count {
+  font-size: 30px;
 }
 
 /* シェア */

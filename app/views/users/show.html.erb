@@ -1,21 +1,29 @@
 <% provide(:title, @user.name) %>
-<div class="row">
-  <aside class="col-md-4">
-    <section class="user-area">
-      <%= render 'shared/user_info' %>
-    </section>
-    <section class="stats">
-      <%= render 'shared/stats' %>
-    </section>
-  </aside>
-  <div class="main-feed col-md-8">
-  <%= render 'follow_form' if logged_in? %>
-  <% if @user.posts.any? %>
-    <h3><%= icon("far", "futbol", class: "soccer-icon") %>
-      投稿数 <%= icon("far", "futbol", class: "soccer-icon") %></h3>
-    <ol class="posts">
-      <%= render @posts %>
-    </ol>
-  <% end %>
-</div>
+<div class="container mypage-title">
+  <h2>
+    プロフィール
+  </h2>
+  <div class="row">
+    <aside class="col-md-4">
+      <section class="user-area">
+        <%= render 'shared/user_info' %>
+      </section>
+      <section class="stats">
+        <%= render 'shared/stats' %>
+      </section>
+    </aside>
+    <div class="main-feed col-md-8">
+      <%= render 'follow_form' if logged_in? %>
+      <% if @user.posts.any? %>
+      <h3>
+        <%= icon("far", "futbol", class: "soccer-icon") %>
+        投稿数
+        <%= icon("far", "futbol", class: "soccer-icon") %>
+      </h3>
+      <ol class="posts">
+        <%= render @posts %>
+      </ol>
+      <% end %>
+    </div>
+  </div>
 </div>

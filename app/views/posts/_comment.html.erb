@@ -1,16 +1,24 @@
-<h2>コメント一覧</h2>
-<% @comments.each do |c| %>
-  <div>
-    <a href="/users/<%= @post.user.id %>"><%= @user.name %></a>
-    <%= c.comment_content %>
-    <hr>
+<div class="row comment-row">
+  <div class="col-md-6">
+    <h3 class="comment-title">コメント一覧</h3>
+    <% @comments.each do |c| %>
+      <%= link_to gravatar_for(@user, size: 30), @user, class: 'comment-img' %>
+      <a href="/users/<%= @post.user.id %>"><%= @user.name %></a>
+      <%= @post.created_at.strftime('%Y/%m/%d %H:%M') %>
+      <div class="comment-show">
+        <%= c.comment_content %>
+      </div>
+      <% end %>
   </div>
-<% end %>
+</div>
 
 <%# コメントフォーム %>
-<%= form_with(model:[@post, @comment], method: :post) do |f| %>
-  <%= f.text_area :comment_content %>
-  <%= f.hidden_field :post_id, value: @post.id %>
-  <br>
-  <%= f.submit 'コメントする' %>
-  <% end %>
+<div class="row comment-row">
+  <div class="col-md-6 comment-col">
+    <%= form_with(model:[@post, @comment], method: :post) do |f| %>
+      <%= f.text_area :comment_content, class: "comment-content", placeholder: "コメント本文(100文字以内)"  %>
+      <%= f.hidden_field :post_id, value: @post.id %>
+      <%= f.submit 'コメントする', class: "btn btn-primary comment-btn" %>
+    <% end %>
+  </div>
+</div>

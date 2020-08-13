@@ -306,7 +306,6 @@ aside {
       line-height: 1;
     }
     label {
-      display: block;
       margin-bottom: 3px;
       line-height: 1;
     }
@@ -390,7 +389,11 @@ aside {
   height: 200px;
 }
 
-label {
+.age-type-label {
+  padding-right: 25px;
+}
+
+.category-label {
   padding-right: 25px;
 }
 
@@ -434,6 +437,97 @@ label {
 .posts {
   background-color: white;
 }
+
+/* フォロー、フォロワー一覧画面 */
+.show-follow-title {
+  text-align: center;
+}
+
+.show-follow-container {
+  padding-top: 20px;
+  padding-bottom: 100px;
+}
+
+/* プロフィール画面 */
+.mypage-title {
+  text-align: center;;
+}
+
+/* 投稿詳細ページ */
+.post-show-container {
+  margin-bottom: 10px;
+}
+
+.post-row {
+  margin-top: 30px;
+  background-color: white;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.post-show-title {
+  padding: 20px 10px;
+}
+
+.post-show-content {
+  border-top: 1px solid #e8e8e8;
+  border-bottom: 1px solid #e8e8e8;
+  padding: 20px 10px;
+}
+
+.post-show-youtube {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.post-show-like {
+  background-color: white;
+  text-align: left;
+  margin: 20px 20px;
+}
+
+.post-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 40%;
+  box-shadow: 0 2px 6px #c1ced7;
+  margin: 20px 0 10px;
+  object-fit: cover;
+}
+
+.sharering {
+  border-bottom: 1px solid #bbb;
+}
+
+/* コメント作成、一覧表 */
+.comment-row {
+  text-align: left;
+}
+
+.comment-title {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.comment-show {
+  margin-top: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #bbb;
+}
+
+.comment-col {
+  margin-top: 20px;
+}
+
+.comment-content {
+  height: 100px;
+}
+
+.comment-btn {
+  width: 150px;
+}
+
+/* アカウント設定変更 */
 
 /* フォーム */
 
@@ -570,6 +664,20 @@ span.picture {
 
 .user-tabs li.active {
   border-bottom: 2px solid #3ecdc6;
+}
+
+.like-btn {
+  font-size: 30px;
+  color: #8899a6;
+}
+
+.like-btn-unlike {
+  font-size: 30px;
+  color: #ff2581;
+}
+
+.like-count {
+  font-size: 30px;
 }
 
 /* シェア */

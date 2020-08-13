@@ -527,7 +527,19 @@ aside {
   width: 150px;
 }
 
-/* アカウント設定変更 */
+/* プロフィール設定変更 */
+.account-title {
+  text-align: center;
+}
+
+.account-content {
+  background-color: white;
+  margin-bottom: 10px;
+}
+
+.gravatar_edit {
+  margin-bottom: 100px;
+}
 
 /* フォーム */
 

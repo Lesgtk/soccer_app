@@ -3,23 +3,27 @@
   <h2>
     プロフィール
   </h2>
-  <div class="row">
-    <aside class="col-md-4">
-      <section class="user-area">
-        <%= render 'shared/user_info' %>
-      </section>
-      <section class="stats">
-        <%= render 'shared/stats' %>
-      </section>
-    </aside>
-    <div class="main-feed col-md-8">
+  <div class="row mypage-main">
+    <div class="col-md-6 mypage-img">
+      <%= link_to gravatar_for(current_user, size: 50), current_user %>
+    </div>
+    <div class="col-md-6 mypage-stats">
+      ユーザー名:<%= current_user.name %><br>
+      投稿数: <%= current_user.posts.count %><br>
+      <%= icon("far", "futbol", class: "soccer-icon") %>
+      チェック数:<%= @likes_count %><br>
+      <%= render 'shared/stats' %>
+    </div>
+  </div>
+  <div class="row mypage-content">
+    <h3>
+      <%= icon("far", "futbol", class: "soccer-icon") %>
+      投稿
+      <%= icon("far", "futbol", class: "soccer-icon") %>
+    </h3>
+    <div class="mypage-feed col-md-8 col-md-offset-2">
       <%= render 'follow_form' if logged_in? %>
       <% if @user.posts.any? %>
-      <h3>
-        <%= icon("far", "futbol", class: "soccer-icon") %>
-        投稿数
-        <%= icon("far", "futbol", class: "soccer-icon") %>
-      </h3>
       <ol class="posts">
         <%= render @posts %>
       </ol>

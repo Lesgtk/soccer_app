@@ -11,7 +11,7 @@
 /* ホーム画面(未登録) */
 
 .center {
-  background-image:url(image-path('about.png'));
+  background-image:url(image-path('top.png'));
   background-size: cover;
   background-position: center;
   min-height: calc(100vh - 100px);
@@ -60,7 +60,7 @@
 /* about画面 */
 
 .about {
-  background-image:url(image-path('top2.png'));
+  background-image:url(image-path('about.png'));
   background-size: cover;
   background-position: center;
   min-height: calc(100vh - 100px);
@@ -102,6 +102,7 @@
 }
 
 /* ログイン画面 */
+
 .form-title {
   text-align: center;
 }
@@ -321,8 +322,10 @@ aside {
 
 
 .gravatar {
-  float: left;
-  margin-right: 10px;
+  border-radius: 50%;  /* 角丸半径を50%にする(=円形にする) */
+  width: 40px;  /* 縦横を同じ値にする */
+  height: 40px;  /* 縦横を同じ値にする */
+  object-fit: cover; /* 縦横比固定したまま上2つの縦横の範囲内に収まるように配置する */
 }
 
 .gravatar_edit {
@@ -451,6 +454,29 @@ aside {
 /* プロフィール画面 */
 .mypage-title {
   text-align: center;;
+}
+
+.mypage-main {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.mypage-img {
+  padding-left: 50px;
+}
+
+.mypage-stats {
+  text-align: left;
+  letter-spacing: 1px;
+}
+
+.mypage-content {
+  margin-bottom: 30px;
+}
+
+.mypage-feed {
+  padding-top: 10px;
+  background-color: white;
 }
 
 /* 投稿詳細ページ */

@@ -72,7 +72,7 @@ private
 
   # 下記以外を許可しない
   def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation)
+    params.require(:user).permit(:name, :email, :password, :password_confirmation, :image)
   end
 
   # beforeアクション

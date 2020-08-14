@@ -5,7 +5,7 @@
   </h2>
   <div class="row mypage-main">
     <div class="col-md-6 mypage-img">
-      <%= link_to gravatar_for(current_user, size: 50), current_user %>
+      <%= image_tag @user.image.thumb200.url %>
     </div>
     <div class="col-md-6 mypage-stats">
       ユーザー名:<%= current_user.name %><br>

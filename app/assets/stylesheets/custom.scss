@@ -23,7 +23,7 @@
   color: #fff;
   text-align: center;
   position: relative;
-  font-size: 5rem;
+  font-size: 4.5rem;
   background: rgba(0, 0, 0, .4);
   padding: 2rem;
 }
@@ -32,14 +32,14 @@
   color: #fff;
   text-align: center;
   background: rgba(0, 0, 0, .4);
-  padding: 3rem 0;
-  font-size: 2rem;
-  margin-top: 22rem;
+  padding: 2rem 0;
+  font-size: 1.2rem;
+  margin-top: 7rem;
 }
 
 .topbtn {
   position: absolute;
-  bottom: 6rem;
+  bottom: 5rem;
   left: 50%;
   width: 100%;
   transform: translateX(-50%);
@@ -48,8 +48,8 @@
     color: #fff;
     background: rgba(0, 0, 0, .3);
     border: 1px solid #fff;
-    padding: 1.5rem 2rem;
-    font-size: 1.5rem;
+    padding: 1rem 0.8rem;
+    font-size: 1.1rem;
   }
   .topbtn__item + .topbtn__item {
     margin-left: 1.5rem;
@@ -129,7 +129,7 @@ $gray-medium-light: #eaeaea;
 /* universal */
 
 body {
-  padding-top: 50px;
+  padding-top: 0px;
 }
 
 section {
@@ -173,7 +173,6 @@ p {
 
 #logo {
   float: left;
-  margin-left: 15px;
   margin-right: 10px;
   font-size: 1.5em;
   color: white;
@@ -186,15 +185,11 @@ p {
   }
 }
 
-#navbar {
-  margin-right: 10px;
-}
-
 /* フッター */
 
 footer {
   padding-top: 10px;
-  padding-bottom: 10px;
+  padding-bottom: 5px;
   color: white;
   text-align: center;
   background-color: #000;
@@ -223,7 +218,7 @@ footer {
   padding-bottom: 5px;
 }
 .sidebar {
-  // color: $gray-light;
+  color: rgba(#d3d3d3,1.0);
   font-size: 12px;
 }
 
@@ -281,7 +276,7 @@ footer {
   a {
     float: left;
     padding: 5px 15px;
-    // border-left: 1px solid $gray-lighter;
+    border-left: 1px solid rgba(#d3d3d3,1.0);
     color: gray;
     &:first-child {
       padding-left: 0;
@@ -464,7 +459,7 @@ aside {
   li {
     overflow: auto;
     padding: 10px 0;
-    // border-bottom: 1px solid $gray-lighter;
+    border-bottom: 1px solid rgba(#d3d3d3,1.0);
   }
 }
 
@@ -692,7 +687,7 @@ input {
     }
   }
   .timestamp {
-    // color: $gray-light;
+    color: rgba(#d3d3d3,1.0);
     display: block;
     margin-left: 60px;
   }

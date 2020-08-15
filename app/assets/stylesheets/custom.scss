@@ -210,6 +210,10 @@ footer {
 }
 
 /* 投稿一覧の表示*/
+.feed-image {
+  float: left;
+}
+
 .main-feed {
   padding-top: 10px;
   background-color: white;
@@ -290,12 +294,16 @@ footer {
       color: blue;
     }
   }
-  strong {
-    display: block;
-  }
 }
 
-/* user show sidebar */
+/* ホーム画面プロフィール画面 */
+.info-image {
+  float: left;
+}
+.info-content {
+  padding-left: 50px;
+}
+
 
 aside {
   section {
@@ -321,10 +329,26 @@ aside {
 }
 
 /* プロフィール */
+.info-circle {
+  text-align: left;
+  border-radius: 50%;  /* 角丸半径を50%にする(=円形にする) */
+  width: 50px;  /* 縦横を同じ値にする */
+  height: 50px;  /* 縦横を同じ値にする */
+  object-fit: cover;
+}
+
+.feed-circle {
+  text-align: left;
+  border-radius: 50%;  /* 角丸半径を50%にする(=円形にする) */
+  width: 50px;  /* 縦横を同じ値にする */
+  height: 50px;  /* 縦横を同じ値にする */
+  object-fit: cover; /* 縦横比固定したまま上2つの縦横の範囲内に収まるように配置する */
+}
+
 .circle {
   border-radius: 50%;  /* 角丸半径を50%にする(=円形にする) */
-  width: 100px;  /* 縦横を同じ値にする */
-  height: 100px;  /* 縦横を同じ値にする */
+  width: 150px;  /* 縦横を同じ値にする */
+  height: 150px;  /* 縦横を同じ値にする */
   object-fit: cover; /* 縦横比固定したまま上2つの縦横の範囲内に収まるように配置する */
 }
 
@@ -439,6 +463,14 @@ aside {
 }
 
 /* チェック一覧ページ */
+.likes-image {
+  float: left;
+}
+
+.likes-post {
+  text-align: left;
+}
+
 .likes-post {
   margin-bottom: 30px;
 }
@@ -467,12 +499,18 @@ aside {
   margin-bottom: 20px;
 }
 
+.mypage-info {
+  background-color: white;
+  padding: 10px 0;
+}
+
 .mypage-img {
-  padding-left: 50px;
+  float: center;
 }
 
 .mypage-stats {
-  text-align: left;
+  text-align: center;
+  padding-top: 10px;
   letter-spacing: 1px;
 }
 

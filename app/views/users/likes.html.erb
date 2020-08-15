@@ -9,18 +9,24 @@
       <% @likes.each do |like| %>
       <% post = Post.find_by(id: like.post_id) %>
       <li id="post-<%= post.id %>">
-        <%= link_to gravatar_for(post.user, size: 50), post.user %>
+        <div class="likes-image">
+        <%= image_tag @user.image.thumb200.url, class: "info-circle"%>
+        </div>
+        <div class="likes-post">
         <span class="title"><%= link_to(post.title, "/posts/#{post.id}") %></span>
         <span class="content"><%= post.content %></span>
         <span class="timestamp">
           投稿者 <%= link_to post.user.name, post.user %>
           投稿日 <%= post.created_at.strftime('%Y/%m/%d %H:%M') %>
-          <%= link_to "いいね数", "#" %>
+          <% like = Like.where(post_id: post.id).count %>
+          <i class="fas fa-futbol"></i>
+          <%= like %>個
           <% if current_user?(post.user) %>
             <%= link_to "削除", post, method: :delete,
                                          data: { confirm: "本当ですか?" } %>
           <% end %>
-      <% end %>
+        <% end %>
+        </div>
       </ol>
   </div>
 </div>

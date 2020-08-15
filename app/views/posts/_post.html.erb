@@ -1,7 +1,11 @@
 <!-- 投稿一覧のフォーム -->
 <li id="post-<%= post.id %>">
-  <%= link_to gravatar_for(post.user, size: 50), post.user %>
+  <div class="feed-image">
+  <%= image_tag @user.image.thumb200.url, class: "feed-circle" %>
+  </div>
+  <div class="feed-title">
   <span class="title"><%= link_to(post.title, "/posts/#{post.id}") %></span>
+  </div>
   <div class="sidebar">
     <span>対象：<%= post.age_type %></span>
     <span>&nbsp;&nbsp;&nbsp;&nbsp;カテゴリー：<%= post.category %><br></span>
@@ -15,4 +19,8 @@
                                     data: { confirm: "You sure?" } %>
       <% end %>
   </div>
+  <span>
+    参考動画:
+    <iframe width="500" height="300" src="https://www.youtube.com/embed/<%= post.youtube_url%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </span>
 </li>

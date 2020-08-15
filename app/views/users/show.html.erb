@@ -4,15 +4,17 @@
     プロフィール
   </h2>
   <div class="row mypage-main">
-    <div class="col-md-6 mypage-img">
-      <%= image_tag @user.image.thumb200.url %>
+    <div class="mypage-info col-md-6 col-md-offset-3">
+    <div class="mypage-img">
+      <%= image_tag @user.image.thumb200.url, class: "circle" %>
     </div>
-    <div class="col-md-6 mypage-stats">
+    <div class="mypage-stats">
       ユーザー名:<%= current_user.name %><br>
       投稿数: <%= current_user.posts.count %><br>
       <%= icon("far", "futbol", class: "soccer-icon") %>
       チェック数:<%= @likes_count %><br>
       <%= render 'shared/stats' %>
+    </div>
     </div>
   </div>
   <div class="row mypage-content">

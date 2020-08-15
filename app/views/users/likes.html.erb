@@ -25,6 +25,10 @@
             <%= link_to "削除", post, method: :delete,
                                          data: { confirm: "本当ですか?" } %>
           <% end %>
+          <span>
+            <br>参考動画:
+            <iframe width="500" height="300" src="https://www.youtube.com/embed/<%= post.youtube_url%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </span>
         <% end %>
         </div>
       </ol>

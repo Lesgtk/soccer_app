@@ -5,19 +5,19 @@
       <%= f.label :対象年齢別 %>
       <%= icon("far", "futbol", class: "soccer-icon") %><br>
     </label>
-    <label>
+    <label class="check-age-type">
       <%= f.radio_button :age_type_eq, 1, class: "radio-btn" %>小学生
     </label>
-    <label>
+    <label class="check-age-type">
       <%= f.radio_button :age_type_eq, 2, class: "radio-btn" %>中学生
     </label>
-    <label>
+    <label class="check-age-type">
       <%= f.radio_button :age_type_eq, 3, class: "radio-btn" %>高校生
     </label>
-    <label>
+    <label class="check-age-type">
       <%= f.radio_button :age_type_eq, 4, class: "radio-btn" %>社会人
     </label>
-    <label>
+    <label class="check-age-type">
       <%= f.radio_button :age_type_eq, 5, class: "radio-btn" %>全対象
     </label>
       <%= button_tag :type => "submit", :class =>"search-radio-btn" do %>

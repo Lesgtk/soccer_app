@@ -7,9 +7,9 @@
   <span class="title"><%= link_to(post.title, "/posts/#{post.id}") %></span>
   </div>
   <div class="sidebar">
-    <span>対象：<%= post.age_type %></span>
+    <span>&nbsp;&nbsp;&nbsp;&nbsp;対象：<%= post.age_type %></span>
     <span>&nbsp;&nbsp;&nbsp;&nbsp;カテゴリー：<%= post.category %><br></span>
-      <%= link_to post.user.name, post.user %>
+      &nbsp;&nbsp;&nbsp;&nbsp;<%= link_to post.user.name, post.user %>
       <%= post.created_at.strftime('%Y/%m/%d %H:%M') %>
       <% like = Like.where(post_id: post.id).count %>
       <i class="fas fa-futbol"></i>

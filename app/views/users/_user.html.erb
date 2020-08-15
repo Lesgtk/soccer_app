@@ -1,7 +1,7 @@
 
   <li>
-    <%= image_tag current_user.image.thumb200.url, class: "circle" %>
-    <%= link_to user.name, user %>
+    <%= image_tag current_user.image.thumb200.url, class: "user-circle" %>
+    &nbsp;&nbsp;&nbsp;&nbsp;<%= link_to user.name, user %>
     <% if current_user.admin? && !current_user?(user) %>
       | <%= link_to "削除", user, method: :delete,
                        data: { confirm: "本当ですか?" } %>

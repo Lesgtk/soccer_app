@@ -19,8 +19,8 @@
                                     data: { confirm: "You sure?" } %>
       <% end %>
   </div>
-  <span>
+  <div class="youtube-frame">
     参考動画:
-    <iframe width="500" height="300" src="https://www.youtube.com/embed/<%= post.youtube_url%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-  </span>
+    <iframe src="https://www.youtube.com/embed/<%= post.youtube_url%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
 </li>

@@ -431,40 +431,53 @@ aside {
 }
 
 /* ポストフォーム */
-.header-title {
-  margin-top: 40px;
-  margin-bottom: 20px;
+.post-title {
+  margin-bottom: 2rem;
 }
 
 .post-btn {
-  margin-top: 30px;
-  margin-bottom: 15px;
+  margin-top: 1.5rem;
+  padding-bottom: 1rem;
 }
 
 .content-form {
-  height: 200px;
+  height: 15rem;
+  margin-bottom: 2rem;
+}
+
+.post-youtube-url {
+  margin-bottom: 1rem;
 }
 
 .age-type-label {
-  padding-right: 25px;
+  padding-right: 1rem;
 }
 
 .category-label {
-  padding-right: 25px;
+  padding-right: 1rem;
 }
 
 .age-type {
-  padding-top: 10px;
-  padding-left: 30px;
+  padding-top: 0.5rem;
+  padding-left: 1rem;
   background-color: white;
   border: 1px solid #bbb;
+  display: block;
+  @include sm {
+    display: inline;
+    margin-bottom: 1rem;
+  }
 }
 
 .category {
-  padding-top: 10px;
-  padding-left: 30px;
+  padding-top: 0.5rem;
+  padding-left: 1rem;
   background-color: white;
   border: 1px solid #bbb;
+  display: block;
+  @include sm {
+    display: inline;
+  }
 }
 
 

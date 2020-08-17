@@ -1,27 +1,46 @@
-<div class="search-age-type">
-  <%= search_form_for @q, url:search_path do |f| %>
-    <label　class="radio">
-      <%= icon("far", "futbol", class: "soccer-icon") %>
-      <%= f.label :対象年齢別 %>
-      <%= icon("far", "futbol", class: "soccer-icon") %><br>
-    </label>
-    <label class="check-age-type">
-      <%= f.radio_button :age_type_eq, 1, class: "radio-btn" %>小学生
-    </label>
-    <label class="check-age-type">
-      <%= f.radio_button :age_type_eq, 2, class: "radio-btn" %>中学生
-    </label>
-    <label class="check-age-type">
-      <%= f.radio_button :age_type_eq, 3, class: "radio-btn" %>高校生
-    </label>
-    <label class="check-age-type">
-      <%= f.radio_button :age_type_eq, 4, class: "radio-btn" %>社会人
-    </label>
-    <label class="check-age-type">
-      <%= f.radio_button :age_type_eq, 5, class: "radio-btn" %>全対象
-    </label>
-      <%= button_tag :type => "submit", :class =>"search-radio-btn" do %>
+<%= search_form_for @q, url:search_path do |f| %>
+  <fieldset class="form-group">
+    <div class="row">
+        <label class="search-title"><%= icon("far", "futbol", class: "soccer-icon") %>
+          対象年齢
+        </label>
+        <div class="col-sm-12">
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="age_type" id="gridRadios1" value="1">
+            <label class="form-check-label" for="gridRadios1">
+              小学生以下
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="age_type" id="gridRadios2" value="2">
+            <label class="form-check-label" for="gridRadios2">
+              中学生
+            </label>
+          </div>
+          <div class="form-check disabled">
+            <input class="form-check-input" type="radio" name="age_type" id="gridRadios3" value="3">
+            <label class="form-check-label" for="gridRadios3">
+              高校生
+            </label>
+          </div>
+          <div class="form-check disabled">
+            <input class="form-check-input" type="radio" name="age_type" id="gridRadios4" value="4">
+            <label class="form-check-label" for="gridRadios4">
+              社会人
+            </label>
+          </div>
+          <div class="form-check disabled">
+            <input class="form-check-input" type="radio" name="age_types" id="gridRadios5" value="5">
+            <label class="form-check-label" for="gridRadios5">
+              その他
+            </label>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+    <div class="search-radio-btn">
+      <%= button_tag :type => "submit", :class =>"btn btn-secondary" do %>
       対象別:検索<i class="fa fa-search"></i>
+    </div>
       <% end %>
   <% end %>
-</div>

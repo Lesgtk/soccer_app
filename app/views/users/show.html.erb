@@ -8,7 +8,7 @@
     <div class="mypage-info col-md-6 offset-md-3">
     <div class="mypage-img">
       <% if @user.image? %>
-          <%= image_tag @user.image.thumb200.url, class: "circle" %>
+          <%= image_tag @user.image.thumb50.url, class: "circle" %>
       <% else %>
           <%= image_tag "default.jpg", class: "circle" %>
       <% end %>

@@ -12,7 +12,7 @@
       <li id="post-<%= post.id %>">
         <div class="feed-image">
           <% if @user.image? %>
-              <%= image_tag @user.image.thumb200.url, class: "feed-circle" %>
+              <%= image_tag @user.image.thumb50.url, class: "feed-circle" %>
           <% else %>
               <%= image_tag "default.jpg", class: "feed-circle" %>
           <% end %>

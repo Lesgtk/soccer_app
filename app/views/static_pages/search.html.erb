@@ -1,23 +1,26 @@
-<div class="container search-result">
-  <%= render 'layouts/search' %>
+<div class="container">
   <div class="row">
-    <aside class="col-md-4">
-      <section class="user-area">
+    <%= render 'layouts/search' %>
+  </div>
+  <div class="row">
+    <div class="col-sm-12 col-md-4">
+      <div class="user-area">
         <%= render 'shared/user_info' %>
-      </section>
-      <section class="stats">
+      </div>
+      <div class="stats">
         <%= render 'shared/stats' %>
-      </section>
-      <section>
+      </div>
+      <div class="search-age-type">
         <%= render 'search-age-type' %>
-      </section>
-      <section>
+      </div>
+      <div class="search-category">
         <%= render 'search-category' %>
-      </section>
-    </aside>
-  <div class="main-feed col-md-8">
+      </div>
+    </div>
+  <div class="main-feed col-sm-12 col-md-8">
     <ol class="posts">
-      <h3>検索結果</h3>
+      <%= link_to "戻る", root_path, class: "btn btn-primary" %>
+      <div class="main-title">検索結果</div>
       <%= render @feed_items %>
       <%= link_to "戻る", root_path, class: "btn btn-primary" %>
     </ol>

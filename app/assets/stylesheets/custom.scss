@@ -254,8 +254,7 @@ footer {
 
 /* 検索画面 */
 .search-container {
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin: 1rem 1rem;
 }
 
 .search-row{
@@ -274,8 +273,6 @@ footer {
   }
 
   &-btn{
-  padding-top: 1rem;
-  padding-bottom: 1rem;
   cursor: pointer;
   border: none;
   background: #3879D9;
@@ -292,9 +289,7 @@ footer {
 /* ユーザーエリア */
 .user-area {
   background-color: white;
-  padding: 10px 10px;
-  margin-top: 20px;
-  margin-bottom: 0px;
+  padding: 1rem 1rem;
   border-bottom: 1px solid #e8e8e8;
 }
 
@@ -302,11 +297,11 @@ footer {
   background-color: white;
   overflow: auto;
   margin-top: 0;
-  padding: 0 10px;
+  margin-bottom: 2rem;
   a {
     float: left;
-    padding: 5px 15px;
-    border-left: 1px solid rgba(#808080,1.0);
+    padding: 1rem 1rem;
+    border-left: 1px solid rgba(#e8e8e8,1.0);
     color: gray;
     &:first-child {
       padding-left: 0;
@@ -358,6 +353,7 @@ aside {
   width: 50px;  /* 縦横を同じ値にする */
   height: 50px;  /* 縦横を同じ値にする */
   object-fit: cover;
+  border: 1px solid #e8e8e8;
 }
 
 .feed-circle {
@@ -366,6 +362,7 @@ aside {
   width: 50px;  /* 縦横を同じ値にする */
   height: 50px;  /* 縦横を同じ値にする */
   object-fit: cover; /* 縦横比固定したまま上2つの縦横の範囲内に収まるように配置する */
+  border: 1px solid #e8e8e8;
 }
 
 .circle {
@@ -373,6 +370,7 @@ aside {
   width: 150px;  /* 縦横を同じ値にする */
   height: 150px;  /* 縦横を同じ値にする */
   object-fit: cover; /* 縦横比固定したまま上2つの縦横の範囲内に収まるように配置する */
+  border: 1px solid #e8e8e8;
 }
 
 .user-circle {
@@ -381,6 +379,7 @@ aside {
   width: 100px;  /* 縦横を同じ値にする */
   height: 100px;  /* 縦横を同じ値にする */
   object-fit: cover; /* 縦横比固定したまま上2つの縦横の範囲内に収まるように配置する */
+  border: 1px solid #e8e8e8;
 }
 
 .image-edit {
@@ -409,34 +408,28 @@ aside {
 }
 
 /* 対象年齢別検索、カテゴリー別検索 */
+.search-title {
+  padding-top: 1rem;
+  padding-left: 2rem;
+}
+
 .search-age-type {
   background-color: white;
-  padding-bottom: 10px;
+  padding-bottom: 1rem;
+  margin-bottom: 2rem;
 }
 .search-category {
   background-color: white;
-  padding-bottom: 10px;
+  padding-bottom: 1rem;
+  margin-bottom: 2rem;
 }
 
 .search-radio-btn {
-  margin-top: 1rem;
   margin-left: 1rem;
-  padding: 1rem 1rem;
-  border-radius: 3px;
-  cursor: pointer;
-  letter-spacing: 1px;
-  border: none;
-  background: #3879D9;
-  color: #fff;
-  width: 13em;
 }
 
 /* 検索結果画面 */
-.search-result {
-}
-.back-btn {
 
-}
 
 /* ポストフォーム */
 .post-title {

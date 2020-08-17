@@ -1,18 +1,24 @@
 <% provide(:title, @post.title) %>
 <div class="container">
-  <div class="row post-row">
-      <%= link_to gravatar_for(@user, size: 30), @user, class: 'post-img' %>
+  <div class="row">
+    <div class="col-md-12 post-show-header">
+    <% if @user.image? %>
+        <%= image_tag @user.image.thumb50.url, class: "feed-circle" %>
+    <% else %>
+        <%= image_tag "default.jpg", class: "feed-circle" %>
+    <% end %>
       <%= @user.name %>
       <%= @post.created_at.strftime('%Y/%m/%d %H:%M') %>に更新
-    <div class="col-md-12">
-      <h2 class="post-show-title">
+    </div>
+    <div class="col-md-12 post-show-main">
+      <div class="post-show-title">
         <%= @post.title %>
-      </h2>
-      <div class="col-md-6 post-show-age-type">
+      </div>
+      <div class="post-show-age-type">
         対象年齢:
         <%= @post.age_type %>
       </div>
-      <div class="col-md-6 post-show-categorys">
+      <div class="post-show-categorys">
         カテゴリー:
         <%= @post.category %>
       </div>
@@ -21,15 +27,17 @@
         <%= @post.content %>
     </div>
     <div class="col-md-12 post-show-youtube">
-      <span>
+      <div class="youtube-frame">
         参考動画:
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/<%= @post.youtube_url%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      </span>
+        <iframe src="https://www.youtube.com/embed/<%= @post.youtube_url%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
     </div>
-    <div class="class="col-md-12">
+    <div class="col-md-12">
       <%= render 'like' %>
       <%= render 'sharering' %>
     </div>
+    <div class="col-md-12">
       <%= render 'comment' %>
+    </div>
   </div>
 </div>

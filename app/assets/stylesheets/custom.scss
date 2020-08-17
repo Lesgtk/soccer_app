@@ -262,14 +262,13 @@ footer {
   box-sizing: border-box;
   border: 2px solid #3879D9;
   display: block;
-  padding: 3px 10px;
   border-radius: 3px;
-  height: 2.3em;
+  height: 2em;
   width: 25em;
   overflow: hidden;
   &-input {
   border: none;
-  height: 2.0em;
+  height: 3.0em;
   }
 
   &-btn{
@@ -281,7 +280,7 @@ footer {
   width: 5em;
   height: 3.0em;
   right:0px;
-  top: -5px;
+  top: -10px;
   outline : none;
   }
 }
@@ -353,6 +352,15 @@ aside {
   width: 50px;  /* 縦横を同じ値にする */
   height: 50px;  /* 縦横を同じ値にする */
   object-fit: cover;
+  border: 1px solid #e8e8e8;
+}
+
+.comment-circle {
+  text-align: left;
+  border-radius: 50%;  /* 角丸半径を50%にする(=円形にする) */
+  width: 30px;  /* 縦横を同じ値にする */
+  height: 30px;  /* 縦横を同じ値にする */
+  object-fit: cover; /* 縦横比固定したまま上2つの縦横の範囲内に収まるように配置する */
   border: 1px solid #e8e8e8;
 }
 
@@ -568,11 +576,7 @@ aside {
 }
 
 /* 投稿詳細ページ */
-.post-show-container {
-  margin-bottom: 10px;
-}
-
-.post-row {
+.post-show-header {
   margin-top: 30px;
   background-color: white;
   padding-top: 20px;
@@ -580,24 +584,33 @@ aside {
 }
 
 .post-show-title {
-  padding: 20px 10px;
+  text-align: left;
+  font-size: 1.5rem;
+  padding: 1rem 0;
+  @include md {
+    font-size: 2.0rem;
+  }
+}
+
+.post-show-main {
+  background-color: white;
 }
 
 .post-show-content {
+  background-color: white;
   border-top: 1px solid #e8e8e8;
   border-bottom: 1px solid #e8e8e8;
   padding: 20px 10px;
 }
 
 .post-show-youtube {
-  margin-top: 30px;
-  margin-bottom: 30px;
+  background-color: white;
+  padding: 30px 0;
 }
 
 .post-show-like {
   background-color: white;
   text-align: left;
-  margin: 20px 20px;
 }
 
 .post-img {
@@ -610,12 +623,22 @@ aside {
 }
 
 .sharering {
+  padding-bottom: 1rem;
   border-bottom: 1px solid #bbb;
+}
+
+.line {
+  display: inline-block;
+}
+
+.line-it-button {
+  margin-top: 1rem;
 }
 
 /* コメント作成、一覧表 */
 .comment-row {
   text-align: left;
+  padding: 2rem 0;
 }
 
 .comment-title {

@@ -5,6 +5,10 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   process resize_to_fill: [1080, 1080, 'Center']
 
+  version :thumb30 do
+    process resize_to_fill: [30, 30, 'Center']
+  end
+
   version :thumb50 do
     process resize_to_fill: [50, 50, 'Center']
   end

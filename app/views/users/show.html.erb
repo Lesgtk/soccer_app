@@ -20,8 +20,10 @@
       チェック数:<%= @likes_count %><br>
       <%= render 'shared/stats' %>
     </div>
+    <div class="mypage-follow">
       <%= render 'follow_form' if logged_in? %>
     </div>
+  </div>
   </div>
   <div class="main-title">
     <%= icon("far", "futbol", class: "soccer-icon") %>

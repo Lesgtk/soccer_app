@@ -79,7 +79,7 @@ private
 
   # ゲストログインの制限
   def check_guest
-    if correct_user == 'example@railstutorial.org'
+    if correct_user == 'second@example.com'
       redirect_to root_path, alert: 'ゲストユーザー編集、削除できません。'
     end
   end

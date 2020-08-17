@@ -1,7 +1,7 @@
 <div class="main-title">コメント一覧</div>
     <% @comments.each do |c| %>
     <% if @user.image? %>
-        <%= image_tag @user.image.thumb30.url, class: "feed-circle" %>
+        <%= image_tag @user.image.thumb50.url, class: "feed-circle" %>
     <% else %>
         <%= image_tag "default.jpg", class: "comment-circle" %>
     <% end %>

@@ -7,6 +7,10 @@
 @mixin md { @media (min-width: 768px) { @content; } }
 @mixin lg { @media (min-width: 992px) { @content; } }
 
+.s {
+  display: inline;
+}
+
 /* 共通設定 */
 .main-title {
   text-align: center;
@@ -302,6 +306,9 @@ footer {
     padding: 1rem 1rem;
     border-left: 1px solid rgba(#e8e8e8,1.0);
     color: gray;
+    @include sm {
+      margin-left: 1.5rem;
+    }
     &:first-child {
       padding-left: 0;
       border: 0;
@@ -322,28 +329,28 @@ footer {
   padding-left: 50px;
 }
 
-
-aside {
-  section {
-    padding: 10px 0;
-    margin-top: 20px;
-    span {
-      display: block;
-      margin-bottom: 3px;
-    }
-    label {
-      margin-bottom: 3px;
-      font-weight: normal;
-    }
-    h1 {
-      font-size: 1.4em;
-      text-align: left;
-      letter-spacing: -1px;
-      margin-bottom: 3px;
-      margin-top: 0px;
-    }
-  }
-}
+//
+// aside {
+//   section {
+//     padding: 10px 0;
+//     margin-top: 20px;
+//     span {
+//       display: block;
+//       margin-bottom: 3px;
+//     }
+//     label {
+//       margin-bottom: 3px;
+//       font-weight: normal;
+//     }
+//     h1 {
+//       font-size: 1.4em;
+//       text-align: left;
+//       letter-spacing: -1px;
+//       margin-bottom: 3px;
+//       margin-top: 0px;
+//     }
+//   }
+// }
 
 /* プロフィール */
 .info-circle {
@@ -358,8 +365,8 @@ aside {
 .comment-circle {
   text-align: left;
   border-radius: 50%;  /* 角丸半径を50%にする(=円形にする) */
-  width: 30px;  /* 縦横を同じ値にする */
-  height: 30px;  /* 縦横を同じ値にする */
+  width: 50px;  /* 縦横を同じ値にする */
+  height: 50px;  /* 縦横を同じ値にする */
   object-fit: cover; /* 縦横比固定したまま上2つの縦横の範囲内に収まるように配置する */
   border: 1px solid #e8e8e8;
 }
@@ -432,7 +439,8 @@ aside {
   margin-bottom: 2rem;
 }
 
-.search-radio-btn {
+.search-btn {
+  margin-top: 1rem;
   margin-left: 1rem;
 }
 
@@ -575,6 +583,11 @@ aside {
   background-color: white;
 }
 
+.mypage-follow {
+  padding-top: 1rem;
+  padding-left: 1rem;
+}
+
 /* 投稿詳細ページ */
 .post-show-header {
   margin-top: 30px;
@@ -707,6 +720,11 @@ input {
   }
 }
 
+/* テストユーザー */
+.alert {
+    background-color: lightBlue;
+  }
+
 /* フォーム チェックボックス*/
 .checkbox {
   background-color: white;
@@ -757,11 +775,11 @@ input {
     display: block;
     margin-left: 60px;
   }
-  .gravatar {
-    float: left;
-    margin-right: 10px;
-    margin-top: 5px;
-  }
+  // .gravatar {
+  //   float: left;
+  //   margin-right: 10px;
+  //   margin-top: 5px;
+  // }
 }
 
 aside {
@@ -785,13 +803,13 @@ span.picture {
   padding: 1rem 1rem;
 }
 
-
-[type="radio"]:checked+span:after, [type="radio"].with-gap:checked+span:after {
-  background-color: #ffdc00!important;
-}
-[type="radio"]:checked+span:after, [type="radio"].with-gap:checked+span:before, [type="radio"].with-gap:checked+span:after {
-  border: 2px solid #ffdc00!important;
-}
+//
+// [type="radio"]:checked+span:after, [type="radio"].with-gap:checked+span:after {
+//   background-color: #ffdc00!important;
+// }
+// [type="radio"]:checked+span:after, [type="radio"].with-gap:checked+span:before, [type="radio"].with-gap:checked+span:after {
+//   border: 2px solid #ffdc00!important;
+// }
 
 /* 投稿、いいね順デザイン */
 

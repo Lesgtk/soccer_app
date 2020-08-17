@@ -7,9 +7,9 @@
   <div class="row mypage-content">
     <div class="mypage-feed col-md-8 offset-md-2">
       <ol class="posts">
-      <% @likes.each do |like| %>
-      <% post = Post.find_by(id: like.post_id) %>
-      <li id="post-<%= post.id %>">
+        <% @likes.each do |like| %>
+        <% post = Post.find_by(id: like.post_id) %>
+        <li id="post-<%= post.id %>">
         <div class="feed-image">
           <% if @user.image? %>
               <%= image_tag @user.image.thumb50.url, class: "feed-circle" %>
@@ -38,7 +38,7 @@
           <iframe src="https://www.youtube.com/embed/<%= post.youtube_url%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
         <% end %>
-        </div>
+        </li>
       </ol>
     </div>
   </div>

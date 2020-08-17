@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
   end
 
   def new_guest
-    user = User.find(1)
+    user = User.find(2)
     log_in user
     redirect_to root_path, notice: 'ゲストユーザーとしてログインしました'
   end

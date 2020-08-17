@@ -1,15 +1,19 @@
 <!-- 投稿一覧のフォーム -->
 <li id="post-<%= post.id %>">
   <div class="feed-image">
-  <%= image_tag @user.image.thumb200.url, class: "feed-circle" %>
+    <% if @user.image? %>
+        <%= image_tag @user.image.thumb200.url, class: "feed-circle" %>
+    <% else %>
+        <%= image_tag "default.jpg", class: "feed-circle" %>
+    <% end %>
   </div>
   <div class="feed-title">
-  <span class="title"><%= link_to(post.title, "/posts/#{post.id}") %></span>
+  <span class="title"><%= link_to(post.title, "/posts/#{post.id}", :style=>"color:black;") %></span>
   </div>
   <div class="sidebar">
     <span>&nbsp;&nbsp;&nbsp;&nbsp;対象：<%= post.age_type %></span>
     <span>&nbsp;&nbsp;&nbsp;&nbsp;カテゴリー：<%= post.category %><br></span>
-      &nbsp;&nbsp;&nbsp;&nbsp;<%= link_to post.user.name, post.user %>
+      &nbsp;&nbsp;&nbsp;&nbsp;<%= link_to post.user.name, post.user, :style=>"color: #808080;" %>
       <%= post.created_at.strftime('%Y/%m/%d %H:%M') %>
       <% like = Like.where(post_id: post.id).count %>
       <i class="fas fa-futbol"></i>

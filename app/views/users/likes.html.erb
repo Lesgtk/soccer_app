@@ -1,36 +1,45 @@
 <!-- いいね一覧ページ -->
 <div class="container">
-  <div class="row likes-post">
-      <h2>
-        <%= icon("far", "futbol", class: "soccer-icon") %>
-        チェック一覧
-      </h2>
+  <div class="main-title">
+    <%= icon("far", "futbol", class: "soccer-icon") %>
+    チェック一覧
+  </div>
+  <div class="row mypage-content">
+    <div class="mypage-feed col-md-8 offset-md-2">
       <ol class="posts">
       <% @likes.each do |like| %>
       <% post = Post.find_by(id: like.post_id) %>
       <li id="post-<%= post.id %>">
-        <div class="likes-image">
-        <%= image_tag @user.image.thumb200.url, class: "info-circle"%>
-        </div>
-        <div class="likes-post">
-        <span class="title"><%= link_to(post.title, "/posts/#{post.id}") %></span>
-        <span class="content"><%= post.content %></span>
-        <span class="timestamp">
-          投稿者 <%= link_to post.user.name, post.user %>
-          投稿日 <%= post.created_at.strftime('%Y/%m/%d %H:%M') %>
-          <% like = Like.where(post_id: post.id).count %>
-          <i class="fas fa-futbol"></i>
-          <%= like %>個
-          <% if current_user?(post.user) %>
-            <%= link_to "削除", post, method: :delete,
-                                         data: { confirm: "本当ですか?" } %>
+        <div class="feed-image">
+          <% if @user.image? %>
+              <%= image_tag @user.image.thumb200.url, class: "feed-circle" %>
+          <% else %>
+              <%= image_tag "default.jpg", class: "feed-circle" %>
           <% end %>
-          <span>
-            <br>参考動画:
-            <iframe width="500" height="300" src="https://www.youtube.com/embed/<%= post.youtube_url%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-          </span>
+        </div>
+        <div class="feed-title">
+        <span class="title"><%= link_to(post.title, "/posts/#{post.id}", :style=>"color:black;") %></span>
+        </div>
+        <div class="sidebar">
+          <span>&nbsp;&nbsp;&nbsp;&nbsp;対象：<%= post.age_type %></span>
+          <span>&nbsp;&nbsp;&nbsp;&nbsp;カテゴリー：<%= post.category %><br></span>
+            &nbsp;&nbsp;&nbsp;&nbsp;<%= link_to post.user.name, post.user, :style=>"color: #808080;" %>
+            <%= post.created_at.strftime('%Y/%m/%d %H:%M') %>
+            <% like = Like.where(post_id: post.id).count %>
+            <i class="fas fa-futbol"></i>
+            <%= like %>個
+            <% if current_user?(post.user) %>
+              <%= link_to "削除", post, method: :delete,
+                                          data: { confirm: "You sure?" } %>
+            <% end %>
+        </div>
+        <div class="youtube-frame">
+          参考動画:
+          <iframe src="https://www.youtube.com/embed/<%= post.youtube_url%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
         <% end %>
         </div>
       </ol>
+    </div>
   </div>
 </div>

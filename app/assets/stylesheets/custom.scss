@@ -30,6 +30,14 @@ iframe {
   margin: 0.7rem 0;
 }
 
+.nav-link {
+  color: black;
+}
+
+.post-link {
+  color: #808080;
+}
+
 /* 本文画面設定 */
 .main-content {
   background-color: #F5F5F5;
@@ -484,7 +492,7 @@ aside {
 /* ユーザー一覧ページ */
 
 .users-row {
-  margin-bottom: 30px;
+  padding-bottom: 30px;
 }
 
 .users {
@@ -516,6 +524,10 @@ aside {
 }
 
 /* フォロー、フォロワー一覧画面 */
+.stats-link {
+  color: black;
+}
+
 .show-follow-title {
   text-align: center;
 }
@@ -750,16 +762,11 @@ span.picture {
   }
 }
 
-/* ラジオボタン */
-.radio{
-  margin-top: 30px;
-  .radio_col{
-    border-bottom: 1px solid #9e9e9e;
-    padding-bottom: 10px;
-    .list{
-      font-size: 20px;
-    }
-  }
+/* チェックボックスデザイン */
+.checkbox-row {
+  background-color: white;
+  border: 1px solid #C0C0C0;
+  padding: 1rem 1rem;
 }
 
 

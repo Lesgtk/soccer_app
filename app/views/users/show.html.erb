@@ -7,15 +7,20 @@
   <div class="row mypage-main">
     <div class="mypage-info col-md-6 offset-md-3">
     <div class="mypage-img">
-      <%= image_tag @user.image.thumb200.url, class: "circle" %>
+      <% if @user.image? %>
+          <%= image_tag @user.image.thumb200.url, class: "circle" %>
+      <% else %>
+          <%= image_tag "default.jpg", class: "circle" %>
+      <% end %>
     </div>
     <div class="d-inline-block mypage-stats">
-      ユーザー名:<%= current_user.name %><br>
-      投稿数: <%= current_user.posts.count %><br>
+      ユーザー名:<%= @user.name %><br>
+      投稿数: <%= @user.posts.count %><br>
       <%= icon("far", "futbol", class: "soccer-icon") %>
       チェック数:<%= @likes_count %><br>
       <%= render 'shared/stats' %>
     </div>
+      <%= render 'follow_form' if logged_in? %>
     </div>
   </div>
   <div class="main-title">
@@ -25,7 +30,6 @@
   </div>
   <div class="row mypage-content">
     <div class="mypage-feed col-md-8 offset-md-2">
-      <%= render 'follow_form' if logged_in? %>
       <% if @user.posts.any? %>
       <ol class="posts">
         <%= render @posts %>

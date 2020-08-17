@@ -1,9 +1,14 @@
 
   <li>
-    <%= image_tag current_user.image.thumb200.url, class: "user-circle" %>
-    &nbsp;&nbsp;&nbsp;&nbsp;<%= link_to user.name, user %>
+    <% if user.image? %>
+        <%= image_tag user.image.thumb200.url, class: "feed-circle" %>
+    <% else %>
+        <%= image_tag "default.jpg", class: "feed-circle" %>
+    <% end %>
+    &nbsp;&nbsp;&nbsp;&nbsp;<%= link_to user.name, user, :style=>"color:black;" %>
     <% if current_user.admin? && !current_user?(user) %>
       | <%= link_to "削除", user, method: :delete,
-                       data: { confirm: "本当ですか?" } %>
+                       data: { confirm: "本当ですか?" }, :style=>"color:black;" %>
+
     <% end %>
   </li>

@@ -1,7 +1,6 @@
 <% provide(:title, @title) %>
 <div class="container show-follow-container">
-  <div class="row show-follow-title">
-  <h2>
+  <div class="main-title">
     <%= icon("far", "futbol", class: "soccer-icon") %>
     <% if @title == "Followers" %>
       フォロワー
@@ -9,18 +8,17 @@
       フォロー
     <% end %>
     <%= icon("far", "futbol", class: "soccer-icon") %>
-  </h2>
   </div>
   <div class="row">
-    <aside class="col-md-4">
-      <section class="user-area">
+    <div class="col-sm-12 col-md-4">
+      <div class="user-area">
         <%= render 'shared/user_info' %>
-      </section>
-      <section class="stats">
+      </div>
+      <div class="stats">
         <%= render 'shared/stats' %>
-      </section>
-    </aside>
-    <div class="main-feed col-md-8">
+      </div>
+    </div>
+    <div class="main-feed col-sm-12 col-md-8">
       <ol class="posts">
       <% if @users.any? %>
         <ul class="users follow">

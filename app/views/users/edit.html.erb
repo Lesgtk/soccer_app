@@ -1,14 +1,37 @@
 <% provide(:title, "Edit user") %>
 <div class="container">
-  <h2 class="account-title">プロフィール設定変更</h2>
+  <div class="main-title">プロフィール設定変更</div>
 
   <div class="row">
-    <div class="col-md-6 col-md-offset-3 account-content">
-      <div class="gravatar_edit">
-        <%= gravatar_for @user %>
-        <a href="http://gravatar.com/emails" target="_blank" rel="noopener">画像編集</a>
-      </div>
-      <%= render 'form' %>
+    <div class="col-md-6 offset-md-3 account-content">
+      <div class="image-edit">
+        <%= form_for(@user) do |f| %>
+        <%= render 'shared/error_messages', object: f.object %>
+        <% if @user.image? %>
+            <%= image_tag @user.image.thumb200.url, class: "circle" %>
+        <% else %>
+            <%= image_tag "/assets/images/default.jpg", :size => '50x50' %>
+        <% end %>
+          <button type="button" class="btn">
+            <%= f.file_field :image, accept: 'image/jpeg,image/gif,image/png' %>
+          </button><br><br>
+
+        <%= f.label :name, "ユーザー名" %>
+        <%= f.text_field :name, class: 'form-control' %>
+
+        <%= f.label :email, "メールアドレス" %>
+        <%= f.email_field :email, class: 'form-control' %>
+
+        <%= f.label :password, "パスワード(6文字以上)" %>
+        <%= f.password_field :password, class: 'form-control' %>
+
+        <%= f.label :password_confirmation, "パスワード(確認用)" %>
+        <%= f.password_field :password_confirmation, class: 'form-control' %>
+
+        <div class="mb-3">
+        <%= f.submit "登録する", class: "btn btn-primary" %>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>

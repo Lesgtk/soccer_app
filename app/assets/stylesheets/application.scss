@@ -12,7 +12,12 @@
  *
  *= require_tree .
  *= require_self
+
  */
+
+ // Custom bootstrap variables must be set or imported *before* bootstrap.
+@import "custom";
+@import "bootstrap";
  /*ページネーション自体のデザイン*/
  .pagination>li>a {
    border: none;     /*枠線をなくす*/

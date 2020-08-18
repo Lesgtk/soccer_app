@@ -10,9 +10,9 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = User.find_by(id: params[:id])
     @posts = @user.posts
-  end
+    end
 
   def new
     @user = User.new
@@ -72,14 +72,14 @@ private
 
   # 下記以外を許可しない
   def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation)
+    params.require(:user).permit(:name, :email, :password, :password_confirmation, :image)
   end
 
   # beforeアクション
 
   # ゲストログインの制限
   def check_guest
-    if correct_user == 'example@railstutorial.org'
+    if correct_user == 'second@example.com'
       redirect_to root_path, alert: 'ゲストユーザー編集、削除できません。'
     end
   end

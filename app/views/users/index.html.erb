@@ -1,10 +1,12 @@
 <% provide(:title, 'All users') %>
 <div class="container">
-  <h2>ユーザー一覧</h2>
+  <div class="main-title">ユーザー一覧</div>
   <div class="row users-row">
-    <ul class="users">
-      <%= render @users %>
-    </ul>
-      <%= paginate @users %>
+    <div class="col-md-6 offset-md-3">
+      <ul class="users">
+        <%= render @users %>
+      </ul>
+        <%= paginate @users %>
+    </div>
   </div>
 </div>

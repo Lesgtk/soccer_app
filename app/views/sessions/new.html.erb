@@ -1,11 +1,10 @@
 <% provide(:title, "Log in") %>
-<div class="container">
-  <div class="row form-title">
-    <h2>ログイン</h2>
+<div class="container form-container">
+  <div class="main-title form-title">
+    ログイン
   </div>
-
-  <div class="row">
-    <div class="col-md-6 col-md-offset-3 form-content">
+<div class="row">
+  <div class="col-md-6 offset-md-3 form-content">
       <%= form_for(:session, url: login_path) do |f| %>
 
       <div class="form-group">
@@ -25,9 +24,9 @@
       <% end %>
 
       <div class="mb-3">
-      <%= f.submit "ログインする", class: "btn btn-primary" %>
+      <%= f.submit "ログイン", class: "btn btn-primary" %>
       </div>
-      <div class="mb-3">
+      <div class="mb-4 guest-btn">
       <%= link_to "ゲストログイン(閲覧用)", guest_sign_in_path ,class: "btn btn-warning", method: :post  %>
       </div>
     </div>

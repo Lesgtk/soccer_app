@@ -1,25 +1,38 @@
 <% provide(:title, @user.name) %>
-<div class="container mypage-title">
-  <h2>
+<div class="container">
+  <div class="main-title">
     プロフィール
-  </h2>
-  <div class="row">
-    <aside class="col-md-4">
-      <section class="user-area">
-        <%= render 'shared/user_info' %>
-      </section>
-      <section class="stats">
-        <%= render 'shared/stats' %>
-      </section>
-    </aside>
-    <div class="main-feed col-md-8">
+  </div>
+
+  <div class="row mypage-main">
+    <div class="mypage-info col-md-6 offset-md-3">
+    <div class="mypage-img">
+      <% if @user.image? %>
+          <%= image_tag @user.image.thumb50.url, class: "circle" %>
+      <% else %>
+          <%= image_tag "default.jpg", class: "circle" %>
+      <% end %>
+    </div>
+    <div class="d-inline-block mypage-stats">
+      ユーザー名:<%= @user.name %><br>
+      投稿数: <%= @user.posts.count %><br>
+      <%= icon("far", "futbol", class: "soccer-icon") %>
+      チェック数:<%= @likes_count %><br>
+      <%= render 'shared/stats' %>
+    </div>
+    <div class="mypage-follow">
       <%= render 'follow_form' if logged_in? %>
+    </div>
+  </div>
+  </div>
+  <div class="main-title">
+    <%= icon("far", "futbol", class: "soccer-icon") %>
+    投稿
+    <%= icon("far", "futbol", class: "soccer-icon") %>
+  </div>
+  <div class="row mypage-content">
+    <div class="mypage-feed col-md-8 offset-md-2">
       <% if @user.posts.any? %>
-      <h3>
-        <%= icon("far", "futbol", class: "soccer-icon") %>
-        投稿数
-        <%= icon("far", "futbol", class: "soccer-icon") %>
-      </h3>
       <ol class="posts">
         <%= render @posts %>
       </ol>

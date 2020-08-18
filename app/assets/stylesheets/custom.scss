@@ -1,7 +1,46 @@
-@import "bootstrap-sprockets";
 @import "bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+
+/* ブレイクポイントを定義 */
+@mixin sm { @media (min-width: 576px) { @content; } }
+@mixin md { @media (min-width: 768px) { @content; } }
+@mixin lg { @media (min-width: 992px) { @content; } }
+
+.s {
+  display: inline;
+}
+
+/* 共通設定 */
+.main-title {
+  text-align: center;
+  font-size: 1.5rem;
+  padding: 1rem 0;
+  @include md {
+    font-size: 2.0rem;
+  }
+}
+
+iframe {
+  width: 400px;
+  height: 250px;
+  @include lg {
+    width: 500px;
+    height: 300px;
+  }
+}
+
+.youtube-frame {
+  margin: 0.7rem 0;
+}
+
+.nav-link {
+  color: black;
+}
+
+.post-link {
+  color: #808080;
+}
 
 /* 本文画面設定 */
 .main-content {
@@ -11,7 +50,7 @@
 /* ホーム画面(未登録) */
 
 .center {
-  background-image:url(image-path('about.png'));
+  background-image:url(image-path('top.png'));
   background-size: cover;
   background-position: center;
   min-height: calc(100vh - 100px);
@@ -24,23 +63,29 @@
   color: #fff;
   text-align: center;
   position: relative;
-  font-size: 5rem;
+  font-size: 2.5rem;
   background: rgba(0, 0, 0, .4);
   padding: 2rem;
+  @include md {
+    font-size: 4.5rem;
+  }
 }
 
 .copy {
   color: #fff;
   text-align: center;
   background: rgba(0, 0, 0, .4);
-  padding: 3rem 0;
-  font-size: 2rem;
-  margin-top: 22rem;
+  padding: 2rem 0;
+  font-size: 1.0rem;
+  margin-top: 7rem;
+  @include md {
+    font-size: 1.2em;
+  }
 }
 
 .topbtn {
   position: absolute;
-  bottom: 6rem;
+  bottom: 5rem;
   left: 50%;
   width: 100%;
   transform: translateX(-50%);
@@ -49,8 +94,12 @@
     color: #fff;
     background: rgba(0, 0, 0, .3);
     border: 1px solid #fff;
-    padding: 1.5rem 2rem;
-    font-size: 1.5rem;
+    padding: 0.8rem 0.5rem;
+    font-size: 0.8rem;
+    @include md {
+      padding: 1rem 0.8rem;
+      font-size: 1.1rem;
+    }
   }
   .topbtn__item + .topbtn__item {
     margin-left: 1.5rem;
@@ -60,12 +109,11 @@
 /* about画面 */
 
 .about {
-  background-image:url(image-path('top2.png'));
+  background-image:url(image-path('about.png'));
   background-size: cover;
   background-position: center;
   min-height: calc(100vh - 100px);
   width: 100%;
-  padding-top: 4rem;
   position: relative;
 }
 
@@ -73,52 +121,55 @@
   color: #fff;
   text-align: center;
   position: relative;
-  font-size: 5rem;
+  font-size: 2.5rem;
   padding: 2rem;
+  @include md {
+    font-size: 4.5rem;
+  }
 }
 
 .about-copy {
   color: #fff;
   text-align: center;
   background: rgba(0, 0, 0, .5);
-  padding: 2rem 0;
-  font-size: 2rem;
-  margin-top: 10rem;
+  padding: 2rem 0.2rem;
+  font-size: 0.8rem;
+  margin-top: 7rem;
+  @include md {
+    font-size: 1.2rem;
+    padding: 2rem 0;
+  }
 }
 
 /* 新規登録画面 */
-.sign-up-title {
-  text-align: center;
-}
-
 .sign-up-content {
   background-color: white;
-  padding: 30px 20px;
-  margin-bottom: 40px;
-}
-
-.form-control {
-  margin-bottom: 30px;
+  padding: 1rem 1rem;
+  margin-bottom: 1rem;
 }
 
 /* ログイン画面 */
-.form-title {
-  text-align: center;
+.form-container {
+  padding-bottom: 3rem;
 }
 
 .form-content {
+  width: 30rem;
   background-color: white;
   padding: 30px 20px;
-  margin-bottom: 150px;
 }
 
 .form-control {
   margin-bottom: 30px;
+}
+
+.guest-btn {
+  margin-top: 3rem;
 }
 
 /* mixins, variables, etc. */
 
-$gray-medium-light: #eaeaea;
+$gray-medium-light: #808080;
 
 @mixin box_sizing {
   -moz-box-sizing:    border-box;
@@ -129,7 +180,7 @@ $gray-medium-light: #eaeaea;
 /* universal */
 
 body {
-  padding-top: 50px;
+  padding-top: 0px;
 }
 
 section {
@@ -140,65 +191,42 @@ textarea {
   resize: vertical;
 }
 
-
-/* typography */
-
-// h1, h2, h3, h4, h5, h6 {
-//   line-height: 1;
-// }
-//
-// h1 {
-//   font-size: 3em;
-//   letter-spacing: -2px;
-//   margin-bottom: 30px;
-//   text-align: center;
-// }
-
-// h2 {
-//   font-size: 1.2em;
-//   letter-spacing: -1px;
-//   margin-bottom: 30px;
-//   text-align: center;
-//   font-weight: normal;
-//   color: $gray-light;
-// }
-
-p {
-  font-size: 1.1em;
-  line-height: 1.7em;
-}
-
-
 /* ヘッダー */
 
 #logo {
   float: left;
-  margin-left: 15px;
   margin-right: 10px;
-  font-size: 1.5em;
+  font-size: 1.0em;
   color: white;
   text-transform: uppercase;
   letter-spacing: -1px;
-  padding-top: 9px;
   font-weight: bold;
+  @include md {
+    font-size: 1.5em;
+  }
   &:hover {
     color: white;
     text-decoration: none;
   }
 }
 
-#navbar {
-  margin-right: 10px;
-}
-
 /* フッター */
 
 footer {
   padding-top: 10px;
-  padding-bottom: 10px;
+  padding-bottom: 15px;
   color: white;
   text-align: center;
   background-color: #000;
+}
+
+.footer-item {
+  font-size: 0.8em;
+  line-height: 1.7em;
+  @include md {
+    font-size: 1.1em;
+    line-height: 1.7em;
+  }
 }
 
 /* ログイン画面、パスワード再設定メール送信画面、パスワード再設定画面 */
@@ -209,6 +237,10 @@ footer {
 }
 
 /* 投稿一覧の表示*/
+.feed-image {
+  float: left;
+}
+
 .main-feed {
   padding-top: 10px;
   background-color: white;
@@ -220,14 +252,13 @@ footer {
   padding-bottom: 5px;
 }
 .sidebar {
-  color: $gray-light;
+  color: rgba(#808080,1.0);
   font-size: 12px;
 }
 
 /* 検索画面 */
 .search-container {
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin: 1rem 1rem;
 }
 
 .search-row{
@@ -235,19 +266,16 @@ footer {
   box-sizing: border-box;
   border: 2px solid #3879D9;
   display: block;
-  padding: 3px 10px;
   border-radius: 3px;
-  height: 2.3em;
+  height: 2em;
   width: 25em;
   overflow: hidden;
   &-input {
   border: none;
-  height: 2.0em;
+  height: 3.0em;
   }
 
   &-btn{
-  padding-top: 1rem;
-  padding-bottom: 1rem;
   cursor: pointer;
   border: none;
   background: #3879D9;
@@ -256,7 +284,7 @@ footer {
   width: 5em;
   height: 3.0em;
   right:0px;
-  top: -5px;
+  top: -10px;
   outline : none;
   }
 }
@@ -264,9 +292,7 @@ footer {
 /* ユーザーエリア */
 .user-area {
   background-color: white;
-  padding: 10px 10px;
-  margin-top: 20px;
-  margin-bottom: 0px;
+  padding: 1rem 1rem;
   border-bottom: 1px solid #e8e8e8;
 }
 
@@ -274,12 +300,15 @@ footer {
   background-color: white;
   overflow: auto;
   margin-top: 0;
-  padding: 0 10px;
+  margin-bottom: 2rem;
   a {
     float: left;
-    padding: 5px 15px;
-    border-left: 1px solid $gray-lighter;
+    padding: 1rem 1rem;
+    border-left: 1px solid rgba(#e8e8e8,1.0);
     color: gray;
+    @include sm {
+      margin-left: 1.5rem;
+    }
     &:first-child {
       padding-left: 0;
       border: 0;
@@ -289,44 +318,93 @@ footer {
       color: blue;
     }
   }
-  strong {
-    display: block;
-  }
 }
 
-/* user show sidebar */
-
-aside {
-  section {
-    padding: 10px 0;
-    margin-top: 20px;
-    span {
-      display: block;
-      margin-bottom: 3px;
-      line-height: 1;
-    }
-    label {
-      margin-bottom: 3px;
-      line-height: 1;
-    }
-    h1 {
-      font-size: 1.4em;
-      text-align: left;
-      letter-spacing: -1px;
-      margin-bottom: 3px;
-      margin-top: 0px;
-    }
-  }
-}
-
-
-.gravatar {
+/* ホーム画面プロフィール画面 */
+.info-image {
   float: left;
   margin-right: 10px;
 }
+.info-content {
+  padding-left: 50px;
+}
 
-.gravatar_edit {
+//
+// aside {
+//   section {
+//     padding: 10px 0;
+//     margin-top: 20px;
+//     span {
+//       display: block;
+//       margin-bottom: 3px;
+//     }
+//     label {
+//       margin-bottom: 3px;
+//       font-weight: normal;
+//     }
+//     h1 {
+//       font-size: 1.4em;
+//       text-align: left;
+//       letter-spacing: -1px;
+//       margin-bottom: 3px;
+//       margin-top: 0px;
+//     }
+//   }
+// }
+
+/* プロフィール */
+.info-circle {
+  text-align: left;
+  border-radius: 50%;  /* 角丸半径を50%にする(=円形にする) */
+  width: 50px;  /* 縦横を同じ値にする */
+  height: 50px;  /* 縦横を同じ値にする */
+  object-fit: cover;
+  border: 1px solid #e8e8e8;
+}
+
+.comment-circle {
+  text-align: left;
+  border-radius: 50%;  /* 角丸半径を50%にする(=円形にする) */
+  width: 50px;  /* 縦横を同じ値にする */
+  height: 50px;  /* 縦横を同じ値にする */
+  object-fit: cover; /* 縦横比固定したまま上2つの縦横の範囲内に収まるように配置する */
+  border: 1px solid #e8e8e8;
+}
+
+.feed-circle {
+  text-align: left;
+  border-radius: 50%;  /* 角丸半径を50%にする(=円形にする) */
+  width: 50px;  /* 縦横を同じ値にする */
+  height: 50px;  /* 縦横を同じ値にする */
+  object-fit: cover; /* 縦横比固定したまま上2つの縦横の範囲内に収まるように配置する */
+  border: 1px solid #e8e8e8;
+}
+
+.circle {
+  border-radius: 50%;  /* 角丸半径を50%にする(=円形にする) */
+  width: 150px;  /* 縦横を同じ値にする */
+  height: 150px;  /* 縦横を同じ値にする */
+  object-fit: cover; /* 縦横比固定したまま上2つの縦横の範囲内に収まるように配置する */
+  border: 1px solid #e8e8e8;
+}
+
+.user-circle {
+  text-align: left;
+  border-radius: 50%;  /* 角丸半径を50%にする(=円形にする) */
+  width: 100px;  /* 縦横を同じ値にする */
+  height: 100px;  /* 縦横を同じ値にする */
+  object-fit: cover; /* 縦横比固定したまま上2つの縦横の範囲内に収まるように配置する */
+  border: 1px solid #e8e8e8;
+}
+
+.image-edit {
   margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.img-btn {
+  margin-top:20px;
+  width: 200px;
 }
 
 .user_avatars {
@@ -345,77 +423,85 @@ aside {
 }
 
 /* 対象年齢別検索、カテゴリー別検索 */
+.search-title {
+  padding-top: 1rem;
+  padding-left: 2rem;
+}
+
 .search-age-type {
   background-color: white;
-  padding-bottom: 10px;
+  padding-bottom: 1rem;
+  margin-bottom: 2rem;
 }
 .search-category {
   background-color: white;
-  padding-bottom: 10px;
+  padding-bottom: 1rem;
+  margin-bottom: 2rem;
 }
 
-.search-radio-btn {
+.search-btn {
   margin-top: 1rem;
   margin-left: 1rem;
-  padding: 1rem 1rem;
-  border-radius: 3px;
-  cursor: pointer;
-  letter-spacing: 1px;
-  border: none;
-  background: #3879D9;
-  color: #fff;
-  width: 13em;
 }
 
 /* 検索結果画面 */
-.search-result {
-}
-.back-btn {
 
-}
 
 /* ポストフォーム */
-.header-title {
-  margin-top: 40px;
-  margin-bottom: 20px;
+.post-title {
+  margin-bottom: 2rem;
 }
 
 .post-btn {
-  margin-top: 30px;
-  margin-bottom: 15px;
+  margin-top: 1.5rem;
+  padding-bottom: 1rem;
 }
 
 .content-form {
-  height: 200px;
+  height: 15rem;
+  margin-bottom: 2rem;
+}
+
+.post-youtube-url {
+  margin-bottom: 1rem;
 }
 
 .age-type-label {
-  padding-right: 25px;
+  padding-right: 1rem;
 }
 
 .category-label {
-  padding-right: 25px;
+  padding-right: 1rem;
 }
 
 .age-type {
-  padding-top: 10px;
-  padding-left: 30px;
+  padding-top: 0.5rem;
+  padding-left: 1rem;
   background-color: white;
   border: 1px solid #bbb;
+  display: block;
+  @include sm {
+    display: inline;
+    margin-bottom: 1rem;
+  }
 }
 
 .category {
-  padding-top: 10px;
-  padding-left: 30px;
+  padding-top: 0.5rem;
+  padding-left: 1rem;
   background-color: white;
   border: 1px solid #bbb;
+  display: block;
+  @include sm {
+    display: inline;
+  }
 }
 
 
 /* ユーザー一覧ページ */
 
 .users-row {
-  margin-bottom: 30px;
+  padding-bottom: 30px;
 }
 
 .users {
@@ -425,11 +511,19 @@ aside {
   li {
     overflow: auto;
     padding: 10px 0;
-    border-bottom: 1px solid $gray-lighter;
+    border-bottom: 1px solid rgba(#EEEEEE,1.0);
   }
 }
 
 /* チェック一覧ページ */
+.likes-image {
+  float: left;
+}
+
+.likes-post {
+  text-align: left;
+}
+
 .likes-post {
   margin-bottom: 30px;
 }
@@ -439,6 +533,10 @@ aside {
 }
 
 /* フォロー、フォロワー一覧画面 */
+.stats-link {
+  color: black;
+}
+
 .show-follow-title {
   text-align: center;
 }
@@ -449,16 +547,49 @@ aside {
 }
 
 /* プロフィール画面 */
-.mypage-title {
-  text-align: center;;
+.mypage-main {
+  margin: 20px 0;
+}
+
+.mypage-info {
+  background-color: white;
+  padding: 10px 0;
+}
+
+.mypage-img {
+  display: block;
+  text-align: center;
+  @include lg {
+    display: inline;
+  }
+}
+
+.mypage-stats {
+  padding: 1rem 1rem;
+  line-height: 1.5rem;
+  letter-spacing: 1px;
+  display: block;
+  @include lg {
+    display: inline;
+  }
+}
+
+.mypage-content {
+  padding-bottom: 2rem;
+}
+
+.mypage-feed {
+  padding-top: 10px;
+  background-color: white;
+}
+
+.mypage-follow {
+  padding-top: 1rem;
+  padding-left: 1rem;
 }
 
 /* 投稿詳細ページ */
-.post-show-container {
-  margin-bottom: 10px;
-}
-
-.post-row {
+.post-show-header {
   margin-top: 30px;
   background-color: white;
   padding-top: 20px;
@@ -466,24 +597,33 @@ aside {
 }
 
 .post-show-title {
-  padding: 20px 10px;
+  text-align: left;
+  font-size: 1.5rem;
+  padding: 1rem 0;
+  @include md {
+    font-size: 2.0rem;
+  }
+}
+
+.post-show-main {
+  background-color: white;
 }
 
 .post-show-content {
+  background-color: white;
   border-top: 1px solid #e8e8e8;
   border-bottom: 1px solid #e8e8e8;
   padding: 20px 10px;
 }
 
 .post-show-youtube {
-  margin-top: 30px;
-  margin-bottom: 30px;
+  background-color: white;
+  padding: 30px 0;
 }
 
 .post-show-like {
   background-color: white;
   text-align: left;
-  margin: 20px 20px;
 }
 
 .post-img {
@@ -496,12 +636,22 @@ aside {
 }
 
 .sharering {
+  padding-bottom: 1rem;
   border-bottom: 1px solid #bbb;
+}
+
+.line {
+  display: inline-block;
+}
+
+.line-it-button {
+  margin-top: 1rem;
 }
 
 /* コメント作成、一覧表 */
 .comment-row {
   text-align: left;
+  padding: 2rem 0;
 }
 
 .comment-title {
@@ -564,11 +714,16 @@ input {
 }
 
 .field_with_errors {
-  @extend .has-error;
+  // @extend .has-error;
   .form-control {
-    color: $state-danger-text;
+    // color: $state-danger-text;
   }
 }
+
+/* テストユーザー */
+.alert {
+    background-color: lightBlue;
+  }
 
 /* フォーム チェックボックス*/
 .checkbox {
@@ -616,15 +771,15 @@ input {
     }
   }
   .timestamp {
-    color: $gray-light;
+    color: rgba(#808080,1.0);
     display: block;
     margin-left: 60px;
   }
-  .gravatar {
-    float: left;
-    margin-right: 10px;
-    margin-top: 5px;
-  }
+  // .gravatar {
+  //   float: left;
+  //   margin-right: 10px;
+  //   margin-top: 5px;
+  // }
 }
 
 aside {
@@ -641,25 +796,20 @@ span.picture {
   }
 }
 
-/* ラジオボタン */
-.radio{
-  margin-top: 30px;
-  .radio_col{
-    border-bottom: 1px solid #9e9e9e;
-    padding-bottom: 10px;
-    .list{
-      font-size: 20px;
-    }
-  }
+/* チェックボックスデザイン */
+.checkbox-row {
+  background-color: white;
+  border: 1px solid #C0C0C0;
+  padding: 1rem 1rem;
 }
 
-
-[type="radio"]:checked+span:after, [type="radio"].with-gap:checked+span:after {
-  background-color: #ffdc00!important;
-}
-[type="radio"]:checked+span:after, [type="radio"].with-gap:checked+span:before, [type="radio"].with-gap:checked+span:after {
-  border: 2px solid #ffdc00!important;
-}
+//
+// [type="radio"]:checked+span:after, [type="radio"].with-gap:checked+span:after {
+//   background-color: #ffdc00!important;
+// }
+// [type="radio"]:checked+span:after, [type="radio"].with-gap:checked+span:before, [type="radio"].with-gap:checked+span:after {
+//   border: 2px solid #ffdc00!important;
+// }
 
 /* 投稿、いいね順デザイン */
 

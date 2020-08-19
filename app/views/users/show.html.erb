@@ -5,7 +5,7 @@
   </div>
 
   <div class="row mypage-main">
-    <div class="mypage-info col-md-6 offset-md-3">
+    <div class="mypage-info col-lg-4 offset-lg-4">
     <div class="mypage-img">
       <% if @user.image? %>
           <%= image_tag @user.image.thumb50.url, class: "circle" %>
@@ -15,9 +15,9 @@
     </div>
     <div class="d-inline-block mypage-stats">
       ユーザー名:<%= @user.name %><br>
-      投稿数: <%= @user.posts.count %><br>
-      <%= icon("far", "futbol", class: "soccer-icon") %>
-      チェック数:<%= @likes_count %><br>
+      投稿数: <%= @user.posts.count %>件<br>
+      チェック数:<%= icon("far", "futbol", class: "soccer-icon") %>
+      <%= @likes %>個<br>
       <%= render 'shared/stats' %>
     </div>
     <div class="mypage-follow">

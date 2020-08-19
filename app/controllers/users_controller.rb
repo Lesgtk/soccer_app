@@ -12,7 +12,8 @@ class UsersController < ApplicationController
   def show
     @user = User.find_by(id: params[:id])
     @posts = @user.posts
-    end
+    @likes = Like.where(user_id: @user.id).count
+  end
 
   def new
     @user = User.new
@@ -30,7 +31,7 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find_by(params[:id])
+    @user = User.find_by(id: params[:id])
   end
 
   def update

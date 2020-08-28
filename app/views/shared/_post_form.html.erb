@@ -7,88 +7,59 @@
     <%= f.text_area :content, class: "content-form", placeholder: "本文：サッカーの技術、戦術、知識について投稿しよう" %>
   </div>
   <div class="field row post-youtube-url">
-    <%= f.text_area :youtube_url, class: "post-youtube-url", placeholder: "参考YouTube動画：URLを記載してください" %>
+    <%= f.text_area :youtube_url, class: "post-youtube-url", placeholder: "参考YouTube動画があればURLを記載してください" %>
   </div>
-    <fieldset class="form-group checkbox-row">
-      <div class="row">
-        <legend class="col-form-label col-sm-2 pt-0">対象年齢</legend>
-        <div class="col-sm-10">
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="age_type" id="gridRadios1" value="1">
-            <label class="form-check-label" for="gridRadios1">
-              小学生以下
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="age_type" id="gridRadios2" value="2">
-            <label class="form-check-label" for="gridRadios2">
-              中学生
-            </label>
-          </div>
-          <div class="form-check disabled">
-            <input class="form-check-input" type="radio" name="age_type" id="gridRadios3" value="3">
-            <label class="form-check-label" for="gridRadios3">
-              高校生
-            </label>
-          </div>
-          <div class="form-check disabled">
-            <input class="form-check-input" type="radio" name="age_type" id="gridRadios4" value="4">
-            <label class="form-check-label" for="gridRadios4">
-              社会人
-            </label>
-          </div>
-          <div class="form-check disabled">
-            <input class="form-check-input" type="radio" name="age_types" id="gridRadios5" value="5">
-            <label class="form-check-label" for="gridRadios5">
-              その他
-            </label>
-          </div>
-        </div>
-      </div>
-    </fieldset>
-    <fieldset class="form-group checkbox-row">
-      <div class="row">
-        <legend class="col-form-label col-sm-2 pt-0">カテゴリー</legend>
-        <div class="col-sm-10">
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="category" id="gridRadios1" value="1">
-            <label class="form-check-label" for="gridRadios1">
-              戦術
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="category" id="gridRadios2" value="2">
-            <label class="form-check-label" for="gridRadios2">
-              技術
-            </label>
-          </div>
-          <div class="form-check disabled">
-            <input class="form-check-input" type="radio" name="category" id="gridRadios3" value="3">
-            <label class="form-check-label" for="gridRadios3">
-              知識
-            </label>
-          </div>
-          <div class="form-check disabled">
-            <input class="form-check-input" type="radio" name="category" id="gridRadios4" value="4">
-            <label class="form-check-label" for="gridRadios4">
-              メンタル
-            </label>
-          </div>
-          <div class="form-check disabled">
-            <input class="form-check-input" type="radio" name="category" id="gridRadios5" value="5">
-            <label class="form-check-label" for="gridRadios5">
-              練習メニュー
-            </label>
-          </div>
-          <div class="form-check disabled">
-            <input class="form-check-input" type="radio" name="category" id="gridRadios5" value="6">
-            <label class="form-check-label" for="gridRadios5">
-              その他
-            </label>
-          </div>
-        </div>
-      </div>
-    </fieldset>
+  <div class="field row age-type-row">
+    <span class="age-type-radio">対象年齢</span>
+    <div class="radio-inline age-type-radio">
+      <%= f.radio_button :age_type, :小学生以下 %>
+      <%= f.label :小学生以下, class: "age-type-label" %>
+    </div>
+    <div class="radio-inlin age-type-radio">
+      <%= f.radio_button :age_type, :中学生 %>
+      <%= f.label :中学生, class: "age-type-label" %>
+    </div>
+    <div class="radio-inline age-type-radio">
+      <%= f.radio_button :age_type, :高校生 %>
+      <%= f.label :高校生, class: "age-type-label" %>
+    </div>
+    <div class="radio-inline age-type-radio">
+      <%= f.radio_button :age_type, :社会人 %>
+      <%= f.label :社会人, class: "age-type-label" %>
+    </div>
+    <div class="radio-inline age-type-radio">
+      <%= f.radio_button :age_type, :全対象 %>
+      <%= f.label :全対象, class: "age-type-label" %>
+    </div>
+  </div>
+  <div class="field row category-row">
+    <span class="category-radio">カテゴリー</span>
+    <div class="radio-inline category-radio">
+      <%= f.radio_button :category, :戦術 %>
+      <%= f.label :戦術, class: "category-label" %>
+    </div>
+    <div class="radio-inlin category-radio">
+      <%= f.radio_button :category, :技術 %>
+      <%= f.label :技術, class: "category-label" %>
+    </div>
+    <div class="radio-inline category-radio">
+      <%= f.radio_button :category, :知識 %>
+      <%= f.label :知識, class: "category-label" %>
+    </div>
+    <div class="radio-inline category-radio">
+      <%= f.radio_button :category, :メンタル %>
+      <%= f.label :メンタル, class: "category-label" %>
+    </div>
+    <div class="radio-inline category-radio">
+      <%= f.radio_button :category, :練習メニュー %>
+      <%= f.label :練習メニュー, class: "category-label" %>
+    </div>
+    <div class="radio-inline category-radio">
+      <%= f.radio_button :category, :その他 %>
+      <%= f.label :その他, class: "category-label" %>
+    </div>
+  </div>
+
   <div class="col-md-2 post-btn">
   <%= f.submit "投稿する", class: "btn btn-primary" %>
   </div>

@@ -13,6 +13,7 @@ class StaticPagesController < ApplicationController
 
   def create
     @post  = current_user.posts.build
+    @q = Post.ransack(params[:q])
   end
 
   def likes

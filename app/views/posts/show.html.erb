@@ -24,19 +24,21 @@
       </div>
     </div>
     <div class="col-md-12 post-show-content">
-        <%= @post.content %>
+        <%= raw Rinku.auto_link(@post.content) %>
     </div>
+    <% if @post.youtube_url? %>
     <div class="col-md-12 post-show-youtube">
       <div class="youtube-frame">
         参考動画:
         <iframe src="https://www.youtube.com/embed/<%= @post.youtube_url%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
     </div>
-    <div class="col-md-12">
+    <% end %>
+    <div class="col-md-12 post-show-like">
       <%= render 'like' %>
       <%= render 'sharering' %>
     </div>
-    <div class="col-md-12">
+    <div class="col-md-12 post-show-comment">
       <%= render 'comment' %>
     </div>
   </div>

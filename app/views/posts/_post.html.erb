@@ -23,8 +23,10 @@
                                     data: { confirm: "You sure?" } %>
       <% end %>
   </div>
+  <% if post.youtube_url? %>
   <div class="youtube-frame">
     参考動画:
     <iframe src="https://www.youtube.com/embed/<%= post.youtube_url%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
   </div>
+  <% end %>
 </li>

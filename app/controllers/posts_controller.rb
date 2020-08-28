@@ -23,14 +23,14 @@ class PostsController < ApplicationController
       flash[:success] = "投稿しました"
       redirect_to root_url
     else
-      @feed_items = []
-      render 'static_pages/home'
+      flash[:danger] = "投稿できませんでした"
+      redirect_back(fallback_location: posts_path)
     end
   end
 
   def destroy
     @post.destroy
-    flash[:succes] = "投稿を削除しました"
+    flash.now[:danger] = "投稿を削除しました"
     redirect_to request.referrer || root_url #削除する前のページに戻す
   end
 

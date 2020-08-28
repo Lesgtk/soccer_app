@@ -8,9 +8,9 @@
         <%= form_for(@user) do |f| %>
         <%= render 'shared/error_messages', object: f.object %>
         <% if @user.image? %>
-            <%= image_tag @user.image.thumb200.url, class: "circle" %>
+            <%= image_tag @user.image.thumb50.url, class: "circle" %>
         <% else %>
-            <%= image_tag "/assets/images/default.jpg", :size => '50x50' %>
+            <%= image_tag "default.jpg", class: "circle" %>
         <% end %>
           <button type="button" class="btn">
             <%= f.file_field :image, accept: 'image/jpeg,image/gif,image/png' %>

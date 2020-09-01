@@ -49,6 +49,6 @@ test:
 #
 production:
   <<: *default
-  database: soccer_app_production
-  username: soccer_app
-  password: <%= ENV['SOCCER_APP_DATABASE_PASSWORD'] %>
+  database: soccer_app
+  username: root
+  password: <%= ENV.fetch('MYSQL_PASSWORD') { 'password' } %>

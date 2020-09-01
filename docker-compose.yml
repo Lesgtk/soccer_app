@@ -1,0 +1,36 @@
+version: '3'
+services:
+  db:
+    image: mysql:5.7
+    env_file:
+      - .env
+    volumes:
+      - db-data:/var/lib/mysql
+  app:
+    build:
+      context: .
+    env_file:
+      - .env
+    command: bundle exec puma -C config/puma.rb
+    volumes:
+      - .:/soccer_app
+      - public-data:/soccer_app/public
+      - tmp-data:/soccer_app/tmp
+      - log-data:/soccer_app/log
+    depends_on:
+      - db
+  web:
+    build:
+      context: nginx
+    volumes:
+      - public-data:/soccer_app/public
+      - tmp-data:/soccer_app/tmp
+    ports:
+      - 80:80
+    depends_on:
+      - app
+volumes:
+  public-data:
+  tmp-data:
+  log-data:
+  db-data:

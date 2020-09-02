@@ -1,5 +1,4 @@
-  ruby: circleci/ruby@0.1.2
-
+version: 2
 jobs:
   build:
     docker:

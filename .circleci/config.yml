@@ -11,7 +11,12 @@ jobs:
       # specify the version you desire here
       - image: circleci/ruby:2.6.5-node-browsers
         environment:
-          DB_HOST: 127.0.0.1
+          BUNDLER_VERSION: 2.0.2
+          RAILS_ENV: test
+        - image: circleci/mysql:5.7
+        environment:
+          MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
+          MYSQL_ROOT_HOST: '%'
 
 
       # Specify service dependencies here if necessary
@@ -43,16 +48,32 @@ jobs:
             - ./vendor/bundle
           key: v1-dependencies-{{ checksum "Gemfile.lock" }}
 
+      # database.ymlとdatabase.yml.ciを入れ替える
+      - run: mv config/database.yml.ci config/database.yml
+
       # Database setup
       - run: bundle exec rake db:create
       - run: bundle exec rake db:schema:load
 
-      # run tests
+      # rubocop
+      - run:
+          name: Rubocop
+          command: bundle exec rubocop
+
+      # rspec
       - run:
           name: run tests
           command: |
-            DISABLE_SPRING=true bundle exec rails test
+            mkdir /tmp/test-results
+            TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb" | \
+              circleci tests split --split-by=timings)"
 
+            bundle exec rspec \
+              --format progress \
+              --format RspecJunitFormatter \
+              --out /tmp/test-results/rspec.xml \
+              --format progress \
+              $TEST_FILES
 
       # collect reports
       - store_test_results:

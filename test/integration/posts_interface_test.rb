@@ -1,22 +1,21 @@
 require 'test_helper'
 
 class PostsInterfaceTest < ActionDispatch::IntegrationTest
-
   def setup
-      @user = users(:michael)
+    @user = users(:michael)
   end
 
-  test "post interface" do
+  test 'post interface' do
     log_in_as(@user)
     get root_path
     # assert_select 'div.pagination'
     # 無効な送信
     assert_no_difference 'Post.count' do
-      post posts_path, params: { post: { content: "" } }
+      post posts_path, params: { post: { content: '' } }
     end
     # assert_select 'div#error_explanation'
     # 有効な送信
-    content = "This post really ties the room together"
+    content = 'This post really ties the room together'
     assert_difference 'Post.count', 1 do
       post posts_path, params: { post: { content: content } }
     end
@@ -33,5 +32,4 @@ class PostsInterfaceTest < ActionDispatch::IntegrationTest
     # get user_path(users(:archer))
     # assert_select 'a', text: 'delete', count: 0
   end
-
 end

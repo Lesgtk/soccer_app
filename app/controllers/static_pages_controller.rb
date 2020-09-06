@@ -1,24 +1,23 @@
 class StaticPagesController < ApplicationController
   def home
     if logged_in?
-      @post  = current_user.posts.build
+      @post = current_user.posts.build
       @feed_items = Post.page(params[:page]).per(10)
       @q = Post.ransack(params[:q])
       @search_posts = @q.result.page(params[:page]).per(10)
     end
   end
 
-  def about
-  end
+  def about; end
 
   def create
-    @post  = current_user.posts.build
+    @post = current_user.posts.build
     @q = Post.ransack(params[:q])
   end
 
   def likes
     if logged_in?
-      @post  = current_user.posts.build
+      @post = current_user.posts.build
       # @feed_items = Post.page(params[:page]).per(10)
       @q = Post.ransack(params[:q])
       @search_posts = @q.result.page(params[:page]).per(10)
@@ -36,5 +35,4 @@ class StaticPagesController < ApplicationController
   def search_params
     params.require(:q).permit!
   end
-
 end

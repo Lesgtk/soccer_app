@@ -1,9 +1,9 @@
 class UsersController < ApplicationController
-  before_action :logged_in_user, only: [:index, :edit, :update, :destroy,
-                        :following, :followers]
-  before_action :correct_user, only: [:edit, :update]
+  before_action :logged_in_user, only: %i[index edit update destroy
+                                          following followers]
+  before_action :correct_user, only: %i[edit update]
   before_action :admin_user, only: :destroy
-  before_action :check_guest, only: [:update, :destroy]
+  before_action :check_guest, only: %i[update destroy]
 
   def index
     @users = User.page(params[:page]).per(3)
@@ -23,7 +23,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       @user.send_activation_email
-      flash[:info] = "メールを確認して、アカウントを有効にしてください"
+      flash[:info] = 'メールを確認して、アカウントを有効にしてください'
       redirect_to root_url
     else
       render 'new'
@@ -37,7 +37,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(user_params)
-      flash[:success] = "マイページを更新しました"
+      flash[:success] = 'マイページを更新しました'
       redirect_to @user
     else
       render 'edit'
@@ -46,19 +46,19 @@ class UsersController < ApplicationController
 
   def destroy
     User.find(params[:id]).destroy
-    flash[:success] = "ユーザーを削除しました"
+    flash[:success] = 'ユーザーを削除しました'
     redirect_to users_url
   end
 
   def following
-    @title = "Following"
+    @title = 'Following'
     @user = User.find(params[:id])
     @users = @user.following.page(params[:page]).per(3)
     render 'show_follow'
   end
 
   def followers
-    @title = "Followers"
+    @title = 'Followers'
     @user = User.find(params[:id])
     @users = @user.followers.page(params[:page]).per(3)
     render 'show_follow'
@@ -69,7 +69,7 @@ class UsersController < ApplicationController
     @likes = Like.where(user_id: @user.id)
   end
 
-private
+  private
 
   # 下記以外を許可しない
   def user_params
@@ -80,9 +80,7 @@ private
 
   # ゲストログインの制限
   def check_guest
-    if correct_user == 'second@example.com'
-      redirect_to root_path, alert: 'ゲストユーザー編集、削除できません。'
-    end
+    redirect_to root_path, alert: 'ゲストユーザー編集、削除できません。' if correct_user == 'second@example.com'
   end
 
   # 正しいユーザーかどうか確認

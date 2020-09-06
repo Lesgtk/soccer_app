@@ -1,19 +1,18 @@
 require 'test_helper'
 
 class PostsControllerTest < ActionDispatch::IntegrationTest
-
   def setup
     @post = posts(:orange)
   end
 
-  test "should redirect create when not logged in" do
+  test 'should redirect create when not logged in' do
     assert_no_difference 'Post.count' do
-      post posts_path, params: { post: { content: "テスト" } }
+      post posts_path, params: { post: { content: 'テスト' } }
     end
     assert_redirected_to login_url
   end
 
-  test "should redirect destroy when not logged in" do
+  test 'should redirect destroy when not logged in' do
     assert_no_difference 'Post.count' do
       delete post_path(@post)
     end
@@ -21,7 +20,7 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
   end
 
   # 他ユーザーによる投稿削除のテスト
-  test "should redirect destroy for wrong posts" do
+  test 'should redirect destroy for wrong posts' do
     log_in_as(users(:michael))
     post = posts(:ants)
     assert_no_difference 'Post.count' do
@@ -29,5 +28,4 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
     end
     assert_redirected_to root_url
   end
-
 end

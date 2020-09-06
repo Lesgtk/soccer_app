@@ -1,43 +1,42 @@
 require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
-
   def setup
-    @user = User.new(name: "Example User", email: "user@example.com",
-             password: "foobar", password_confirmation: "foobar")
+    @user = User.new(name: 'Example User', email: 'user@example.com',
+                     password: 'foobar', password_confirmation: 'foobar')
   end
 
   # userが存在するかどうか
-  test "should be valid" do
+  test 'should be valid' do
     assert @user.valid?
   end
 
   # nameが空文字かどうか
-  test "name should be present" do
-    @user.name = " "
+  test 'name should be present' do
+    @user.name = ' '
     assert_not @user.valid?
   end
 
   # emailが空文字かどうか
-  test "email should be present" do
-    @user.email = " "
+  test 'email should be present' do
+    @user.email = ' '
     assert_not @user.valid?
   end
 
   # nameが50文字以内か
-  test "name should not be too long" do
-    @user.name = "a" * 51
+  test 'name should not be too long' do
+    @user.name = 'a' * 51
     assert_not @user.valid?
   end
 
   # emailが255文字以内か
-  test "email should not be too long" do
-    @user.name = "a" * 244 + "@example.com"
+  test 'email should not be too long' do
+    @user.name = 'a' * 244 + '@example.com'
     assert_not @user.valid?
   end
 
   # 無効なemailアドレスか判断
-  test "email validation should accept valid addresses" do
+  test 'email validation should accept valid addresses' do
     valid_addresses = %w[user@example.com USER@foo.COM A_US-ER@foo.bar.org
                          first.last@foo.jp alice+bob@baz.cn]
     valid_addresses.each do |valid_address|
@@ -47,7 +46,7 @@ class UserTest < ActiveSupport::TestCase
   end
 
   # 重複したemailがどうか
-  test "email addresses should be unique" do
+  test 'email addresses should be unique' do
     duplicate_user = @user.dup
     duplicate_user.email = @user.email.upcase
     @user.save
@@ -55,52 +54,52 @@ class UserTest < ActiveSupport::TestCase
   end
 
   # emailを小文字かどうか
-  test "email addresses should be saved as lower-case" do
-    mixed_case_email = "Foo@ExaMPlE.coM"
+  test 'email addresses should be saved as lower-case' do
+    mixed_case_email = 'Foo@ExaMPlE.coM'
     @user.email = mixed_case_email
     @user.save
     assert_equal mixed_case_email.downcase, @user.reload.email
   end
 
   # passwordが空でない、最小文字数の確認
-  test "password should be present (nonblank)" do
-    @user.password = @user.password_confirmation = " " * 6
+  test 'password should be present (nonblank)' do
+    @user.password = @user.password_confirmation = ' ' * 6
     assert_not @user.valid?
   end
 
   # passwordが6文字以上
-  test "password should have a minimum length" do
-    @user.password = @user.password_confirmation = "a" * 5
+  test 'password should have a minimum length' do
+    @user.password = @user.password_confirmation = 'a' * 5
     assert_not @user.valid?
   end
 
   # ダイジェストが存在しなかどうか
-  test "authenticated? should return false for a user with nil digest" do
-    assert_not @user.authenticated?(:remember,'')
+  test 'authenticated? should return false for a user with nil digest' do
+    assert_not @user.authenticated?(:remember, '')
   end
 
   # ユーザー削除時に投稿も削除されているかどうか
-  test "associated microposts should be destroyed" do
+  test 'associated microposts should be destroyed' do
     @user.save
-    @user.posts.create!(content: "テスト")
+    @user.posts.create!(content: 'テスト')
     assert_difference 'Post.count', -1 do
       @user.destroy
     end
   end
 
   # following,followersのメソッドをテストする
-  test "should follow and unfollow a user" do
-  michael = users(:michael)
-  archer  = users(:archer)
-  assert_not michael.following?(archer)
-  michael.follow(archer)
-  assert michael.following?(archer)
-  assert archer.followers.include?(michael)
-  michael.unfollow(archer)
-  assert_not michael.following?(archer)
+  test 'should follow and unfollow a user' do
+    michael = users(:michael)
+    archer = users(:archer)
+    assert_not michael.following?(archer)
+    michael.follow(archer)
+    assert michael.following?(archer)
+    assert archer.followers.include?(michael)
+    michael.unfollow(archer)
+    assert_not michael.following?(archer)
   end
 
-  test "feed should have the right posts" do
+  test 'feed should have the right posts' do
     michael = users(:michael)
     archer  = users(:archer)
     lana    = users(:lana)
@@ -117,5 +116,4 @@ class UserTest < ActiveSupport::TestCase
       assert_not michael.feed.include?(post_unfollowed)
     end
   end
-
 end

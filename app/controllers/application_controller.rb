@@ -13,10 +13,10 @@ class ApplicationController < ActionController::Base
 
   # ユーザーのログインを確認する
   def logged_in_user
-    unless logged_in?
-      store_location
-      flash[:denger] = 'ログインしてください'
-      redirect_to login_url
-    end
+    return if logged_in?
+
+    store_location
+    flash[:denger] = 'ログインしてください'
+    redirect_to login_url
   end
 end

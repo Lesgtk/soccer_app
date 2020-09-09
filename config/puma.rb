@@ -39,3 +39,15 @@ pidfile ENV.fetch('PIDFILE') { 'tmp/pids/server.pid' }
 # preload_app!
 
 # Allow puma to be restarted by `rails restart` command.
+# 本番環境のみデーモン起動
+if Rails.env.production?
+  pidfile File.join(rails_root, 'tmp', 'pids', 'puma.pid')
+  state_path File.join(rails_root, 'tmp', 'pids', 'puma.state')
+  stdout_redirect(
+    File.join(rails_root, 'log', 'puma.log'),
+    File.join(rails_root, 'log', 'puma-error.log'),
+    true
+  )
+  # デーモン
+  daemonize
+end

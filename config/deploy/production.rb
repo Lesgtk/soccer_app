@@ -60,3 +60,6 @@
 #     # password: "please use keys"
 #   }
 server '54.238.1.104', user: 'kame', roles: %w(app web db)
+set :ssh_options, {
+ keys: %w(~/.ssh/soccerapp_key_rsa)
+}

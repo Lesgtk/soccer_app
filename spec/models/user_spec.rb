@@ -73,7 +73,6 @@ RSpec.describe User, type: :model do
     end
 
     it '重複でないメールアドレスの場合、有効であること' do
-      user1 = create(:user, name: 'kame1', email: 'kame1@example.com')
       user2 = build(:user, name: 'kame2', email: 'kame2@example.com')
       expect(user2).to be_valid
     end
@@ -86,7 +85,6 @@ RSpec.describe User, type: :model do
         expect(@user).to be_valid
       end
     end
-
   end
 
   describe 'パスワードの検証' do
@@ -103,6 +101,4 @@ RSpec.describe User, type: :model do
       expect(@user.reload.email).to eq 'test@example.com'
     end
   end
-
-
 end

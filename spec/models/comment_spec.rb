@@ -54,5 +54,4 @@ RSpec.describe Comment, type: :model do
       expect(recent_comment).to eq post.comments.first
     end
   end
-
 end

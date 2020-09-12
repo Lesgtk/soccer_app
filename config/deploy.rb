@@ -1,18 +1,17 @@
 # config valid for current version and patch releases of Capistrano
-lock "~> 3.14.1"
+lock '~> 3.14.1'
 
-set :application, "soccer_app"
-set :repo_url, "git@github.com:Lesgtk/soccer_app.git"
+set :application, 'soccer_app'
+set :repo_url, 'git@github.com:Lesgtk/soccer_app.git'
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
 # Default deploy_to directory is /var/www/my_app_name
-set :deploy_to, "/var/www/soccer_app"
+set :deploy_to, '/var/www/soccer_app'
 set :rbenv_ruby, '2.6.5'
-set :linked_files, %w(config/master.key .env)
-append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets"
-
+set :linked_files, %w[config/master.key .env]
+append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets'
 
 # Default value for :format is :airbrussh.
 # set :format, :airbrussh
@@ -37,15 +36,16 @@ append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets"
 # set :local_user, -> { `git config user.name`.chomp }
 
 # Default value for keep_releases is 5
- set :keep_releases, 5
+set :keep_releases, 5
 
 # Uncomment the following to require manually verifying the host key before first deploy.
 # set :ssh_options, verify_host_key: :secure
 namespace :deploy do
-  desc "Make sure local git is in sync with remote."
+  desc 'Make sure local git is in sync with remote.'
   task :confirm do
     on roles(:app) do
-      puts "This stage is '#{fetch(:stage)}'. Deploying branch is '#{fetch(:branch)}'."
+      puts "This stage is '#{fetch(:stage)}'. Deploying branch is,
+       '#{fetch(:branch)}'."
       puts 'Are you sure? [y/n]'
       ask :answer, 'n'
       if fetch(:answer) != 'y'
@@ -55,7 +55,7 @@ namespace :deploy do
     end
   end
 
-  desc "Initial Deploy"
+  desc 'Initial Deploy'
   task :initial do
     on roles(:app) do
       before 'deploy:restart', 'puma:start'
@@ -63,7 +63,7 @@ namespace :deploy do
     end
   end
 
-  desc "Restart Application"
+  desc 'Restart Application'
   task :restart do
     on roles(:app), in: :sequence, wait: 5 do
       invoke 'puma:restart'

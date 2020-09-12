@@ -15,9 +15,6 @@ AllCops:
 Metrics/AbcSize:
   Max: 30
 
-Metrics/BlockLength:
-  Max: 55
-
 Metrics/MethodLength:
    Max: 16
 
@@ -40,3 +37,10 @@ Style/MixinUsage:
    Exclude:
      - 'bin/setup'
      - 'bin/update'
+
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*'
+
+Metrics/BlockLength:
+   Max: 85

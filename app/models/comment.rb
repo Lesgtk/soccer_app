@@ -5,5 +5,4 @@ class Comment < ApplicationRecord
   default_scope -> { order(created_at: :desc) }
 
   validates :comment_content, presence: true, length: { maximum: 100 }
-
 end

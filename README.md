@@ -1,14 +1,11 @@
 
-<img width="1438" alt="soccer-app top" src="https://user-images.githubusercontent.com/66766396/92995233-a5662880-f53c-11ea-89e8-503e871485be.png">
-
+<img width="1434" alt="soccer-app_top" src="https://user-images.githubusercontent.com/66766396/92995364-e9a5f880-f53d-11ea-8f45-0d8b78bd71c1.png">
 
 ## 概要
 
-**SOCCER APP**
+**『 SOCCER APP 』**
 
 サッカーの最新技術を投稿し情報共有ができるサービスです。
-
-転職活動用ポートフォリオとして制作致しました。
 
 ## リンク
 
@@ -17,11 +14,11 @@
 
 ## 制作の背景
 
-地方でサッカーをしてきた中で以下の点を感じ、サッカーが上手くなりたい人に向けてのサービスを作ってみたいと考えました。
+地方でサッカーをしてきた中で以下の点を感じ、サッカーが上手くなりたい人向けのサービスを制作したいと考えました。
 
 少子化によりサッカーの練習、試合ができない、指導者数の減少、最新の技術や指導方法を導入している指導者が少ない事からサッカーの技術、経験が都市と地方で拡がっていくと感じました。
 
-そこでこのサービスからサッカーの最新技術（プロが実施している練習メニュー、プロの思考、戦術など）を共有して環境に関係なく技術を身に付けれるようにと考えました。
+そこでこのサービスからサッカーの最新技術（プロが実施している練習メニュー、プロの思考、戦術など）を共有し環境に関係なく技術を身に付けれることができたらという思いからサービスを制作しました。
 
 ## 使用技術
 
@@ -29,12 +26,12 @@
 - Ruby　2.6.5
 - Ruby on Rails　5.2.4
 
-### フロント
+### フロントエンド
 - HTML
 - CSS
-- bootstrap
-- Javascript
-- JQuery
+- Bootstrap
+- JavaScript
+- jQuery
 - Ajax
 
 ### DB
@@ -42,20 +39,35 @@
 
 ### テスト
 - RSpec
-- Rubocop
+- RuboCop
 
 ### インフラ・開発環境等
+
+CircleCIを用いてGitHubにpush後に自動テスト、Capistranoにより自動デプロイ
+- CircleCI
+- Capistrano
+
 【開発環境】
 - Docker
-- docker-compose
+- Docker-Compose
 
 【本番環境】
-- CircleCI
-- AWS(EC2、RDS for MySQL、Route53、ALB、 ACM)
+- AWS(EC2、RDS for MySQL、Route53、ALB、ACM)
 - Nginx
 - Puma
 
+【その他】
+CircleCIを用いてGitHubにpush後に自動テスト、Capistranoにより自動デプロイ
+
+チーム開発を意識したGitHubの活用 （イシュー、プルリク、マージ）
+
+- GitHub
+- CircleCI
+- Capistrano
+
 ## インフラ構成図
+
+<img width="703" alt="インフラ構成図" src="https://user-images.githubusercontent.com/66766396/92995952-cdf12100-f542-11ea-8fd7-a312d4fe3833.png">
 
 ## 機能一覧
 
@@ -69,7 +81,6 @@
 - ページネーション機能
 - 検索機能
 - 投稿のジャンル分け
-- ランキング機能
 - YouTube API
 - コメント機能
 - SNS(twitter,Facebook,LINE）シェア機能

@@ -10,6 +10,9 @@ class UsersController < ApplicationController
   end
 
   def show
+    # ログインしていなかった場合は401ページを表示して終了（※ 401用のテンプレートファイルを作っていないと動きません）
+    render(template: 'errors/401', status: 401) and return if current_user.blank?
+
     @user = User.find_by(id: params[:id])
     @posts = @user.posts
     @likes = Like.where(user_id: @user.id).count

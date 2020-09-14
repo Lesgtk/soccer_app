@@ -7,13 +7,12 @@ FactoryBot.define do
     activated { true }
     activated_at { Date.today }
 
-  trait :unconfirmed_user do
-    name  { 'testuser2' }
-    email { 'unconfirmed@user.com' }
-    password { 'password' }
-    activated { false }
-    activated_at { nil }
-  end
-
+    trait :unconfirmed_user do
+      name  { 'testuser2' }
+      email { 'unconfirmed@user.com' }
+      password { 'password' }
+      activated { false }
+      activated_at { nil }
+    end
   end
 end

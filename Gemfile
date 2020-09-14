@@ -86,7 +86,7 @@ gem 'font-awesome-sass'
 gem 'jquery-rails', '4.3.1'
 gem 'kaminari'
 gem 'mini_magick'
+gem 'rails-i18n'
 gem 'ransack'
 gem 'rinku'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
-gem 'rails-i18n'

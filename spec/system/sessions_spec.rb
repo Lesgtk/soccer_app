@@ -2,13 +2,13 @@ require 'rails_helper'
 
 RSpec.describe 'Sessions', type: :system do
   before do
-        @user = create(:user)
+    @user = create(:user)
   end
 
   it 'ログインページの検証' do
     visit '/login'
 
-    expect(page).to have_selector 'div',text: 'ログイン'
+    expect(page).to have_selector 'div', text: 'ログイン'
     expect(page).to have_field 'メールアドレス'
     expect(page).to have_field 'パスワード'
     expect(page).to have_unchecked_field('次回から自動的にログイン')
@@ -43,9 +43,9 @@ RSpec.describe 'Sessions', type: :system do
     it 'メール認証の完了していないユーザーのログインを許可しない' do
       unconfirmed_user = create(:user, :unconfirmed_user)
       visit '/login'
-      fill_in 'メールアドレス',with: unconfirmed_user.email
-      fill_in 'パスワード',with: unconfirmed_user.password
-      click_button "ログイン"
+      fill_in 'メールアドレス', with: unconfirmed_user.email
+      fill_in 'パスワード', with: unconfirmed_user.password
+      click_button 'ログイン'
       expect(page).to have_content 'ログイン'
     end
   end

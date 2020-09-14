@@ -8,8 +8,9 @@ set :repo_url, 'git@github.com:Lesgtk/soccer_app.git'
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
 # Default deploy_to directory is /var/www/my_app_name
-set :deploy_to, '/var/www/soccer_app'
+set :deploy_to, '/var/www/rails/soccer_app'
 set :rbenv_ruby, '2.6.5'
+append :linked_dirs, '.bundle'
 set :linked_files, %w[config/master.key .env]
 append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets'
 

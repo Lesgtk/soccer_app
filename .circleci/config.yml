@@ -82,6 +82,7 @@ jobs:
           path: /tmp/test-results
           destination: test-results
 
+      # 自動デプロイ
       - add_ssh_keys:
           fingerprints:
             - "50:57:f1:5d:b3:37:ef:b9:f9:3e:82:ca:0c:83:9c:de"

@@ -11,7 +11,7 @@ set :deploy_to, '/var/www/rails/soccer_app'
 set :rbenv_ruby, '2.6.5'
 append :linked_dirs, '.bundle'
 set :linked_files, %w[config/master.key .env]
-append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'public/system'
+append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', "public/system"
 
 # Default value for :format is :airbrussh.
 # set :format, :airbrussh
@@ -40,35 +40,35 @@ set :keep_releases, 5
 
 # Uncomment the following to require manually verifying the host key before first deploy.
 # set :ssh_options, verify_host_key: :secure
-namespace :deploy do
-  desc 'Make sure local git is in sync with remote.'
-  task :confirm do
-    on roles(:app) do
-      puts "This stage is '#{fetch(:stage)}'. Deploying branch is,
-       '#{fetch(:branch)}'."
-      puts 'Are you sure? [y/n]'
-      ask :answer, 'n'
-      if fetch(:answer) != 'y'
-        puts 'deploy stopped'
-        exit
-      end
-    end
-  end
-
-  desc 'Initial Deploy'
-  task :initial do
-    on roles(:app) do
-      before 'deploy:restart', 'puma:start'
-      invoke 'deploy'
-    end
-  end
-
-  desc 'Restart Application'
-  task :restart do
-    on roles(:app), in: :sequence, wait: 5 do
-      invoke 'puma:restart'
-    end
-  end
-
-  before :starting, :confirm
-end
+# namespace :deploy do
+#   desc 'Make sure local git is in sync with remote.'
+#   task :confirm do
+#     on roles(:app) do
+#       puts "This stage is '#{fetch(:stage)}'. Deploying branch is,
+#        '#{fetch(:branch)}'."
+#       puts 'Are you sure? [y/n]'
+#       ask :answer, 'n'
+#       if fetch(:answer) != 'y'
+#         puts 'deploy stopped'
+#         exit
+#       end
+#     end
+#   end
+#
+#   desc 'Initial Deploy'
+#   task :initial do
+#     on roles(:app) do
+#       before 'deploy:restart', 'puma:start'
+#       invoke 'deploy'
+#     end
+#   end
+#
+#   desc 'Restart Application'
+#   task :restart do
+#     on roles(:app), in: :sequence, wait: 5 do
+#       invoke 'puma:restart'
+#     end
+#   end
+#
+#   before :starting, :confirm
+# end

@@ -11,7 +11,7 @@ set :deploy_to, '/var/www/rails/soccer_app'
 set :rbenv_ruby, '2.6.5'
 append :linked_dirs, '.bundle'
 set :linked_files, %w[config/master.key .env]
-append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', "public/system"
+append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'public/system'
 
 # Default value for :format is :airbrussh.
 # set :format, :airbrussh

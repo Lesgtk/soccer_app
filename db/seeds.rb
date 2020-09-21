@@ -1,6 +1,6 @@
-require "csv"
+require 'csv'
 
-#　テストユーザー
+# 　テストユーザー
 User.create!(name: 'ゲストユーザー',
              email: 'test@example.com',
              password: '123456',
@@ -87,7 +87,7 @@ CSV.foreach('db/CSV/user-表1.csv', headers: true) do |row|
     password_confirmation: row['password_confirmation'],
     admin: row['admin'],
     activated: row['activated'],
-    activated_at: row['activated_at'],
+    activated_at: row['activated_at']
   )
 end
 
@@ -99,7 +99,7 @@ CSV.foreach('db/CSV/post-表1.csv', headers: true) do |row|
     age_type: row['age_type'],
     category: row['category'],
     youtube_url: row['youtube_url'],
-    created_at: row['created_at'],
+    created_at: row['created_at']
   )
 end
 
@@ -108,20 +108,20 @@ CSV.foreach('db/CSV/comment-表1.csv', headers: true) do |row|
     user_id: row['user_id'],
     post_id: row['post_id'],
     created_at: row['created_at'],
-    comment_content: row['comment_content'],
+    comment_content: row['comment_content']
   )
 end
 
 CSV.foreach('db/CSV/likes-表1.csv', headers: true) do |row|
   Like.create!(
     user_id: row['user_id'],
-    post_id: row['post_id'],
+    post_id: row['post_id']
   )
 end
 
 CSV.foreach('db/CSV/relationships-表1.csv', headers: true) do |row|
   Relationship.create!(
     follower_id: row['follower_id'],
-    followed_id: row['followed_id'],
+    followed_id: row['followed_id']
   )
 end

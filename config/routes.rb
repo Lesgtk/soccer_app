@@ -25,7 +25,7 @@ Rails.application.routes.draw do
   end
 
   resources :posts do
-    resources :comments, only: [:create, :destroy]
+    resources :comments, only: %i[create destroy]
   end
 
   resources :account_activations, only: [:edit]

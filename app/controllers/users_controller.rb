@@ -83,10 +83,10 @@ class UsersController < ApplicationController
 
   # ゲストログインの制限
   def check_guest
-    if current_user.email == 'test@example.com'
-      flash[:danger] = "テストユーザーのため編集できません"
-      redirect_to user_path(current_user)
-    end
+    return unless current_user.email? == 'test@example.com'
+
+    flash[:danger] = 'テストユーザーのため編集できません'
+    redirect_to user_path(current_user)
   end
 
   # 正しいユーザーかどうか確認

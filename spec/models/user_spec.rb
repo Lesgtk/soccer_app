@@ -32,13 +32,13 @@ RSpec.describe User, type: :model do
   end
 
   describe '文字数の検証' do
-    it '名前が10文字以内の場合、有効であること' do
-      @user.name = 'a' * 10
+    it '名前が20文字以内の場合、有効であること' do
+      @user.name = 'a' * 20
       expect(@user).to be_valid
     end
 
     it '名前が11文字以上の場合、無効であること' do
-      @user.name = 'a' * 11
+      @user.name = 'a' * 21
       expect(@user).to_not be_valid
     end
 

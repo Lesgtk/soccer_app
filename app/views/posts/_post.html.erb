@@ -1,8 +1,8 @@
 <!-- 投稿一覧のフォーム -->
 <li id="post-<%= post.id %>">
   <div class="feed-image">
-    <% if @user.image? %>
-        <%= image_tag @user.image.thumb50.url, class: "feed-circle" %>
+    <% if post.user.image? %>
+        <%= image_tag post.user.image.thumb50.url, class: "feed-circle" %>
     <% else %>
         <%= image_tag "default.jpg", class: "feed-circle" %>
     <% end %>
@@ -20,7 +20,7 @@
       <%= like %>個
       <% if current_user?(post.user) %>
         <%= link_to "削除", post, method: :delete,
-                                    data: { confirm: "You sure?" } %>
+                                    data: { confirm: "削除してもいいですか?" } %>
       <% end %>
   </div>
   <% if post.youtube_url? %>

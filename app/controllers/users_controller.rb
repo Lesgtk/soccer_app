@@ -3,10 +3,10 @@ class UsersController < ApplicationController
                                           following followers]
   before_action :correct_user, only: %i[edit update]
   before_action :admin_user, only: :destroy
-  before_action :check_guest, only: %i[update destroy]
+  before_action :check_guest, only: :update
 
   def index
-    @users = User.page(params[:page]).per(3)
+    @users = User.page(params[:page]).per(10)
   end
 
   def show
@@ -56,14 +56,14 @@ class UsersController < ApplicationController
   def following
     @title = 'Following'
     @user = User.find(params[:id])
-    @users = @user.following.page(params[:page]).per(3)
+    @users = @user.following.page(params[:page]).per(10)
     render 'show_follow'
   end
 
   def followers
     @title = 'Followers'
     @user = User.find(params[:id])
-    @users = @user.followers.page(params[:page]).per(3)
+    @users = @user.followers.page(params[:page]).per(10)
     render 'show_follow'
   end
 
@@ -83,7 +83,10 @@ class UsersController < ApplicationController
 
   # ゲストログインの制限
   def check_guest
-    redirect_to root_path, alert: 'ゲストユーザー編集、削除できません。' if correct_user == 'second@example.com'
+    return unless current_user.email? == 'test@example.com'
+
+    flash[:danger] = 'テストユーザーのため編集できません'
+    redirect_to user_path(current_user)
   end
 
   # 正しいユーザーかどうか確認

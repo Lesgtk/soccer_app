@@ -11,8 +11,8 @@
         <% post = Post.find_by(id: like.post_id) %>
         <li id="post-<%= post.id %>">
         <div class="feed-image">
-          <% if @user.image? %>
-              <%= image_tag @user.image.thumb50.url, class: "feed-circle" %>
+          <% if post.user.image? %>
+              <%= image_tag post.user.image.thumb50.url, class: "feed-circle" %>
           <% else %>
               <%= image_tag "default.jpg", class: "feed-circle" %>
           <% end %>

@@ -330,28 +330,7 @@ footer {
   padding-left: 50px;
 }
 
-//
-// aside {
-//   section {
-//     padding: 10px 0;
-//     margin-top: 20px;
-//     span {
-//       display: block;
-//       margin-bottom: 3px;
-//     }
-//     label {
-//       margin-bottom: 3px;
-//       font-weight: normal;
-//     }
-//     h1 {
-//       font-size: 1.4em;
-//       text-align: left;
-//       letter-spacing: -1px;
-//       margin-bottom: 3px;
-//       margin-top: 0px;
-//     }
-//   }
-// }
+
 
 /* プロフィール */
 .info-circle {
@@ -444,9 +423,6 @@ footer {
   margin-top: 1rem;
   margin-left: 1rem;
 }
-
-/* 検索結果画面 */
-
 
 /* ポストフォーム */
 .post-title {
@@ -746,14 +722,6 @@ input {
   color: red;
   ul {
     color: red;
-    margin: 0 0 30px 0;
-  }
-}
-
-.field_with_errors {
-  // @extend .has-error;
-  .form-control {
-    // color: $state-danger-text;
   }
 }
 
@@ -812,11 +780,6 @@ input {
     display: block;
     margin-left: 60px;
   }
-  // .gravatar {
-  //   float: left;
-  //   margin-right: 10px;
-  //   margin-top: 5px;
-  // }
 }
 
 aside {
@@ -840,16 +803,7 @@ span.picture {
   padding: 1rem 1rem;
 }
 
-//
-// [type="radio"]:checked+span:after, [type="radio"].with-gap:checked+span:after {
-//   background-color: #ffdc00!important;
-// }
-// [type="radio"]:checked+span:after, [type="radio"].with-gap:checked+span:before, [type="radio"].with-gap:checked+span:after {
-//   border: 2px solid #ffdc00!important;
-// }
-
 /* 投稿、いいね順デザイン */
-
 .user-tabs {
   margin-top: 40px;
   background-color: white;
@@ -881,7 +835,18 @@ span.picture {
 
 /* シェア */
 
-.twitter{
+.twitter {
   height: 30px;
   margin-right: 20px;
+}
+
+.facebook {
+  height: 30px;
+  margin-right: 20px;
+}
+
+.line-LINE {
+  height: 30px;
+  margin-top: -16px;
+  margin-left: 20px;
 }

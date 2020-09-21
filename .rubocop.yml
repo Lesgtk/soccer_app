@@ -44,3 +44,7 @@ Metrics/BlockLength:
 
 Metrics/BlockLength:
    Max: 85
+
+Security/Open:
+  Exclude:
+    - 'db/seeds.rb'

@@ -53,7 +53,6 @@
 - Puma
 
 【その他】
-
 CircleCIを用いてGitHubにpush後に自動テスト、Capistranoにより自動デプロイ
 
 チーム開発を意識したGitHubの活用 （イシュー、プルリク、マージ）

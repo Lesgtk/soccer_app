@@ -5,16 +5,8 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   process resize_to_fill: [100, 100, 'Center']
 
-  version :thumb30 do
-    process resize_to_fill: [30, 30, 'Center']
-  end
-
   version :thumb50 do
     process resize_to_fill: [50, 50, 'Center']
-  end
-
-  version :thumb200 do
-    process resize_to_fill: [200, 200, 'Center']
   end
 
   # ファイルサイズを制限

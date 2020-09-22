@@ -40,7 +40,6 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'factory_bot_rails'
-  gem 'faker'
   gem 'rspec-rails'
   # 自動デプロイ
   gem 'bcrypt_pbkdf'
@@ -90,3 +89,4 @@ gem 'rails-i18n'
 gem 'ransack'
 gem 'rinku'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
+gem 'faker'

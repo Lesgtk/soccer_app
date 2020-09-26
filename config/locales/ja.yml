@@ -7,9 +7,6 @@ ja:
       user:
         name: 名前
         email: メールアドレス
-    models:
-      post: 投稿
-    attributes:
       post:
         title: タイトル
         content: 本文

@@ -38,7 +38,7 @@ RSpec.describe 'Signup', type: :system do
       expect(page).to have_content '名前を入力してください'
       expect(page).to have_content 'メールアドレスは不正な値です'
       expect(page).to have_content 'パスワードは6文字以上で入力してください'
-      expect(page).to have_content 'パスワード（確認用）とパスワードの入力が一致しませ'
+      expect(page).to have_content 'パスワード（確認用）とパスワードの入力が一致しません'
     end
   end
 end

@@ -31,6 +31,7 @@
       <%= render 'shared/feed' %>
     </div>
   </div>
+</div>
 <% else %>
 <div class="center">
   <h1 class="app-title">SOCEER APP </h1>
@@ -43,6 +44,5 @@
   <%= link_to "ログイン", login_path, class: "topbtn__item" %>
   <%= link_to "ゲストログイン(閲覧用)", guest_sign_in_path ,class: "topbtn__item", method: :post  %>
   </div>
-</div>
 </div>
 <% end %>

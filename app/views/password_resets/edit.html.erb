@@ -1,20 +1,22 @@
 <% provide(:title, 'Reset password') %>
-<div class="container box-form">
-  <h2 class="form-title">パスワード再設定</h2>
-  <%= form_for(@user, url: password_reset_path(params[:id])) do |f| %>
-    <div class="form-group">
-      <%= render 'shared/error_messages', object: f.object %>
-      <%= hidden_field_tag :email, @user.email %>
+<div class="container">
+  <div class="main-title">パスワード再設定</div>
 
-      <%= f.label :password, "パスワード" %>
-      <%= f.password_field :password, class: 'form-control' %>
-
-      <%= f.label :password_confirmation, "パスワード（確認）" %>
-      <%= f.password_field :password_confirmatio, class: 'form-control' %>
-
-      <div class="mb-3">
-        <%= f.submit "パスワードを更新する", class: "btn btn-primary" %>
+  <div class="row">
+    <div class="col-md-6 offset-md-3 account-content">
+      <div class="image-edit">
+        <%= form_for(@user, url: password_reset_path(params[:id])) do |f| %>
+        <%= render 'shared/error_messages', object: f.object %>
+        <%= hidden_field_tag :email, @user.email %>
+        <%= f.label :password, "パスワード" %>
+        <%= f.password_field :password, class: 'form-control' %>
+        <%= f.label :password_confirmation, "パスワード（確認）" %>
+        <%= f.password_field :password_confirmatio, class: 'form-control' %>
+        <div class="mb-4">
+          <%= f.submit "パスワードを更新する", class: "btn btn-primary" %>
+        </div>
       </div>
+      <% end %>
     </div>
-  <% end %>
+  </div>
 </div>

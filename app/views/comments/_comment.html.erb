@@ -18,7 +18,7 @@
 
 <%# コメントフォーム %>
 <div class="comment-row">
-    <%= form_with(model:[@post, @comment], method: :post) do |f| %>
+    <%= form_with(model:[@post, @comment], method: :post, remote: true ) do |f| %>
       <%= f.text_area :comment_content, class: "comment-content", placeholder: "コメント本文(100文字以内)"  %>
       <%= f.hidden_field :post_id, value: @post.id %>
       <%= f.submit 'コメントする', class: "btn btn-primary comment-btn" %>

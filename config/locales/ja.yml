@@ -7,6 +7,11 @@ ja:
       user:
         name: 名前
         email: メールアドレス
+      post:
+        title: タイトル
+        content: 本文
+        category: カテゴリー
+        age_type: 対象年齢
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'

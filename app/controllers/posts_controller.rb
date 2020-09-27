@@ -23,8 +23,9 @@ class PostsController < ApplicationController
       flash[:success] = '投稿しました'
       redirect_to root_url
     else
-      flash[:danger] = '投稿できませんでした'
-      redirect_back(fallback_location: posts_path)
+      render 'new'
+      # flash[:danger] = '投稿できませんでした'
+      # redirect_back(fallback_location: posts_path)
     end
   end
 

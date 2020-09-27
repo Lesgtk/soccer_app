@@ -2,17 +2,12 @@ class CommentsController < ApplicationController
   def create
     @comment = current_user.comments.new(comment_params)
     @comment.user_id = current_user.id
-    @comment.save
-    respond_to do |format|
-      format.html { redirect_to @comment }
-      format.js
+    if @comment.save
+      flash[:success] = 'コメントしました'
+    else
+      flash[:danger] = '投稿できませんでした'
     end
-    # if @comment.save
-    #   flash[:success] = 'コメントしました'
-    # else
-    #   flash[:danger] = '投稿できませんでした'
-    # end
-    # redirect_back(fallback_location: root_path)
+    redirect_back(fallback_location: root_path)
   end
 
   def destroy

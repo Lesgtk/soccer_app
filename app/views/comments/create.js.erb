@@ -1,3 +1,2 @@
-// $("#comments_area").append("<%= j(render 'comments/comment', comment: @comment) %>")
-// $("#flash-con").html("<%= j(render 'layouts/flash') %>")
-// $("#comment_content").val('')
+$("#comment-row").prepend("<%= j(render 'comments/comment', comment: @comment) %>");
+$("#comment_content").val('');

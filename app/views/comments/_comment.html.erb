@@ -9,7 +9,7 @@
       <%= c.created_at.strftime('%Y/%m/%d %H:%M') %>
       <% if current_user?(c.user) %>
         <%= link_to "削除", post_comment_path(@post, c), method: :delete,
-                                    data: { confirm: "削除してもいいですか?" } %>
+                                    data: { confirm: "削除してもいいですか?" }, remote: true %>
       <% end %>
       <div class="comment-show">
         <%= c.comment_content %>

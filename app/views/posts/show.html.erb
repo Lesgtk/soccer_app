@@ -41,7 +41,9 @@
       <%= render 'sharering' %>
     </div>
     <div class="col-md-12 post-show-comment">
-      <%= render 'comments/comment' %>
+      <div class="comment_<%= @post.id %>">
+        <%= render partial: 'comments/comment', locals: { comment: @comment, post: @post } %>
+      </div>
     </div>
   </div>
 </div>

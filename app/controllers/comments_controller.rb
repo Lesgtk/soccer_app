@@ -1,5 +1,7 @@
 class CommentsController < ApplicationController
   def create
+    @post = Post.find(params[:post_id])
+    @comments = @post.comments
     @comment = current_user.comments.new(comment_params)
     @comment.user_id = current_user.id
     if @comment.save
@@ -7,14 +9,16 @@ class CommentsController < ApplicationController
     else
       flash[:danger] = '投稿できませんでした'
     end
-    redirect_back(fallback_location: root_path)
+    # redirect_back(fallback_location: root_path)
   end
 
   def destroy
+    @post = Post.find(params[:post_id])
+    @comments = @post.comments
     @comment = Comment.find(params[:id])
     @comment.destroy
     flash[:danger] = 'コメントが削除されました'
-    redirect_back(fallback_location: root_path)
+    # redirect_back(fallback_location: root_path)
   end
 
   private

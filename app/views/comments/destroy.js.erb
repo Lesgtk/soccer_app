@@ -1,3 +1,2 @@
 $("textarea").val("");
 $(".comment_<%= @post.id %>").html("<%= j(render 'comments/comment', { comment: @comment, post: @post } ) %>");
-$("#error_explanation").html("<%= j(render 'shared/error_messages', { object: @comment }) %>");

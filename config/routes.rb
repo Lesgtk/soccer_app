@@ -12,9 +12,6 @@ Rails.application.routes.draw do
   get '/posts', to: 'posts#new'
   get '/posts/:id', to: 'posts#show'
   get '/static_pages/likes', to: 'static_pages#likes'
-
-  post 'likes/:post_id/create', to: 'likes#create'
-  post 'likes/:post_id/destroy', to: 'likes#destroy'
   get 'users/:id/likes', to: 'users#likes'
   post '/guest_sign_in', to: 'sessions#new_guest'
 
@@ -25,6 +22,7 @@ Rails.application.routes.draw do
   end
 
   resources :posts do
+    resource :likes, only: %i[create destroy]
     resources :comments, only: %i[create destroy]
   end
 

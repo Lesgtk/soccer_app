@@ -35,6 +35,11 @@ class PostsController < ApplicationController
     redirect_to request.referrer || root_url # 削除する前のページに戻す
   end
 
+  def likes
+    @post = Post.find_by(id: params[:id])
+    @likes = Like.where(post_id: @post.id)
+  end
+
   private
 
   # .permitメソッドで許可していない項目は変更しない

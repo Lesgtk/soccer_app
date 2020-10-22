@@ -1,0 +1,13 @@
+
+  <% if Like.find_by(user_id: current_user.id, post_id: @post.id) %>
+    <%= link_to post_likes_path(post.id), method: :delete, remote: true do %>
+      <i class="fas fa-futbol like-btn-unlike"></i>
+    <% end %>
+  <% else %>
+    <%= link_to post_likes_path(post.id), method: :post, remote: true do %>
+      <i class="fas fa-futbol like-btn"></i>
+    <% end %>
+  <% end %>
+  <span class="like-count">
+    <%= @likes_count %>
+  </span>

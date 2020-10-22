@@ -36,8 +36,8 @@ class PostsController < ApplicationController
   end
 
   def likes
-   @post = Post.find_by(id: params[:id])
-   @likes = Like.where(post_id: @post.id)
+    @post = Post.find_by(id: params[:id])
+    @likes = Like.where(post_id: @post.id)
   end
 
   private
